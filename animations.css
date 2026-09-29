@@ -1,0 +1,257 @@
+/* ==========================================================================
+   XYZ FURNITURES — HIGH PERFORMANCE LIQUID GLASS ANIMATIONS (LAG-FREE)
+   Optimized with GPU translate3d & lightweight composite keyframes
+   ========================================================================== */
+
+/* Ambient Liquid Canvas Background */
+.ambient-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+  filter: blur(40px);
+  -webkit-filter: blur(40px);
+  opacity: 0.85;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+}
+
+[data-theme="light"] .ambient-bg {
+  opacity: 0.60;
+  filter: blur(45px);
+  -webkit-filter: blur(45px);
+}
+
+/* Ambient Moving Aurora Mesh */
+.ambient-mesh {
+  position: absolute;
+  inset: -15%;
+  width: 130%;
+  height: 130%;
+  background: 
+    radial-gradient(circle at 18% 22%, rgba(245, 158, 11, 0.28) 0%, transparent 45%),
+    radial-gradient(circle at 82% 18%, rgba(194, 65, 12, 0.22) 0%, transparent 40%),
+    radial-gradient(circle at 35% 82%, rgba(180, 83, 9, 0.22) 0%, transparent 45%),
+    radial-gradient(circle at 78% 78%, rgba(251, 191, 36, 0.18) 0%, transparent 45%);
+  animation: meshWarmAurora 28s ease-in-out infinite alternate;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+}
+
+[data-theme="light"] .ambient-mesh {
+  background: 
+    radial-gradient(circle at 18% 22%, rgba(180, 83, 9, 0.18) 0%, transparent 45%),
+    radial-gradient(circle at 82% 18%, rgba(154, 52, 18, 0.14) 0%, transparent 40%),
+    radial-gradient(circle at 35% 82%, rgba(194, 120, 3, 0.15) 0%, transparent 45%),
+    radial-gradient(circle at 78% 78%, rgba(217, 119, 6, 0.12) 0%, transparent 45%);
+}
+
+@keyframes meshWarmAurora {
+  0% { transform: scale(1) translate3d(0, 0, 0) rotate(0deg); }
+  50% { transform: scale(1.05) translate3d(-20px, 15px, 0) rotate(2deg); }
+  100% { transform: scale(1.02) translate3d(20px, -15px, 0) rotate(-2deg); }
+}
+
+/* Morphing Fluid Liquid Blobs */
+.liquid-blob {
+  position: absolute;
+  border-radius: 50%;
+  mix-blend-mode: screen;
+  transform: translate3d(0, 0, 0);
+  will-change: transform;
+}
+
+[data-theme="light"] .liquid-blob {
+  mix-blend-mode: multiply;
+}
+
+/* Warm Golden Amber Blob */
+.blob-amber-1 {
+  top: -6%;
+  left: 8%;
+  width: clamp(340px, 42vw, 580px);
+  height: clamp(340px, 42vw, 580px);
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.52) 0%, rgba(217, 119, 6, 0.18) 65%, transparent 100%);
+  animation: liquidOrbit1 22s ease-in-out infinite;
+}
+
+/* Roasted Caramel Walnut Blob */
+.blob-caramel-1 {
+  top: 28%;
+  right: -4%;
+  width: clamp(300px, 38vw, 520px);
+  height: clamp(300px, 38vw, 520px);
+  background: radial-gradient(circle, rgba(180, 83, 9, 0.48) 0%, rgba(146, 64, 14, 0.16) 65%, transparent 100%);
+  animation: liquidOrbit2 26s ease-in-out infinite;
+}
+
+/* Cinnamon Terracotta Accent Blob */
+.blob-copper-1 {
+  bottom: 8%;
+  left: 12%;
+  width: clamp(280px, 34vw, 480px);
+  height: clamp(280px, 34vw, 480px);
+  background: radial-gradient(circle, rgba(194, 65, 12, 0.42) 0%, rgba(234, 88, 12, 0.14) 65%, transparent 100%);
+  animation: liquidOrbit3 24s ease-in-out infinite;
+}
+
+/* Liquid Orbit Keyframes (Optimized translate3d) */
+@keyframes liquidOrbit1 {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(40px, -30px, 0) scale(1.08); }
+  100% { transform: translate3d(0, 0, 0) scale(1); }
+}
+
+@keyframes liquidOrbit2 {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-45px, 25px, 0) scale(1.06); }
+  100% { transform: translate3d(0, 0, 0) scale(1); }
+}
+
+@keyframes liquidOrbit3 {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(35px, 30px, 0) scale(1.08); }
+  100% { transform: translate3d(0, 0, 0) scale(1); }
+}
+
+/* Subtle Grain Texture Overlay */
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.024;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Floating Liquid Color Gems / Moving Ambient Particles */
+.liquid-gem {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(14px);
+  -webkit-filter: blur(14px);
+  opacity: 0.75;
+  mix-blend-mode: screen;
+  will-change: transform;
+}
+
+[data-theme="light"] .liquid-gem {
+  mix-blend-mode: multiply;
+  opacity: 0.45;
+}
+
+.gem-amber {
+  width: 160px;
+  height: 160px;
+  top: 18%;
+  right: 18%;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.45) 0%, rgba(217, 119, 6, 0.15) 60%, transparent 100%);
+  animation: floatGem1 18s ease-in-out infinite;
+}
+
+.gem-caramel {
+  width: 200px;
+  height: 200px;
+  top: 55%;
+  left: 6%;
+  background: radial-gradient(circle, rgba(217, 119, 6, 0.40) 0%, rgba(180, 83, 9, 0.12) 60%, transparent 100%);
+  animation: floatGem2 22s ease-in-out infinite;
+}
+
+.gem-bronze {
+  width: 140px;
+  height: 140px;
+  bottom: 12%;
+  right: 12%;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.38) 0%, rgba(194, 65, 12, 0.12) 60%, transparent 100%);
+  animation: floatGem3 20s ease-in-out infinite;
+}
+
+@keyframes floatGem1 {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-35px, 45px, 0) scale(1.12); }
+  100% { transform: translate3d(0, 0, 0) scale(1); }
+}
+
+@keyframes floatGem2 {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(40px, -35px, 0) scale(1.15); }
+  100% { transform: translate3d(0, 0, 0) scale(1); }
+}
+
+@keyframes floatGem3 {
+  0% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(-25px, -30px, 0) scale(1.1); }
+  100% { transform: translate3d(0, 0, 0) scale(1); }
+}
+
+/* Live Beacon Dot Pulse */
+.beacon-dot {
+  position: relative;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #10b981;
+}
+
+.beacon-dot::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: rgba(16, 185, 129, 0.5);
+  animation: beaconPulse 2s ease-out infinite;
+}
+
+@keyframes beaconPulse {
+  0% { transform: scale(0.8); opacity: 1; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+/* Scroll Reveal States (Lightweight 60fps) */
+.reveal-init {
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-init.revealed {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.reveal-delay-1 { transition-delay: 0.08s; }
+.reveal-delay-2 { transition-delay: 0.16s; }
+.reveal-delay-3 { transition-delay: 0.24s; }
+
+/* Interactive Hover 3D Tilt Wrapper */
+.tilt-card {
+  transform-style: preserve-3d;
+  transition: transform 0.25s var(--ease-smooth), box-shadow 0.25s var(--ease-smooth);
+}
+
+/* Liquid Glass Cards Refraction & Specular Sheen */
+.glass-card, .product-card, .review-card, .studio-card {
+  position: relative;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.35s ease;
+  will-change: transform;
+}
+
+@media (hover: hover) and (min-width: 1025px) {
+  .glass-card:hover, .product-card:hover, .review-card:hover, .studio-card:hover {
+    transform: translate3d(0, -6px, 0);
+    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.45), 0 0 22px var(--amber-glow);
+    border-color: rgba(245, 158, 11, 0.45);
+  }
+}
+

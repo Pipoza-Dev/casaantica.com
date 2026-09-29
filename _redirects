@@ -1,0 +1,9 @@
+/home              /index.html             200
+/                  /index.html             200
+/products          /products.html          200
+/product-detail    /product-detail.html    200
+/about             /about.html             200
+/reviews           /reviews.html           200
+/contact           /contact.html           200
+/experience-studios /experience-studios.html 200
+/*                 /404.html               404

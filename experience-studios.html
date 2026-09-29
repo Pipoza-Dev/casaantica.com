@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="default">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experience Studios & Flagship Galleries — XYZ Furnitures | Crafted by PipoZa Dev Studio</title>
+  <meta name="description" content="Visit XYZ Furnitures physical experience studios in Bangalore, Mumbai, and Noida. Touch kiln-dried timber, test cushion densities, and collaborate with master craftsmen.">
+  
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23f59e0b'/%3E%3Cpath d='M8 10h16M16 10v12M11 22h10' stroke='%23120c08' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E">
+
+  <!-- Main Folder Stylesheets (No Sub-Folders) -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="components.css">
+  <link rel="stylesheet" href="animations.css">
+  <link rel="stylesheet" href="responsive.css">
+
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('xyz-theme') || 'default';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+  </script>
+</head>
+<body>
+
+  <div class="grain-overlay"></div>
+
+  <!-- Ambient Moving Liquid Glass Canvas Background with Moving Color Gems -->
+  <div class="ambient-bg" aria-hidden="true">
+    <div class="ambient-mesh"></div>
+    <div class="liquid-blob blob-amber-1"></div>
+    <div class="liquid-blob blob-caramel-1"></div>
+    <div class="liquid-blob blob-copper-1"></div>
+    <div class="liquid-gem gem-amber"></div>
+    <div class="liquid-gem gem-caramel"></div>
+    <div class="liquid-gem gem-bronze"></div>
+  </div>
+
+  <!-- Top Announcement Bar (Continuous Luxury Marquee Ticker) -->
+  <aside class="announcement-bar" aria-label="Craftsmanship Guild Announcement">
+    <div class="announcement-track">
+      <div class="announcement-slide">
+        <span>✨ ARTISAN CRAFTSMANSHIP GUILD</span>
+        <span class="ticker-sep">✦</span>
+        <span>Kiln-Dried Solid Walnut & Teak</span>
+        <span class="ticker-sep">✦</span>
+        <span>Free White-Glove Installation Across India</span>
+        <span class="ticker-sep">✦</span>
+        <span class="pipoza-pill">Crafted by <a href="https://pipoza.s.gy/pipoza.in" target="_blank" rel="noopener">PipoZa Dev Studio</a></span>
+        <span class="ticker-sep">✦</span>
+        <span>🏛️ Experience Studios in Bangalore, Mumbai & Noida</span>
+        <span class="ticker-sep">✦</span>
+        <span>📞 VIP Concierge: +91 98765 43210</span>
+        <span class="ticker-sep">✦</span>
+      </div>
+      <div class="announcement-slide" aria-hidden="true">
+        <span>✨ ARTISAN CRAFTSMANSHIP GUILD</span>
+        <span class="ticker-sep">✦</span>
+        <span>Kiln-Dried Solid Walnut & Teak</span>
+        <span class="ticker-sep">✦</span>
+        <span>Free White-Glove Installation Across India</span>
+        <span class="ticker-sep">✦</span>
+        <span class="pipoza-pill">Crafted by <a href="https://pipoza.s.gy/pipoza.in" target="_blank" rel="noopener">PipoZa Dev Studio</a></span>
+        <span class="ticker-sep">✦</span>
+        <span>🏛️ Experience Studios in Bangalore, Mumbai & Noida</span>
+        <span class="ticker-sep">✦</span>
+        <span>📞 VIP Concierge: +91 98765 43210</span>
+        <span class="ticker-sep">✦</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Sticky Liquid Navigation Bar -->
+  <header class="navbar-wrapper">
+    <nav class="navbar" aria-label="Main Navigation">
+      <a href="/home" class="brand-logo" aria-label="XYZ Furnitures Homepage">
+        <div class="logo-symbol">X</div>
+        <div class="brand-text">
+          <span class="brand-name">XYZ Furnitures</span>
+          <span class="brand-tagline">Artisan Woodcraft · Est. 2011</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links (Clean URLs) -->
+      <ul class="nav-links">
+        <li><a href="/home" class="nav-link">Home</a></li>
+        <li><a href="/products" class="nav-link">Collections</a></li>
+        <li><a href="/experience-studios" class="nav-link active">Visit Studios</a></li>
+        <li><a href="/about" class="nav-link">Our Heritage</a></li>
+        <li><a href="/reviews" class="nav-link">Client Reviews</a></li>
+        <li><a href="/contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <!-- Action Buttons -->
+      <div class="nav-actions">
+        <button class="action-icon-btn theme-toggle-btn" aria-label="Switch Theme (Default / Dark / Light)" title="Switch Theme">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="6" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/>
+          </svg>
+        </button>
+
+        <a href="https://wa.me/919876543210?text=Hi%20XYZ%20Furnitures!%20I%20would%20like%20to%20reserve%20a%20private%20studio%20visit." target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm">
+          💬 WhatsApp
+        </a>
+
+        <button class="mobile-toggle" aria-label="Open navigation menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ==========================================================================
+       HERO: PHYSICAL STUDIOS SHOWCASE
+       ========================================================================== -->
+  <main style="padding-top: 24px; padding-bottom: 72px;">
+    <div class="container">
+      
+      <!-- Studios Header -->
+      <div class="section-header reveal-init" style="text-align: center; max-width: 820px; margin: 0 auto 48px auto;">
+        <div class="section-eyebrow" style="margin-bottom: 14px;">
+          <span>PHYSICAL ATELIERS & GALLERIES</span>
+        </div>
+        <h1 style="font-size: clamp(2.2rem, 4.2vw, 3.6rem); margin-bottom: 16px; line-height: 1.2;">
+          Immerse Yourself in <span class="gradient-text-brown">Pure Solid Woodcraft</span>
+        </h1>
+        <p class="section-subtitle" style="font-size: clamp(0.92rem, 1.8vw, 1.12rem); line-height: 1.65; color: var(--text-sand); max-width: 700px; margin: 0 auto 28px auto;">
+          Experience the tactile weight of kiln-dried American walnut, scent hand-rubbed organic beeswax, test high-resilience bouclé seating, and design bespoke heirlooms alongside master guild artisans.
+        </p>
+        
+        <!-- Studio Fast Navigation Pills -->
+        <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+          <a href="#studio-bangalore" class="btn btn-secondary btn-sm">📍 Bangalore Flagship</a>
+          <a href="#studio-mumbai" class="btn btn-secondary btn-sm">📍 Mumbai Design Suite</a>
+          <a href="#studio-noida" class="btn btn-secondary btn-sm">📍 Noida Experience Center</a>
+          <a href="#book-studio-tour" class="btn btn-primary btn-sm">🗓️ Schedule VIP Tour</a>
+        </div>
+      </div>
+
+      <!-- Quick Stats Grid (2x2 on Mobile) -->
+      <div class="stats-grid-mobile grid-4 reveal-init" style="margin-bottom: 56px;">
+        <div class="glass-card" style="padding: 20px; text-align: center;">
+          <div class="stat-number" style="font-family: var(--font-heading); font-size: 2rem; color: var(--amber-light); font-weight: 700;">3</div>
+          <div class="stat-label" style="font-size: 0.82rem; color: var(--text-sand); margin-top: 4px;">Atelier Galleries in India</div>
+        </div>
+        <div class="glass-card" style="padding: 20px; text-align: center;">
+          <div class="stat-number" style="font-family: var(--font-heading); font-size: 2rem; color: var(--amber-light); font-weight: 700;">15,000+</div>
+          <div class="stat-label" style="font-size: 0.82rem; color: var(--text-sand); margin-top: 4px;">Sq.Ft of Gallery Displays</div>
+        </div>
+        <div class="glass-card" style="padding: 20px; text-align: center;">
+          <div class="stat-number" style="font-family: var(--font-heading); font-size: 2rem; color: var(--amber-light); font-weight: 700;">60+</div>
+          <div class="stat-label" style="font-size: 0.82rem; color: var(--text-sand); margin-top: 4px;">Curated Room Vignettes</div>
+        </div>
+        <div class="glass-card" style="padding: 20px; text-align: center;">
+          <div class="stat-number" style="font-family: var(--font-heading); font-size: 2rem; color: var(--amber-light); font-weight: 700;">100%</div>
+          <div class="stat-label" style="font-size: 0.82rem; color: var(--text-sand); margin-top: 4px;">Direct Guild Artisans</div>
+        </div>
+      </div>
+
+      <!-- ======================================================================
+           STUDIO 1: BANGALORE FLAGSHIP ATELIER
+           ====================================================================== -->
+      <article class="glass-card reveal-init" id="studio-bangalore" style="padding: clamp(24px, 4vw, 44px); margin-bottom: 48px; border: 1px solid rgba(245, 158, 11, 0.35);">
+        <div style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: clamp(24px, 3.5vw, 44px); align-items: center;" class="grid-2">
+          
+          <!-- Visual Frame -->
+          <div>
+            <div style="position: relative; border-radius: var(--radius-md); overflow: hidden; aspect-ratio: 16 / 10; margin-bottom: 14px;">
+              <img 
+                src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80" 
+                alt="Bangalore Flagship Experience Studio" 
+                style="width: 100%; height: 100%; object-fit: cover;"
+                loading="lazy"
+              />
+              <span class="badge-pill badge-amber" style="position: absolute; top: 14px; left: 14px;">
+                Flagship Atelier · 5,000 Sq.Ft
+              </span>
+              <div style="position: absolute; bottom: 14px; right: 14px; background: rgba(0,0,0,0.65); padding: 4px 10px; border-radius: var(--radius-pill); font-size: 0.75rem; color: #fff; display: flex; align-items: center; gap: 6px; backdrop-filter: blur(8px);">
+                <span class="beacon-dot"></span> Open Today
+              </div>
+            </div>
+
+            <!-- Thumbnail Highlights -->
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+              <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=400&q=80" alt="Living Gallery" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px;" />
+              <img src="https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?auto=format&fit=crop&w=400&q=80" alt="Timber Library" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px;" />
+              <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=400&q=80" alt="Private Design Pod" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px;" />
+            </div>
+          </div>
+
+          <!-- Studio Information & Actions -->
+          <div style="display: flex; flex-direction: column;">
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+              <span style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--amber-light); font-weight: 700;">Southern India Atelier</span>
+            </div>
+            
+            <h2 style="font-size: clamp(1.6rem, 2.5vw, 2.2rem); margin-bottom: 12px; color: var(--text-pure);">
+              Bangalore Flagship Atelier
+            </h2>
+            
+            <p style="font-size: 0.90rem; color: var(--text-sand); line-height: 1.65; margin-bottom: 18px;">
+              Located in the heart of Indiranagar, our flagship studio spans three levels of architectural living suites, live-edge dining tables, a dedicated tactile timber library, and an open joinery workbench where you can observe master craftsmen sculpt dovetail joints.
+            </p>
+
+            <div class="glass-card" style="padding: 16px; margin-bottom: 22px; background: rgba(0,0,0,0.25);">
+              <div style="font-size: 0.86rem; color: var(--text-cream); margin-bottom: 10px; display: flex; gap: 8px;">
+                <span style="color: var(--amber-light);">📍</span>
+                <span><strong>Address:</strong> No. 742, 100 Feet Road, HAL 2nd Stage, Indiranagar, Bangalore 560038</span>
+              </div>
+              <div style="font-size: 0.86rem; color: var(--text-cream); margin-bottom: 10px; display: flex; gap: 8px;">
+                <span style="color: var(--amber-light);">⏰</span>
+                <span><strong>Hours:</strong> Monday – Sunday: 10:00 AM – 8:30 PM (Open 7 Days)</span>
+              </div>
+              <div style="font-size: 0.86rem; color: var(--text-cream); margin-bottom: 10px; display: flex; gap: 8px;">
+                <span style="color: var(--amber-light);">📞</span>
+                <span><strong>Direct Atelier Desk:</strong> <a href="tel:+919876543210" style="color: var(--amber-light); font-weight: 600;">+91 98765 43210</a></span>
+              </div>
+              <div style="font-size: 0.82rem; color: var(--text-sand); display: flex; gap: 8px;">
+                <span>🚗</span>
+                <span>Complimentary Valet Parking available on 100 Feet Road.</span>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+              <a href="https://wa.me/919876543210?text=Hi%20XYZ%20Furnitures!%20I%20would%20like%20to%20visit%20the%20Bangalore%20Atelier%20in%20Indiranagar." target="_blank" rel="noopener" class="btn btn-whatsapp" style="flex: 1 1 180px;">
+                💬 WhatsApp Bangalore
+              </a>
+              <a href="https://maps.google.com/?q=Indiranagar+100+Feet+Road+Bangalore" target="_blank" rel="noopener" class="btn btn-secondary" style="flex: 1 1 140px;">
+                📍 Google Maps
+              </a>
+              <a href="#book-studio-tour" class="btn btn-primary" style="flex: 1 1 140px;">
+                🗓️ Reserve Slot
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </article>
+
+      <!-- ======================================================================
+           STUDIO 2: MUMBAI DESIGN SUITE
+           ====================================================================== -->
+      <article class="glass-card reveal-init" id="studio-mumbai" style="padding: clamp(24px, 4vw, 44px); margin-bottom: 48px;">
+        <div style="display: grid; grid-template-columns: 0.85fr 1.15fr; gap: clamp(24px, 3.5vw, 44px); align-items: center;" class="grid-2">
+          
+          <!-- Studio Information & Actions -->
+          <div style="display: flex; flex-direction: column; order: 2;">
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+              <span style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--amber-light); font-weight: 700;">Western Coast Flagship</span>
+            </div>
+            
+            <h2 style="font-size: clamp(1.6rem, 2.5vw, 2.2rem); margin-bottom: 12px; color: var(--text-pure);">
+              Mumbai Luxury Design Suite
+            </h2>
+            
+            <p style="font-size: 0.90rem; color: var(--text-sand); line-height: 1.65; margin-bottom: 18px;">
+              Situated on Linking Road in Bandra West, our Mumbai suite caters to coastal living aesthetics. Explore moisture-resistant kiln-dried Indian teak furniture, acoustic curved sectionals, and high-performance Italian bouclé fabrics curated specifically for Mumbai sea breezes.
+            </p>
+
+            <div class="glass-card" style="padding: 16px; margin-bottom: 22px; background: rgba(0,0,0,0.25);">
+              <div style="font-size: 0.86rem; color: var(--text-cream); margin-bottom: 10px; display: flex; gap: 8px;">
+                <span style="color: var(--amber-light);">📍</span>
+                <span><strong>Address:</strong> Plot 18, Linking Road, Bandra West, Mumbai, Maharashtra 400050</span>
+              </div>
+              <div style="font-size: 0.86rem; color: var(--text-cream); margin-bottom: 10px; display: flex; gap: 8px;">
+                <span style="color: var(--amber-light);">⏰</span>
+                <span><strong>Hours:</strong> Monday – Sunday: 10:30 AM – 9:00 PM (Open 7 Days)</span>
+              </div>
+              <div style="font-size: 0.86rem; color: var(--text-cream); margin-bottom: 10px; display: flex; gap: 8px;">
+                <span style="color: var(--amber-light);">📞</span>
+                <span><strong>Direct Suite Desk:</strong> <a href="tel:+918000123456" style="color: var(--amber-light); font-weight: 600;">+91 80001 23456</a></span>
+              </div>
+              <div style="font-size: 0.82rem; color: var(--text-sand); display: flex; gap: 8px;">
+                <span>🛋️</span>
+                <span>Includes dedicated 3D floor plan layout consultation room.</span>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+              <a href="https://wa.me/919876543210?text=Hi%20XYZ%20Furnitures!%20I%20would%20like%20to%20visit%20the%20Mumbai%20Design%20Suite%20in%20Bandra." target="_blank" rel="noopener" class="btn btn-whatsapp" style="flex: 1 1 180px;">
+                💬 WhatsApp Mumbai
+              </a>
+              <a href="https://maps.google.com/?q=Linking+Road+Bandra+West+Mumbai" target="_blank" rel="noopener" class="btn btn-secondary" style="flex: 1 1 140px;">
+                📍 Google Maps
+              </a>
+              <a href="#book-studio-tour" class="btn btn-primary" style="flex: 1 1 140px;">
+                🗓️ Reserve Slot
+              </a>
+            </div>
+
+          </div>
+
+          <!-- Visual Frame -->
+          <div style="order: 1;">
+            <div style="position: relative; border-radius: var(--radius-md); overflow: hidden; aspect-ratio: 16 / 10; margin-bottom: 14px;">
+              <img 
+                src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200&q=80" 
+                alt="Mumbai Luxury Design Suite" 
+                style="width: 100%; height: 100%; object-fit: cover;"
+                loading="lazy"
+              />
+              <span class="badge-pill badge-green" style="position: absolute; top: 14px; left: 14px;">
+                Design Suite · Bandra West
+              </span>
+              <div style="position: absolute; bottom: 14px; right: 14px; background: rgba(0,0,0,0.65); padding: 4px 10px; border-radius: var(--radius-pill); font-size: 0.75rem; color: #fff; display: flex; align-items: center; gap: 6px; backdrop-filter: blur(8px);">
+                <span class="beacon-dot"></span> Open Today
+              </div>
+            </div>
+
+            <!-- Thumbnail Highlights -->
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+              <img src="https://images.unsplash.com/photo-1540518614846-7ede433c4ef8?auto=format&fit=crop&w=400&q=80" alt="Penthouse Setup" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px;" />
+              <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=400&q=80" alt="Dining Gallery" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px;" />
+              <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=400&q=80" alt="Swatches Table" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px;" />
+            </div>
+          </div>
+
+        </div>
+      </article>
+
+      <!-- ======================================================================
+           STUDIO 3: NOIDA EXPERIENCE CENTER
+           ====================================================================== -->
+      <article class="glass-card reveal-init" id="studio-noida" style="padding: clamp(24px, 4vw, 44px); margin-bottom: 64px;">
+        <div style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: clamp(24px, 3.5vw, 44px); align-items: center;" class="grid-2">
+          
+          <!-- Visual Frame -->
+          <div>
+            <div style="position: relative; border-radius: var(--radius-md); overflow: hidden; aspect-ratio: 16 / 10; margin-bottom: 14px;">
+              <img 
+                src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1200&q=80" 
+                alt="Noida Experience Center" 
+                style="width: 100%; height: 100%; object-fit: cover;"
+                loading="lazy"
+              />
+              <span class="badge-pill badge-amber" style="position: absolute; top: 14px; left: 14px;">
+                Grand Gallery · 6,200 Sq.Ft
+              </span>
+              <div style="position: absolute; bottom: 14px; right: 14px; background: rgba(0,0,0,0.65); padding: 4px 10px; border-radius: var(--radius-pill); font-size: 0.75rem; color: #fff; display: flex; align-items: center; gap: 6px; backdrop-filter: blur(8px);">
+                <span class="beacon-dot"></span> Open Today
+              </div>
+            </div>
+
+            <!-- Thumbnail Highlights -->
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+              <img src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=400&q=80" alt="Executive Suites" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px;" />
+              <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=400&q=80" alt="Solid Lounge" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px;" />
+              <img src="https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=400&q=80" alt="Joinery Bench" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px;" />
+            </div>
+          </div>
+
+          <!-- Studio Information & Actions -->
+          <div style="display: flex; flex-direction: column;">
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+              <span style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--amber-light); font-weight: 700;">NCR & Northern Guild</span>
+            </div>
+            
+            <h2 style="font-size: clamp(1.6rem, 2.5vw, 2.2rem); margin-bottom: 12px; color: var(--text-pure);">
+              Noida Grand Experience Center
+            </h2>
+            
+            <p style="font-size: 0.90rem; color: var(--text-sand); line-height: 1.65; margin-bottom: 18px;">
+              Our largest experiential showroom in Northern India. Showcases full-scale villa mockups, solid 10-seater walnut dining tables, custom media credenzas, and an extensive finish-matching lab where you can bring your floor tiles and paint swatches for exact coordination.
+            </p>
+
+            <div class="glass-card" style="padding: 16px; margin-bottom: 22px; background: rgba(0,0,0,0.25);">
+              <div style="font-size: 0.86rem; color: var(--text-cream); margin-bottom: 10px; display: flex; gap: 8px;">
+                <span style="color: var(--amber-light);">📍</span>
+                <span><strong>Address:</strong> Suite C-56, Sector 62 (Near Prerna Bhawan), Noida, UP 201309</span>
+              </div>
+              <div style="font-size: 0.86rem; color: var(--text-cream); margin-bottom: 10px; display: flex; gap: 8px;">
+                <span style="color: var(--amber-light);">⏰</span>
+                <span><strong>Hours:</strong> Monday – Saturday: 9:30 AM – 8:00 PM (Sunday by Appointment)</span>
+              </div>
+              <div style="font-size: 0.86rem; color: var(--text-cream); margin-bottom: 10px; display: flex; gap: 8px;">
+                <span style="color: var(--amber-light);">📞</span>
+                <span><strong>Direct Center Desk:</strong> <a href="tel:+919876543210" style="color: var(--amber-light); font-weight: 600;">+91 98765 43210</a></span>
+              </div>
+              <div style="font-size: 0.82rem; color: var(--text-sand); display: flex; gap: 8px;">
+                <span>🅿️</span>
+                <span>Secure covered basement parking available for patrons.</span>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+              <a href="https://wa.me/919876543210?text=Hi%20XYZ%20Furnitures!%20I%20would%20like%20to%20visit%20the%20Noida%20Experience%20Center%20in%20Sector%2062." target="_blank" rel="noopener" class="btn btn-whatsapp" style="flex: 1 1 180px;">
+                💬 WhatsApp Noida
+              </a>
+              <a href="https://maps.google.com/?q=Sector+62+Noida+Uttar+Pradesh" target="_blank" rel="noopener" class="btn btn-secondary" style="flex: 1 1 140px;">
+                📍 Google Maps
+              </a>
+              <a href="#book-studio-tour" class="btn btn-primary" style="flex: 1 1 140px;">
+                🗓️ Reserve Slot
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </article>
+
+      <!-- ======================================================================
+           WHAT TO EXPECT DURING YOUR PRIVATE STUDIO VISIT
+           ====================================================================== -->
+      <section class="reveal-init" style="margin-bottom: 64px;">
+        <div class="section-header" style="text-align: center; margin-bottom: 36px;">
+          <div class="section-eyebrow">The Sensory Experience</div>
+          <h2 style="font-size: clamp(1.8rem, 3vw, 2.6rem); margin-bottom: 12px;">What to Expect on Your Visit</h2>
+          <p class="section-subtitle" style="max-width: 680px; margin: 0 auto;">
+            We prepare custom timber sample trays and dedicate an interior designer to your session.
+          </p>
+        </div>
+
+        <div class="grid-4 horizontal-scroll-mobile">
+          <div class="glass-card" style="padding: 24px;">
+            <div style="font-size: 2rem; margin-bottom: 12px;">🪵</div>
+            <h3 style="font-size: 1.15rem; margin-bottom: 8px;">1. Tactile Timber Library</h3>
+            <p style="font-size: 0.85rem; color: var(--text-sand); line-height: 1.6;">
+              Hold single-slab cross sections of 60-year-old American Walnut, Teak, and White Ash. Feel organic wax vs matte satin sealants under true natural lighting.
+            </p>
+          </div>
+
+          <div class="glass-card" style="padding: 24px;">
+            <div style="font-size: 2rem; margin-bottom: 12px;">☁️</div>
+            <h3 style="font-size: 1.15rem; margin-bottom: 8px;">2. Cushion Core Testing</h3>
+            <p style="font-size: 0.85rem; color: var(--text-sand); line-height: 1.6;">
+              Test 4 distinct seat cushion configurations: Plush Goose Feather blend, High-Density Ergonomic Core, Medium Firm Bouclé, and Natural Latex support.
+            </p>
+          </div>
+
+          <div class="glass-card" style="padding: 24px;">
+            <div style="font-size: 2rem; margin-bottom: 12px;">📐</div>
+            <h3 style="font-size: 1.15rem; margin-bottom: 8px;">3. Spatial 3D Layout Review</h3>
+            <p style="font-size: 0.85rem; color: var(--text-sand); line-height: 1.6;">
+              Bring your architectural floor plans or room photos. Our architects simulate scale, passage clearance, and sightlines with live 3D models.
+            </p>
+          </div>
+
+          <div class="glass-card" style="padding: 24px;">
+            <div style="font-size: 2rem; margin-bottom: 12px;">🎁</div>
+            <h3 style="font-size: 1.15rem; margin-bottom: 8px;">4. Curated Sample Parcel</h3>
+            <p style="font-size: 0.85rem; color: var(--text-sand); line-height: 1.6;">
+              Receive a complimentary box containing 4 solid hardwood timber blocks and fabric cuttings to evaluate in your own home's morning and evening light.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           RESERVATION FORM: BOOK A PRIVATE STUDIO TOUR
+           ====================================================================== -->
+      <section class="glass-card reveal-init" id="book-studio-tour" style="padding: clamp(28px, 4.5vw, 56px); margin-bottom: 64px; border: 1px solid var(--amber-primary);">
+        <div style="max-width: 760px; margin: 0 auto;">
+          <div style="text-align: center; margin-bottom: 32px;">
+            <div class="section-eyebrow" style="margin-bottom: 12px;">Private Guild Appointment</div>
+            <h2 style="font-size: clamp(1.8rem, 3.2vw, 2.6rem); margin-bottom: 10px;">Reserve Your Private Studio Tour</h2>
+            <p style="font-size: 0.90rem; color: var(--text-sand); line-height: 1.6;">
+              Complimentary 60-minute one-on-one session with our master woodcrafters and space planning team.
+            </p>
+          </div>
+
+          <form id="studio-tour-form" onsubmit="handleStudioTourSubmit(event)">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;" class="grid-2">
+              <div>
+                <label style="font-size: 0.82rem; font-weight: 600; color: var(--text-cream); display: block; margin-bottom: 6px;">Your Full Name *</label>
+                <input type="text" required placeholder="e.g. Vikramaditya Singhania" style="width: 100%; padding: 11px 14px; border-radius: var(--radius-sm); background: rgba(0,0,0,0.35); border: 1px solid var(--glass-border); color: #fff; font-size: 0.90rem;" />
+              </div>
+              <div>
+                <label style="font-size: 0.82rem; font-weight: 600; color: var(--text-cream); display: block; margin-bottom: 6px;">WhatsApp / Mobile *</label>
+                <input type="tel" required placeholder="+91 98765 00000" style="width: 100%; padding: 11px 14px; border-radius: var(--radius-sm); background: rgba(0,0,0,0.35); border: 1px solid var(--glass-border); color: #fff; font-size: 0.90rem;" />
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 16px; margin-bottom: 16px;" class="grid-2">
+              <div>
+                <label style="font-size: 0.82rem; font-weight: 600; color: var(--text-cream); display: block; margin-bottom: 6px;">Select Experience Studio *</label>
+                <select id="tour-studio-select" style="width: 100%; padding: 11px 14px; border-radius: var(--radius-sm); background: rgba(0,0,0,0.35); border: 1px solid var(--glass-border); color: #fff; font-size: 0.90rem; cursor: pointer;">
+                  <option value="Bangalore Atelier (Indiranagar)" style="background: #18110b;">Bangalore Flagship Atelier · Indiranagar</option>
+                  <option value="Mumbai Design Suite (Bandra West)" style="background: #18110b;">Mumbai Luxury Suite · Bandra West</option>
+                  <option value="Noida Experience Center (Sector 62)" style="background: #18110b;">Noida Grand Center · Sector 62</option>
+                </select>
+              </div>
+              <div>
+                <label style="font-size: 0.82rem; font-weight: 600; color: var(--text-cream); display: block; margin-bottom: 6px;">Preferred Date *</label>
+                <input type="date" required style="width: 100%; padding: 11px 14px; border-radius: var(--radius-sm); background: rgba(0,0,0,0.35); border: 1px solid var(--glass-border); color: #fff; font-size: 0.90rem;" />
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;" class="grid-2">
+              <div>
+                <label style="font-size: 0.82rem; font-weight: 600; color: var(--text-cream); display: block; margin-bottom: 6px;">Preferred Time Slot</label>
+                <select style="width: 100%; padding: 11px 14px; border-radius: var(--radius-sm); background: rgba(0,0,0,0.35); border: 1px solid var(--glass-border); color: #fff; font-size: 0.90rem; cursor: pointer;">
+                  <option value="Morning: 10:30 AM – 12:00 PM" style="background: #18110b;">Morning: 10:30 AM – 12:00 PM</option>
+                  <option value="Afternoon: 2:00 PM – 3:30 PM" style="background: #18110b;">Afternoon: 2:00 PM – 3:30 PM</option>
+                  <option value="Late Afternoon: 4:30 PM – 6:00 PM" style="background: #18110b;">Late Afternoon: 4:30 PM – 6:00 PM</option>
+                  <option value="Evening: 6:30 PM – 8:00 PM" style="background: #18110b;">Evening: 6:30 PM – 8:00 PM</option>
+                </select>
+              </div>
+              <div>
+                <label style="font-size: 0.82rem; font-weight: 600; color: var(--text-cream); display: block; margin-bottom: 6px;">Collections of Primary Interest</label>
+                <select style="width: 100%; padding: 11px 14px; border-radius: var(--radius-sm); background: rgba(0,0,0,0.35); border: 1px solid var(--glass-border); color: #fff; font-size: 0.90rem; cursor: pointer;">
+                  <option value="Full Residence Furnishing" style="background: #18110b;">Full Residence Furnishing</option>
+                  <option value="Living Room Lounges & Sectionals" style="background: #18110b;">Living Room Lounges & Sectionals</option>
+                  <option value="Dining Tables & Chairs" style="background: #18110b;">Dining Tables & Chairs</option>
+                  <option value="Sanctuary Bedroom Suites" style="background: #18110b;">Sanctuary Bedroom Suites</option>
+                  <option value="Architectural Custom Commission" style="background: #18110b;">Architectural Custom Commission</option>
+                </select>
+              </div>
+            </div>
+
+            <div style="margin-bottom: 24px;">
+              <label style="font-size: 0.82rem; font-weight: 600; color: var(--text-cream); display: block; margin-bottom: 6px;">Notes / Specific Dimensions (Optional)</label>
+              <textarea rows="3" placeholder="e.g. Looking for a 10-seater live-edge dining table in American Walnut and a curved bouclé sectional..." style="width: 100%; padding: 11px 14px; border-radius: var(--radius-sm); background: rgba(0,0,0,0.35); border: 1px solid var(--glass-border); color: #fff; font-size: 0.90rem;"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; padding: 14px;">
+              Confirm Studio Tour Reservation
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <!-- ======================================================================
+           STUDIO FAQS
+           ====================================================================== -->
+      <section class="reveal-init" style="margin-bottom: 40px;">
+        <div class="section-header" style="text-align: center; margin-bottom: 32px;">
+          <div class="section-eyebrow">Studio Visit Answers</div>
+          <h2 style="font-size: clamp(1.6rem, 2.8vw, 2.4rem); margin-bottom: 10px;">Frequently Asked Questions</h2>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px; max-width: 900px; margin: 0 auto;" class="grid-2">
+          <div class="glass-card" style="padding: 20px;">
+            <h4 style="font-size: 1.05rem; margin-bottom: 8px; color: var(--amber-light);">Are walk-in visits welcome?</h4>
+            <p style="font-size: 0.86rem; color: var(--text-sand); line-height: 1.6;">
+              Yes! Walk-ins are always welcome during regular gallery hours. However, scheduling a private reservation guarantees an assigned senior design consultant and dedicated time at the timber swatches table.
+            </p>
+          </div>
+
+          <div class="glass-card" style="padding: 20px;">
+            <h4 style="font-size: 1.05rem; margin-bottom: 8px; color: var(--amber-light);">Can I take timber and fabric samples home?</h4>
+            <p style="font-size: 0.86rem; color: var(--text-sand); line-height: 1.6;">
+              Absolutely. We provide all registered visitors with our complimentary Curated Timber & Swatch Box containing finished hardwood samples and fabric swatches so you can test them under your home’s exact lighting.
+            </p>
+          </div>
+
+          <div class="glass-card" style="padding: 20px;">
+            <h4 style="font-size: 1.05rem; margin-bottom: 8px; color: var(--amber-light);">Is valet parking available?</h4>
+            <p style="font-size: 0.86rem; color: var(--text-sand); line-height: 1.6;">
+              Yes. All three of our studios (Bangalore Indiranagar, Mumbai Bandra West, and Noida Sector 62) offer complimentary valet parking or dedicated reserved customer parking bays.
+            </p>
+          </div>
+
+          <div class="glass-card" style="padding: 20px;">
+            <h4 style="font-size: 1.05rem; margin-bottom: 8px; color: var(--amber-light);">Can I customize dimensions seen on display?</h4>
+            <p style="font-size: 0.86rem; color: var(--text-sand); line-height: 1.6;">
+              Every single piece in our collections is made-to-order. You can tailor length, width, timber species, edge profile, and upholstery fabrics to millimeter precision for your floor plan.
+            </p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ==========================================================================
+       MASTER UNIFIED FOOTER (ALL PAGES IDENTICAL)
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <!-- Col 1: Brand & Philosophy -->
+        <div class="footer-brand">
+          <a href="/home" class="brand-logo" style="margin-bottom: 14px; display: inline-flex;">
+            <div class="logo-symbol">X</div>
+            <div class="brand-text">
+              <span class="brand-name">XYZ Furnitures</span>
+              <span class="brand-tagline">Artisan Woodcraft · Est. 2011</span>
+            </div>
+          </a>
+          <p>
+            Curators and creators of bespoke architectural furniture. Masterfully sculpted from certified sustainable Indian teak, American walnut, and white ash for enduring heirlooms.
+          </p>
+          <div class="footer-social-links">
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="https://wa.me/919876543210" target="_blank" rel="noopener" class="footer-social-btn" aria-label="WhatsApp">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+            </a>
+            <a href="https://pinterest.com" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Pinterest">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="4" x2="12" y2="20"></line><circle cx="12" cy="12" r="8"></circle></svg>
+            </a>
+            <a href="mailto:concierge@xyzfurnitures.in" class="footer-social-btn" aria-label="Email Concierge">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Furniture Collections -->
+        <div>
+          <h4 class="footer-col-title">Collections</h4>
+          <ul class="footer-links-list">
+            <li><a href="/products" class="footer-link">Living Room Lounges</a></li>
+            <li><a href="/products" class="footer-link">Sculptural Dining Tables</a></li>
+            <li><a href="/products" class="footer-link">Sanctuary Bedroom Suites</a></li>
+            <li><a href="/products" class="footer-link">Executive Walnut Desks</a></li>
+            <li><a href="/products" class="footer-link">Curated Accent Lighting</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Craftsmanship & Atelier -->
+        <div>
+          <h4 class="footer-col-title">The Atelier</h4>
+          <ul class="footer-links-list">
+            <li><a href="/experience-studios" class="footer-link">Flagship Studios</a></li>
+            <li><a href="/about" class="footer-link">Artisan Heritage</a></li>
+            <li><a href="/about" class="footer-link">Kiln-Drying Standards</a></li>
+            <li><a href="/reviews" class="footer-link">Patron Testimonials</a></li>
+            <li><a href="/contact" class="footer-link">White-Glove Delivery</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Concierge & Direct Connect -->
+        <div>
+          <h4 class="footer-col-title">Concierge</h4>
+          <div style="display: flex; flex-direction: column; gap: 10px; font-size: 0.88rem; color: var(--text-sand);">
+            <div>
+              <span style="color: var(--text-muted); font-size: 0.80rem; display: block; margin-bottom: 2px;">Direct Line:</span>
+              <a href="tel:+919876543210" style="color: var(--amber-light); font-weight: 600;">+91 98765 43210</a>
+            </div>
+            <div>
+              <span style="color: var(--text-muted); font-size: 0.80rem; display: block; margin-bottom: 2px;">Instant WhatsApp:</span>
+              <a href="https://wa.me/919876543210" target="_blank" rel="noopener" style="color: #34d399; font-weight: 600;">+91 98765 43210 (24/7)</a>
+            </div>
+            <div>
+              <span style="color: var(--text-muted); font-size: 0.80rem; display: block; margin-bottom: 2px;">Email Inquiries:</span>
+              <a href="mailto:concierge@xyzfurnitures.in" style="color: var(--amber-light);">concierge@xyzfurnitures.in</a>
+            </div>
+            <div style="font-size: 0.80rem; color: var(--text-muted); margin-top: 4px;">
+              Pan-India White-Glove Installation
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Bottom Bar -->
+      <div class="footer-bottom">
+        <div>
+          © 2026 XYZ Furnitures Private Limited. All rights reserved. Handcrafted with pride in India.
+        </div>
+        <div class="footer-trust-tags">
+          <span>🌿 Sustainable Teak</span>
+          <span>·</span>
+          <span>🛡️ 10-Year Frame Warranty</span>
+          <span>·</span>
+          <span>🚚 Free White-Glove Installation</span>
+        </div>
+        <div class="pipoza-footer-credit">
+          <span>Website Designed & Built by</span>
+          <a href="https://pipoza.s.gy/pipoza.in" target="_blank" rel="noopener">PipoZa Dev Studio</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       SLIDE-OVER MOBILE NAVIGATION DRAWER
+       ========================================================================== -->
+  <div class="mobile-nav-drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+    <div class="mobile-drawer-content">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <a href="/home" class="brand-logo">
+          <div class="logo-symbol">X</div>
+          <span class="brand-name" style="font-size: 1.15rem;">XYZ Furnitures</span>
+        </a>
+        <button class="action-icon-btn mobile-drawer-close" aria-label="Close menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <div class="mobile-drawer-links">
+        <a href="/home" class="mobile-drawer-link">Home</a>
+        <a href="/products" class="mobile-drawer-link">Collections Catalog</a>
+        <a href="/experience-studios" class="mobile-drawer-link active">Visit Physical Studios</a>
+        <a href="/about" class="mobile-drawer-link">Our Heritage & Story</a>
+        <a href="/reviews" class="mobile-drawer-link">Client Reviews & Photos</a>
+        <a href="/contact" class="mobile-drawer-link">Contact & Inquiries</a>
+      </div>
+
+      <div style="margin-top: auto; display: flex; flex-direction: column; gap: 12px;">
+        <a href="https://wa.me/919876543210" class="btn btn-whatsapp" style="width: 100%;">
+          💬 WhatsApp Concierge
+        </a>
+        <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.1);">
+          <span style="font-size: 0.82rem; color: var(--text-muted);">Switch Theme</span>
+          <button class="action-icon-btn theme-toggle-btn" aria-label="Toggle theme">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       MOBILE FLOATING ACTION DOCK (THUMB BAR)
+       ========================================================================== -->
+  <aside class="mobile-action-dock" aria-label="Mobile Quick Actions">
+    <a href="https://wa.me/919876543210" class="dock-item dock-item-whatsapp" aria-label="WhatsApp">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.662 1.438 5.178L2 22l4.981-1.398A9.957 9.957 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+      <span>WhatsApp</span>
+    </a>
+    <a href="tel:+919876543210" class="dock-item" aria-label="Call Us">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span>Call Desk</span>
+    </a>
+    <a href="/experience-studios" class="dock-item active" aria-label="Experience Studios">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span>Studios</span>
+    </a>
+    <a href="/products" class="dock-item" aria-label="Catalog">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      <span>Catalog</span>
+    </a>
+    <a href="/contact" class="dock-item" aria-label="Contact">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <span>Contact</span>
+    </a>
+  </aside>
+
+  <!-- Main Folder Scripts (No Sub-Folders) -->
+  <script src="products-data.js"></script>
+  <script src="main.js"></script>
+  <script src="animations.js"></script>
+
+  <script>
+    function handleStudioTourSubmit(e) {
+      e.preventDefault();
+      const studio = document.getElementById('tour-studio-select').value;
+      showToast(`Reservation Received for ${studio}! Our Studio Manager will confirm via WhatsApp.`);
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>

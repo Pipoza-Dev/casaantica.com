@@ -1,0 +1,330 @@
+/* ==========================================================================
+   XYZ FURNITURES — LUXURY LIQUID GLASS DESIGN SYSTEM & TOKENS
+   Crafted & Engineered by PipoZa Dev Studio (https://pipoza.s.gy/pipoza.in)
+   Themes: Default (Warm Roasted Coffee), Dark (Deep Obsidian Espresso),
+           and Light (Toasted Almond Sand & Caramel Latte — Rich Non-White)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* ==========================================================================
+     THEME 1: DEFAULT (WARM ROASTED COFFEE & HONEY AMBER)
+     ========================================================================== */
+  --bg-primary: #18110b;           /* Warm roasted coffee */
+  --bg-secondary: #22170f;         /* Aged chestnut walnut */
+  --bg-tertiary: #2d1f14;          /* Warm smoked mahogany */
+  --bg-surface: rgba(38, 26, 17, 0.65);
+  --bg-elevated: rgba(48, 33, 22, 0.85);
+
+  /* Amber & Honey Glows */
+  --amber-primary: #f59e0b;
+  --amber-light: #fbbf24;
+  --amber-shimmer: #fde68a;
+  --amber-glow: rgba(245, 158, 11, 0.28);
+  --amber-deep: #b45309;
+
+  /* Rich Wood Caramel & Terracotta */
+  --caramel-rich: #c27803;
+  --caramel-soft: #df8f15;
+  --terracotta: #c2410c;
+  --copper-accent: #e06d44;
+  --brass-gold: #d4af37;
+
+  /* Status Colors */
+  --success-emerald: #10b981;
+
+  /* Text Hierarchy */
+  --text-pure: #ffffff;
+  --text-cream: #faf5ee;
+  --text-sand: #e6dac8;
+  --text-muted: #bdae9c;
+  --text-faint: #7a6e60;
+
+  /* Liquid Glass Styles */
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-bg-hover: rgba(255, 255, 255, 0.09);
+  --glass-border: rgba(245, 158, 11, 0.16);
+  --glass-border-hover: rgba(251, 191, 36, 0.38);
+  --glass-blur: blur(20px);
+  --glass-blur-deep: blur(30px);
+  --glass-shadow: 0 20px 48px -12px rgba(0, 0, 0, 0.65);
+  --glass-shadow-sm: 0 8px 24px -4px rgba(0, 0, 0, 0.45);
+  --glass-shadow-lg: 0 28px 60px -16px rgba(0, 0, 0, 0.75);
+
+  /* Typography Fonts */
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-accent: 'Outfit', sans-serif;
+
+  /* Spacing Scale */
+  --space-xs: 8px;
+  --space-sm: 14px;
+  --space-md: 20px;
+  --space-lg: 32px;
+  --space-xl: 48px;
+
+  /* Radii */
+  --radius-xs: 6px;
+  --radius-sm: 12px;
+  --radius-md: 18px;
+  --radius-lg: 24px;
+  --radius-pill: 9999px;
+
+  /* Transitions */
+  --ease-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 0.2s var(--ease-smooth);
+  --transition-normal: 0.35s var(--ease-smooth);
+
+  /* Containers */
+  --container-max: 1240px;
+  --container-pad: clamp(16px, 3.5vw, 36px);
+}
+
+/* ==========================================================================
+   THEME 2: DARK (DEEP ROASTED OBSIDIAN ESPRESSO NIGHT)
+   ========================================================================== */
+[data-theme="dark"] {
+  --bg-primary: #0e0805;           /* Obsidian espresso */
+  --bg-secondary: #160e08;
+  --bg-tertiary: #1f140c;
+  --bg-surface: rgba(26, 17, 10, 0.75);
+  --bg-elevated: rgba(36, 24, 15, 0.90);
+
+  --amber-primary: #f59e0b;
+  --amber-light: #fbbf24;
+  --amber-shimmer: #fde68a;
+  --amber-glow: rgba(245, 158, 11, 0.35);
+
+  --text-pure: #ffffff;
+  --text-cream: #faf3eb;
+  --text-sand: #e0d0bd;
+  --text-muted: #ad9a86;
+  --text-faint: #6c5a4a;
+
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-bg-hover: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(245, 158, 11, 0.18);
+  --glass-shadow: 0 24px 54px -12px rgba(0, 0, 0, 0.85);
+}
+
+/* ==========================================================================
+   THEME 3: LIGHT (TOASTED ALMOND SAND & CARAMEL LATTE — RICH NON-WHITE)
+   Fixed: NOT glaring white! Rich warm organic parchment and wood tones.
+   ========================================================================== */
+[data-theme="light"] {
+  --bg-primary: #e8dec8;           /* Toasted almond sand canvas (Not White!) */
+  --bg-secondary: #ded2ba;         /* Caramel oat */
+  --bg-tertiary: #d2c4aa;          /* Sunlit hazelnut */
+  --bg-surface: rgba(246, 239, 227, 0.92);
+  --bg-elevated: rgba(250, 245, 236, 0.98);
+
+  --amber-primary: #b45309;        /* Rich Chestnut Amber */
+  --amber-light: #8d3e04;
+  --amber-shimmer: #b45309;
+  --amber-glow: rgba(180, 83, 9, 0.20);
+  --amber-deep: #78350f;
+
+  --caramel-rich: #9a4908;
+  --terracotta: #9a3412;
+  --copper-accent: #b44012;
+
+  --text-pure: #1c1007;           /* Deep dark roasted espresso for high contrast */
+  --text-cream: #28170c;
+  --text-sand: #3c2415;
+  --text-muted: #5e4330;
+  --text-faint: #856a55;
+
+  --glass-bg: rgba(242, 234, 220, 0.85);
+  --glass-bg-hover: rgba(248, 242, 231, 0.95);
+  --glass-border: rgba(160, 80, 20, 0.24);
+  --glass-border-hover: rgba(180, 83, 9, 0.45);
+  --glass-shadow: 0 16px 40px -8px rgba(85, 50, 20, 0.16);
+  --glass-shadow-sm: 0 8px 20px -4px rgba(85, 50, 20, 0.10);
+  --glass-shadow-lg: 0 24px 50px -10px rgba(85, 50, 20, 0.22);
+}
+
+/* ==========================================================================
+   CSS BASE & RESET
+   ========================================================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  color: var(--text-cream);
+  min-height: 100vh;
+  line-height: 1.65;
+  overflow-x: hidden;
+  position: relative;
+  transition: background-color 0.25s ease, color 0.25s ease;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(245, 158, 11, 0.28);
+  border-radius: var(--radius-pill);
+}
+
+::selection {
+  background: rgba(245, 158, 11, 0.35);
+  color: #ffffff;
+}
+
+img, svg, picture, video {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast), opacity var(--transition-fast);
+}
+
+button, input, select, textarea {
+  font: inherit;
+  color: inherit;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* ==========================================================================
+   TYPOGRAPHY
+   ========================================================================== */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-pure);
+  letter-spacing: -0.015em;
+}
+
+h1 { font-size: clamp(2.2rem, 4.8vw, 4rem); }
+h2 { font-size: clamp(1.8rem, 3.4vw, 2.8rem); }
+h3 { font-size: clamp(1.3rem, 2vw, 1.75rem); }
+h4 { font-size: clamp(1.05rem, 1.4vw, 1.3rem); }
+
+p {
+  color: var(--text-sand);
+  font-size: clamp(0.95rem, 1.05vw, 1.05rem);
+}
+
+.text-muted { color: var(--text-muted); }
+.text-amber { color: var(--amber-light); }
+
+.gradient-text-brown {
+  background: linear-gradient(135deg, #ffffff 15%, #fde68a 50%, #f59e0b 95%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+[data-theme="light"] .gradient-text-brown {
+  background: linear-gradient(135deg, #201107 15%, #78350f 50%, #b45309 95%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto clamp(32px, 4.5vw, 52px);
+}
+
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-accent);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--amber-light);
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.28);
+  padding: 5px 14px;
+  border-radius: var(--radius-pill);
+  margin-bottom: 14px;
+  backdrop-filter: var(--glass-blur);
+}
+
+.section-title {
+  margin-bottom: 14px;
+}
+
+.section-subtitle {
+  font-size: clamp(0.95rem, 1.1vw, 1.12rem);
+  color: var(--text-sand);
+  line-height: 1.65;
+}
+
+/* ==========================================================================
+   LAYOUT CONTAINERS & UTILITIES
+   ========================================================================== */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding-left: var(--container-pad);
+  padding-right: var(--container-pad);
+  position: relative;
+  z-index: 2;
+}
+
+.section-spacing {
+  padding-top: clamp(56px, 7vw, 96px);
+  padding-bottom: clamp(56px, 7vw, 96px);
+  position: relative;
+}
+
+.section-spacing-sm {
+  padding-top: clamp(36px, 4vw, 56px);
+  padding-bottom: clamp(36px, 4vw, 56px);
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(20px, 3vw, 36px);
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(18px, 2.5vw, 30px);
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(16px, 2vw, 24px);
+}

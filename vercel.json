@@ -1,0 +1,9 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/home", "destination": "/index.html" },
+    { "source": "/experience-studios", "destination": "/experience-studios.html" },
+    { "source": "/", "destination": "/index.html" }
+  ]
+}

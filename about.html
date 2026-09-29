@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="default">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Heritage & Woodcraft Guild — XYZ Furnitures | Crafted by PipoZa Dev Studio</title>
+  <meta name="description" content="Learn how XYZ Furnitures protects master woodworking traditions, solar-seasons kiln-dried timbers, and plants 10 native trees for every harvest.">
+  
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23f59e0b'/%3E%3Cpath d='M8 10h16M16 10v12M11 22h10' stroke='%23120c08' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E">
+
+  <!-- Main Folder Stylesheets (No Sub-Folders) -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="components.css">
+  <link rel="stylesheet" href="animations.css">
+  <link rel="stylesheet" href="responsive.css">
+
+  <script>
+    (function() {
+      const savedTheme = localStorage.getItem('xyz-theme') || 'default';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    })();
+  </script>
+</head>
+<body>
+
+  <div class="grain-overlay"></div>
+
+  <!-- Ambient Moving Liquid Glass Canvas Background with Moving Color Gems -->
+  <div class="ambient-bg" aria-hidden="true">
+    <div class="ambient-mesh"></div>
+    <div class="liquid-blob blob-amber-1"></div>
+    <div class="liquid-blob blob-caramel-1"></div>
+    <div class="liquid-blob blob-copper-1"></div>
+    <div class="liquid-gem gem-amber"></div>
+    <div class="liquid-gem gem-caramel"></div>
+    <div class="liquid-gem gem-bronze"></div>
+  </div>
+
+  <!-- Top Announcement Bar (Continuous Luxury Marquee Ticker) -->
+  <aside class="announcement-bar" aria-label="Craftsmanship Guild Announcement">
+    <div class="announcement-track">
+      <div class="announcement-slide">
+        <span>✨ ARTISAN CRAFTSMANSHIP GUILD</span>
+        <span class="ticker-sep">✦</span>
+        <span>Kiln-Dried Solid Walnut & Teak</span>
+        <span class="ticker-sep">✦</span>
+        <span>Free White-Glove Installation Across India</span>
+        <span class="ticker-sep">✦</span>
+        <span class="pipoza-pill">Crafted by <a href="https://pipoza.s.gy/pipoza.in" target="_blank" rel="noopener">PipoZa Dev Studio</a></span>
+        <span class="ticker-sep">✦</span>
+        <span>🏛️ Experience Studios in Bangalore, Mumbai & Noida</span>
+        <span class="ticker-sep">✦</span>
+        <span>📞 VIP Concierge: +91 98765 43210</span>
+        <span class="ticker-sep">✦</span>
+      </div>
+      <div class="announcement-slide" aria-hidden="true">
+        <span>✨ ARTISAN CRAFTSMANSHIP GUILD</span>
+        <span class="ticker-sep">✦</span>
+        <span>Kiln-Dried Solid Walnut & Teak</span>
+        <span class="ticker-sep">✦</span>
+        <span>Free White-Glove Installation Across India</span>
+        <span class="ticker-sep">✦</span>
+        <span class="pipoza-pill">Crafted by <a href="https://pipoza.s.gy/pipoza.in" target="_blank" rel="noopener">PipoZa Dev Studio</a></span>
+        <span class="ticker-sep">✦</span>
+        <span>🏛️ Experience Studios in Bangalore, Mumbai & Noida</span>
+        <span class="ticker-sep">✦</span>
+        <span>📞 VIP Concierge: +91 98765 43210</span>
+        <span class="ticker-sep">✦</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Header -->
+  <header class="navbar-wrapper">
+    <nav class="navbar" aria-label="Main Navigation">
+      <a href="/home" class="brand-logo">
+        <div class="logo-symbol">X</div>
+        <div class="brand-text">
+          <span class="brand-name">XYZ Furnitures</span>
+          <span class="brand-tagline">Artisan Woodcraft · Est. 2011</span>
+        </div>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="/home" class="nav-link">Home</a></li>
+        <li><a href="/products" class="nav-link">Collections</a></li>
+        <li><a href="/experience-studios" class="nav-link">Visit Studios</a></li>
+        <li><a href="/about" class="nav-link active">Our Heritage</a></li>
+        <li><a href="/reviews" class="nav-link">Client Reviews</a></li>
+        <li><a href="/contact" class="nav-link">Contact</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button class="action-icon-btn theme-toggle-btn" aria-label="Toggle theme" title="Switch Theme">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg>
+        </button>
+
+        <a href="https://wa.me/919876543210" target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm">
+          💬 WhatsApp
+        </a>
+
+        <button class="mobile-toggle" aria-label="Open menu">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main style="padding-top: 24px; padding-bottom: 72px;">
+    <div class="container">
+      
+      <!-- Heritage Intro -->
+      <div class="section-header reveal-init">
+        <div class="section-eyebrow">Our Founding Manifesto</div>
+        <h1 style="font-size: clamp(2.2rem, 4vw, 3.4rem); margin-bottom: 16px;">The Authentic Woodcraft Guild</h1>
+        <p class="section-subtitle">
+          Founded in 2011, XYZ Furnitures unites generational woodworking artisans with thoughtful architectural design. We build heirloom furniture designed to live with your family for generations.
+        </p>
+      </div>
+
+      <!-- Story Hero Grid -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 4vw, 52px); align-items: center; margin-bottom: 64px;" class="grid-2">
+        <div class="reveal-init">
+          <div class="glass-card" style="padding: 10px; overflow: hidden;">
+            <img 
+              src="https://images.unsplash.com/photo-1517646287270-a5a9ca602e5c?auto=format&fit=crop&w=1200&q=80" 
+              alt="Artisan Timber Seasoning Workshop" 
+              style="width: 100%; border-radius: var(--radius-md); object-fit: cover; aspect-ratio: 4/3;"
+            />
+          </div>
+        </div>
+
+        <div class="reveal-init reveal-delay-2">
+          <h2 style="margin-bottom: 14px;">The Rejection of Fast Disposable Furniture</h2>
+          <p style="margin-bottom: 16px; line-height: 1.7; color: var(--text-sand);">
+            Modern furniture retail became overwhelmed with hollow particle board flat-packs designed to fail after a couple of moves.
+          </p>
+          <p style="margin-bottom: 22px; line-height: 1.7; color: var(--text-sand);">
+            <strong>XYZ Furnitures</strong> chose authentic permanence. We source whole logs of sustainable American Walnut, Burmese Teak, and White Oak, season them in our specialized solar-assisted kilns to exactly 9% moisture content, and handcraft each piece with butterfly keys and Japanese blind joinery.
+          </p>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <a href="/products" class="btn btn-primary">Browse Collections</a>
+            <a href="/contact" class="btn btn-secondary">Contact Concierge</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Meet Master Artisans -->
+      <div class="section-header reveal-init">
+        <div class="section-eyebrow">The Guild Masters</div>
+        <h2 class="section-title">Hands That Shape Every Contour</h2>
+        <p class="section-subtitle">Our furniture is never stamped out by impersonal machines. Meet the senior craftsmen and women who bring your pieces to life.</p>
+      </div>
+
+      <div class="grid-3 horizontal-scroll-mobile reveal-init" style="margin-bottom: 64px;">
+        
+        <!-- Artisan 1 -->
+        <div class="glass-card" style="padding: 24px; text-align: center;">
+          <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=300&q=80" alt="Master Joiner Baldev Singh" style="width: 90px; height: 90px; border-radius: 50%; object-fit: cover; margin: 0 auto 14px; border: 3px solid var(--amber-primary);" />
+          <h3 style="font-size: 1.15rem; margin-bottom: 4px;">Baldev Singh</h3>
+          <span style="font-size: 0.78rem; color: var(--amber-light); font-weight: 700; text-transform: uppercase;">Master Joiner & Guild Elder (29 Yrs)</span>
+          <p style="font-size: 0.85rem; color: var(--text-sand); margin-top: 10px; line-height: 1.6;">
+            Specializes in traditional Japanese blind mortise-and-tenon joints and butterfly keys. Hand-inspects every solid walnut dining slab before final finishing.
+          </p>
+        </div>
+
+        <!-- Artisan 2 -->
+        <div class="glass-card" style="padding: 24px; text-align: center;">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80" alt="Lakshmi Narayan" style="width: 90px; height: 90px; border-radius: 50%; object-fit: cover; margin: 0 auto 14px; border: 3px solid var(--amber-primary);" />
+          <h3 style="font-size: 1.15rem; margin-bottom: 4px;">Lakshmi Narayan</h3>
+          <span style="font-size: 0.78rem; color: var(--amber-light); font-weight: 700; text-transform: uppercase;">Head of Upholstery & Leather (21 Yrs)</span>
+          <p style="font-size: 0.85rem; color: var(--text-sand); margin-top: 10px; line-height: 1.6;">
+            Trained on full-grain vegetable-tanned Italian saddlery. Directs our hand-stitched French textured bouclé and leather sectional lines.
+          </p>
+        </div>
+
+        <!-- Artisan 3 -->
+        <div class="glass-card" style="padding: 24px; text-align: center;">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=300&q=80" alt="Arjun Nair" style="width: 90px; height: 90px; border-radius: 50%; object-fit: cover; margin: 0 auto 14px; border: 3px solid var(--amber-primary);" />
+          <h3 style="font-size: 1.15rem; margin-bottom: 4px;">Arjun Nair</h3>
+          <span style="font-size: 0.78rem; color: var(--amber-light); font-weight: 700; text-transform: uppercase;">Lead Architectural Designer (14 Yrs)</span>
+          <p style="font-size: 0.85rem; color: var(--text-sand); margin-top: 10px; line-height: 1.6;">
+            Bridges Scandinavian organic minimalism with Indian living proportions. Oversees bespoke client CAD blueprints and dimension tailoring.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Sustainability & 10 Trees Forestry Pledge -->
+      <div class="glass-card reveal-init" style="padding: clamp(28px, 4vw, 48px); background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(22, 14, 10, 0.8) 100%); border: 1px solid #10b981;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 44px); align-items: center;" class="grid-2">
+          <div>
+            <span class="badge-pill badge-green" style="margin-bottom: 10px;">Environmental Stewardship</span>
+            <h2 style="font-size: 1.9rem; margin-bottom: 14px;">10 Native Saplings Planted for Every Single Tree Harvested</h2>
+            <p style="color: var(--text-sand); line-height: 1.7; margin-bottom: 16px; font-size: 0.95rem;">
+              True luxury must not deplete the earth. We only harvest from licensed FSC-certified sustainable community plantations.
+            </p>
+            <ul style="display: flex; flex-direction: column; gap: 8px; font-size: 0.88rem; color: var(--text-sand);">
+              <li style="display: flex; align-items: center; gap: 8px;">
+                <span style="color: #10b981;">✓</span> 100% Zero-VOC non-toxic plant wax and organic food-safe seed oils
+              </li>
+              <li style="display: flex; align-items: center; gap: 8px;">
+                <span style="color: #10b981;">✓</span> 120,000+ Native saplings planted across certified community reserves
+              </li>
+              <li style="display: flex; align-items: center; gap: 8px;">
+                <span style="color: #10b981;">✓</span> Solar-assisted kiln seasoning workshops with zero fossil fuels
+              </li>
+            </ul>
+          </div>
+
+          <div style="text-align: center;">
+            <div style="font-family: var(--font-heading); font-size: 4.2rem; font-weight: 900; color: #10b981; line-height: 1;" data-counter-target="120000" data-counter-suffix="+">
+              120,000+
+            </div>
+            <div style="font-size: 1.05rem; color: #fff; font-weight: 700; margin-top: 6px;">Native Hardwood Trees Replanted</div>
+            <p style="font-size: 0.82rem; color: var(--text-muted); margin-top: 4px;">Ensuring thriving green canopy for the next century.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ==========================================================================
+       SITE FOOTER (UNIFIED ACROSS ALL PAGES)
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Col 1: Brand & Craft Philosophy -->
+        <div class="footer-brand">
+          <a href="/home" class="brand-logo" style="margin-bottom: 14px; display: inline-flex;">
+            <div class="logo-symbol">X</div>
+            <div class="brand-text">
+              <span class="brand-name">XYZ Furnitures</span>
+              <span class="brand-tagline">Artisan Woodcraft · Est. 2011</span>
+            </div>
+          </a>
+          <p>
+            Curators and creators of bespoke architectural furniture. Masterfully sculpted from certified sustainable Indian teak, American walnut, and white ash for enduring heirlooms.
+          </p>
+          <div class="footer-social-links">
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="https://wa.me/919876543210" target="_blank" rel="noopener" class="footer-social-btn" aria-label="WhatsApp">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+            </a>
+            <a href="https://pinterest.com" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Pinterest">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="4" x2="12" y2="20"></line><circle cx="12" cy="12" r="8"></circle></svg>
+            </a>
+            <a href="mailto:concierge@xyzfurnitures.in" class="footer-social-btn" aria-label="Email Concierge">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Furniture Collections -->
+        <div>
+          <h4 class="footer-col-title">Collections</h4>
+          <ul class="footer-links-list">
+            <li><a href="/products" class="footer-link">Living Room Lounges</a></li>
+            <li><a href="/products" class="footer-link">Sculptural Dining Tables</a></li>
+            <li><a href="/products" class="footer-link">Sanctuary Bedroom Suites</a></li>
+            <li><a href="/products" class="footer-link">Executive Walnut Desks</a></li>
+            <li><a href="/products" class="footer-link">Curated Accent Lighting</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Craftsmanship & Atelier -->
+        <div>
+          <h4 class="footer-col-title">The Atelier</h4>
+          <ul class="footer-links-list">
+            <li><a href="/about" class="footer-link">Artisan Heritage</a></li>
+            <li><a href="/about" class="footer-link">Kiln-Drying Standards</a></li>
+            <li><a href="/reviews" class="footer-link">Patron Testimonials</a></li>
+            <li><a href="/contact" class="footer-link">White-Glove Delivery</a></li>
+            <li><a href="/contact" class="footer-link">Bespoke Architectural Inquiries</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Concierge & Direct Connect -->
+        <div>
+          <h4 class="footer-col-title">Concierge</h4>
+          <div style="display: flex; flex-direction: column; gap: 10px; font-size: 0.88rem; color: var(--text-sand);">
+            <div>
+              <span style="color: var(--text-muted); font-size: 0.80rem; display: block; margin-bottom: 2px;">Direct Line:</span>
+              <a href="tel:+919876543210" style="color: var(--amber-light); font-weight: 600;">+91 98765 43210</a>
+            </div>
+            <div>
+              <span style="color: var(--text-muted); font-size: 0.80rem; display: block; margin-bottom: 2px;">Instant WhatsApp:</span>
+              <a href="https://wa.me/919876543210" target="_blank" rel="noopener" style="color: #34d399; font-weight: 600;">+91 98765 43210 (24/7)</a>
+            </div>
+            <div>
+              <span style="color: var(--text-muted); font-size: 0.80rem; display: block; margin-bottom: 2px;">Email Inquiries:</span>
+              <a href="mailto:concierge@xyzfurnitures.in" style="color: var(--amber-light);">concierge@xyzfurnitures.in</a>
+            </div>
+            <div style="font-size: 0.80rem; color: var(--text-muted); margin-top: 4px;">
+              Pan-India White-Glove Installation
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Bottom Bar -->
+      <div class="footer-bottom">
+        <div>
+          © 2026 XYZ Furnitures Private Limited. All rights reserved. Handcrafted with pride in India.
+        </div>
+        <div class="footer-trust-tags">
+          <span>🌿 Sustainable Teak</span>
+          <span>·</span>
+          <span>🛡️ 10-Year Frame Warranty</span>
+          <span>·</span>
+          <span>🚚 Free White-Glove Installation</span>
+        </div>
+        <div class="pipoza-footer-credit">
+          <span>Website Designed & Built by</span>
+          <a href="https://pipoza.s.gy/pipoza.in" target="_blank" rel="noopener">PipoZa Dev Studio</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="mobile-nav-drawer" role="dialog" aria-modal="true">
+    <div class="mobile-drawer-content">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <a href="/home" class="brand-logo"><div class="logo-symbol">X</div><span class="brand-name" style="font-size: 1.15rem;">XYZ Furnitures</span></a>
+        <button class="action-icon-btn mobile-drawer-close"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+      </div>
+      <div class="mobile-drawer-links">
+        <a href="/home" class="mobile-drawer-link">Home</a>
+        <a href="/products" class="mobile-drawer-link">Collections Catalog</a>
+        <a href="/experience-studios" class="mobile-drawer-link">Visit Physical Studios</a>
+        <a href="/about" class="mobile-drawer-link active">Our Heritage & Story</a>
+        <a href="/reviews" class="mobile-drawer-link">Client Reviews & Photos</a>
+        <a href="/contact" class="mobile-drawer-link">Contact & Inquiries</a>
+      </div>
+
+      <div style="margin-top: auto; display: flex; flex-direction: column; gap: 12px;">
+        <a href="https://wa.me/919876543210" class="btn btn-whatsapp" style="width: 100%;">
+          💬 WhatsApp Concierge
+        </a>
+        <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.1);">
+          <span style="font-size: 0.82rem; color: var(--text-muted);">Switch Theme</span>
+          <button class="action-icon-btn theme-toggle-btn" aria-label="Toggle theme">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Floating Action Dock (Thumb Bar — Instant Physical & Direct Access) -->
+  <aside class="mobile-action-dock" aria-label="Mobile Quick Actions">
+    <a href="https://wa.me/919876543210" class="dock-item dock-item-whatsapp" aria-label="WhatsApp">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.662 1.438 5.178L2 22l4.981-1.398A9.957 9.957 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+      <span>WhatsApp</span>
+    </a>
+    <a href="tel:+919876543210" class="dock-item" aria-label="Call Us">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <span>Call Desk</span>
+    </a>
+    <a href="/experience-studios" class="dock-item" aria-label="Experience Studios">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <span>Studios</span>
+    </a>
+    <a href="/products" class="dock-item" aria-label="Catalog">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+      <span>Catalog</span>
+    </a>
+    <a href="/contact" class="dock-item" aria-label="Contact">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <span>Contact</span>
+    </a>
+  </aside>
+
+  <!-- Main Folder Scripts (No Sub-Folders) -->
+  <script src="products-data.js"></script>
+  <script src="main.js"></script>
+  <script src="animations.js"></script>
+</body>
+</html>
