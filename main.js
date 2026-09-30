@@ -14,10 +14,13 @@
       if (clean.endsWith('.html')) {
         clean = clean.replace(/\.html$/, '');
       }
-      if (clean === '' || clean.endsWith('/')) {
-        clean = clean + 'index';
+      // Remove trailing slashes (except if root '/')
+      while (clean.length > 1 && clean.endsWith('/')) {
+        clean = clean.slice(0, -1);
       }
-      if (clean.endsWith('/home')) {
+      if (clean === '' || clean === '/') {
+        clean = '/index';
+      } else if (clean.endsWith('/home')) {
         clean = clean.replace(/\/home$/, '/index');
       }
       if (clean !== pathname) {
@@ -327,21 +330,40 @@ function closeQuickViewModal() {
  * Ensures /index and extensionless links work seamlessly in all environments (file://, localhost, live servers)
  */
 function initCleanUrls() {
-  // If user is on a server and lands on /home, redirect URL to /index
+  // If user lands on /home, redirect URL to /index
   if (window.location.pathname.endsWith('/home') || window.location.pathname === '/home') {
     try {
       window.history.replaceState(null, '', window.location.pathname.replace(/\/home$/, '/index') + window.location.search + window.location.hash);
     } catch(e) {}
   }
 
-  // Intercept all internal navigation link clicks for 100% reliable routing
+  // Intercept internal navigation link clicks for 100% reliable routing
   document.addEventListener('click', (e) => {
+    // Allow browser default for non-primary clicks or modifier keys (Ctrl, Shift, Meta, Alt)
+    if (e.button !== 0 || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+
     const link = e.target.closest('a[href]');
     if (!link) return;
-    const href = link.getAttribute('href');
-    if (!href || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel') || href.startsWith('#')) return;
 
-    // Handle hash anchors on the same page
+    const targetAttr = link.getAttribute('target');
+    if (targetAttr === '_blank') return;
+
+    const href = link.getAttribute('href');
+    if (!href || href.startsWith('http:') || href.startsWith('https:') || href.startsWith('mailto:') || href.startsWith('tel:') || href.startsWith('javascript:')) return;
+
+    // Handle hash anchors on the same page (e.g. href="#experience-studios")
+    if (href.startsWith('#')) {
+      const targetElem = document.querySelector(href);
+      if (targetElem) {
+        e.preventDefault();
+        targetElem.scrollIntoView({ behavior: 'smooth' });
+        try {
+          history.pushState(null, '', href);
+        } catch(err) {}
+      }
+      return;
+    }
+
     const hashIndex = href.indexOf('#');
     let hash = '';
     let targetPath = href;
@@ -367,17 +389,45 @@ function initCleanUrls() {
       fileTarget += '.html';
     }
 
-    // Check if we are already on this page and just navigating to an anchor
-    const currentFile = window.location.pathname.split('/').pop() || 'index.html';
-    const normCurrent = (currentFile === '' || currentFile === 'index') ? 'index.html' : (currentFile.endsWith('.html') ? currentFile : currentFile + '.html');
-    if (normCurrent === fileTarget && hash) {
-      return; // allow native smooth scroll to anchor
+    // Check if we are already on this page
+    const currentPath = window.location.pathname;
+    const currentFile = currentPath.split('/').pop() || 'index.html';
+    const normCurrent = (currentFile === '' || currentFile === 'index' || currentFile === 'home') ? 'index.html' : (currentFile.endsWith('.html') ? currentFile : currentFile + '.html');
+
+    if (normCurrent === fileTarget) {
+      if (hash) {
+        const targetElem = document.querySelector(hash);
+        if (targetElem) {
+          e.preventDefault();
+          targetElem.scrollIntoView({ behavior: 'smooth' });
+          try {
+            history.pushState(null, '', hash);
+          } catch(err) {}
+          return;
+        }
+      } else if (!search) {
+        // Already on this page, scroll to top smoothly
+        e.preventDefault();
+        playWoodClick();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
     }
 
     // Direct clean navigation
     e.preventDefault();
     playWoodClick();
-    window.location.href = fileTarget + search + hash;
+
+    // In file:/// protocol: navigate to relative fileTarget directly
+    if (window.location.protocol === 'file:') {
+      const currentDir = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1);
+      window.location.href = currentDir + fileTarget + search + hash;
+      return;
+    }
+
+    // In HTTP/HTTPS: resolve relative to current project directory
+    const targetUrl = new URL(fileTarget + search + hash, window.location.href);
+    window.location.href = targetUrl.href;
   });
 }
 

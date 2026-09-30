@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" data-theme="default">
 <head>
   <meta charset="UTF-8">
@@ -22,7 +22,7 @@
       // Handle clean URL fallback
       const path = window.location.pathname.replace(/\/$/, "");
       const slug = path.split("/").pop();
-      if (slug === 'home' || slug === '') {
+      if (slug === 'index' || slug === 'home' || slug === '') {
         window.location.replace("index.html" + window.location.search + window.location.hash);
       } else if (slug && ["products", "product-detail", "about", "reviews", "contact", "experience-studios"].includes(slug)) {
         window.location.replace(slug + ".html" + window.location.search + window.location.hash);
@@ -84,7 +84,7 @@
     <div class="glass-card" style="max-width: 640px; width: 100%; padding: clamp(36px, 6vw, 60px); text-align: center; border: 1px solid var(--amber-primary); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);">
       
       <!-- Logo Symbol -->
-      <a href="/home" class="brand-logo" style="justify-content: center; margin-bottom: 24px;">
+      <a href="index.html" class="brand-logo" style="justify-content: center; margin-bottom: 24px;">
         <div class="logo-symbol">X</div>
         <div class="brand-text">
           <span class="brand-name">XYZ Furnitures</span>
@@ -107,17 +107,17 @@
 
       <!-- Quick Action Buttons -->
       <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-bottom: 30px;">
-        <a href="/home" class="btn btn-primary">
+        <a href="index.html" class="btn btn-primary">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-          Return to /home
+          Return to Home
         </a>
-        <a href="/products" class="btn btn-secondary">
+        <a href="products.html" class="btn btn-secondary">
           Explore Collections
         </a>
-        <a href="/experience-studios" class="btn btn-secondary">
+        <a href="experience-studios.html" class="btn btn-secondary">
           Visit Physical Studios
         </a>
-        <a href="/contact" class="btn btn-secondary">
+        <a href="contact.html" class="btn btn-secondary">
           Contact Concierge
         </a>
       </div>

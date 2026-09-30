@@ -15,7 +15,7 @@
   <i>Handcrafting bespoke solid American Walnut, plantation Teak, and French Bouclé suites built by generational master woodworkers — tailored to your exact architectural specifications.</i>
 </p>
 
-[Home (/home)](home.html) • [Furniture Collections (/products)](products.html) • [Our Heritage (/about)](about.html) • [Client Reviews (/reviews)](reviews.html) • [Contact (/contact)](contact.html) • [PipoZa Dev Studio](https://pipoza.s.gy/pipoza.in)
+[Home (/index)](index.html) • [Furniture Collections (/products)](products.html) • [Experience Studios (/experience-studios)](experience-studios.html) • [Our Heritage (/about)](about.html) • [Client Reviews (/reviews)](reviews.html) • [Contact (/contact)](contact.html) • [PipoZa Dev Studio](https://pipoza.s.gy/pipoza.in)
 
 </div>
 
@@ -44,8 +44,8 @@ D:\Projects\Furniture/
 ├── _redirects             # Netlify clean URL rules & /home rewrite
 ├── vercel.json            # Vercel cleanUrls & /home rewrite
 ├── 404.html               # Modern liquid glass 404 with client-side fallback router
-├── index.html             # Homepage (/home) with Hero, Visualizer, Artisans & Reviews
-├── home.html              # Dedicated mirror for direct /home URL access
+├── index.html             # Main Homepage (/index) with Hero, Visualizer, Artisans & Reviews
+├── home.html              # Instant forwarder to index.html (/index) for backward compatibility
 ├── products.html          # Full Catalog (/products) with Category Filters & Search
 ├── product-detail.html    # Deep Specifications Showcase with Live Finish Swatches
 ├── about.html             # Guild Heritage, Artisan Profiles & 120k Trees Pledge
@@ -70,5 +70,5 @@ D:\Projects\Furniture/
 - **Horizontal Mobile Card Scrolling**: On mobile devices (`≤ 768px`), product cards and customer reviews smoothly snap and swipe horizontally without page squishing or layout bugs.
 - **Fixed Top Announcement Bar**: Proper document flow positioning so the top bar never overlaps or hides the navigation bar.
 - **Pure Web Audio API**: Tactile acoustic wood clicks and fifth chimes on user interaction with zero audio asset overhead.
-- **Extensionless Clean URLs**: Seamless clean URLs (`/home`, `/products`, `/about`, `/reviews`, `/contact`) configured across Vercel, Netlify, Apache, and local files.
+- **Extensionless Clean URLs**: Seamless clean URLs (`/index`, `/products`, `/experience-studios`, `/about`, `/reviews`, `/contact`) configured across Vercel, Netlify, Apache, and local files.
 - **PipoZa Dev Studio Attribution**: Integrated header badge and footer links directly to [https://pipoza.s.gy/pipoza.in](https://pipoza.s.gy/pipoza.in).
