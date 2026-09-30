@@ -1,5 +1,5 @@
 /* ==========================================================================
-   XYZ FURNITURES — RESPONSIVE DESIGN & MOBILE OPTIMIZATIONS
+   CASA ANTICA — RESPONSIVE DESIGN & MOBILE OPTIMIZATIONS
    Crafted & Engineered by PipoZa Dev Studio (https://pipoza.s.gy/pipoza.in)
    ========================================================================== */
 
@@ -235,8 +235,16 @@
     padding: 8px 14px !important;
   }
 
+  .brand-logo-full {
+    display: none !important;
+  }
+
+  .brand-logo-compact {
+    display: flex !important;
+  }
+
   .brand-name {
-    font-size: 1.12rem !important;
+    font-size: 1.05rem !important;
   }
 
   .brand-tagline {
@@ -246,7 +254,6 @@
   .logo-symbol {
     width: 34px !important;
     height: 34px !important;
-    font-size: 1.1rem !important;
   }
 
   /* Mobile floating thumb dock */
@@ -396,5 +403,14 @@
   .swatch-btn {
     width: 28px !important;
     height: 28px !important;
+  }
+
+  .brand-name {
+    font-size: 0.92rem !important;
+  }
+
+  .logo-symbol {
+    width: 30px !important;
+    height: 30px !important;
   }
 }

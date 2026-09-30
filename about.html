@@ -1,12 +1,12 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" data-theme="default">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Our Heritage & Woodcraft Guild — XYZ Furnitures | Crafted by PipoZa Dev Studio</title>
-  <meta name="description" content="Learn how XYZ Furnitures protects master woodworking traditions, solar-seasons kiln-dried timbers, and plants 10 native trees for every harvest.">
+  <title>Our Heritage & Woodcraft Guild — CASA ANTICA | Crafted by PipoZa Dev Studio</title>
+  <meta name="description" content="Learn how CASA ANTICA protects master woodworking traditions, solar-seasons kiln-dried timbers, and plants 10 native trees for every harvest.">
   
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23f59e0b'/%3E%3Cpath d='M8 10h16M16 10v12M11 22h10' stroke='%23120c08' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/png" href="logo-symbol.png">
 
   <!-- Main Folder Stylesheets (No Sub-Folders) -->
   <link rel="stylesheet" href="style.css">
@@ -18,7 +18,7 @@
   <script>
     (function() {
       try {
-        const savedTheme = localStorage.getItem('xyz-theme') || 'default';
+        const savedTheme = localStorage.getItem('casa-theme') || localStorage.getItem('xyz-theme') || 'default';
         document.documentElement.setAttribute('data-theme', savedTheme);
 
         if (window.location.protocol.startsWith('http')) {
@@ -32,7 +32,7 @@
               baseDir = '/' + parts[0] + '/';
             }
           } else {
-            const knownPages = ['index', 'home', 'products', 'product-detail', 'experience-studios', 'about', 'reviews', 'contact'];
+            const knownPages = ['index', 'home', 'experience-studios', 'about', 'reviews', 'contact'];
             const cleanPath = pathname.replace(/\/+$/, '');
             const lastSlash = cleanPath.lastIndexOf('/');
             const lastSegment = (lastSlash !== -1) ? cleanPath.substring(lastSlash + 1) : cleanPath;
@@ -51,7 +51,7 @@
           const cleanSegment = lastSegment.replace(/\.html$/, '');
 
           let pageSlug = 'index';
-          if (['products', 'product-detail', 'experience-studios', 'about', 'reviews', 'contact'].includes(cleanSegment)) {
+          if (['experience-studios', 'about', 'reviews', 'contact'].includes(cleanSegment)) {
             pageSlug = cleanSegment;
           }
 
@@ -83,7 +83,9 @@
   <aside class="announcement-bar" aria-label="Craftsmanship Guild Announcement">
     <div class="announcement-track">
       <div class="announcement-slide">
-        <span>✨ ARTISAN CRAFTSMANSHIP GUILD</span>
+        <span>✨ CASA ANTICA · ARTISAN CRAFTSMANSHIP GUILD</span>
+        <span class="ticker-sep">✦</span>
+        <span>Leading India's Furniture Evolution</span>
         <span class="ticker-sep">✦</span>
         <span>Kiln-Dried Solid Walnut & Teak</span>
         <span class="ticker-sep">✦</span>
@@ -97,7 +99,9 @@
         <span class="ticker-sep">✦</span>
       </div>
       <div class="announcement-slide" aria-hidden="true">
-        <span>✨ ARTISAN CRAFTSMANSHIP GUILD</span>
+        <span>✨ CASA ANTICA · ARTISAN CRAFTSMANSHIP GUILD</span>
+        <span class="ticker-sep">✦</span>
+        <span>Leading India's Furniture Evolution</span>
         <span class="ticker-sep">✦</span>
         <span>Kiln-Dried Solid Walnut & Teak</span>
         <span class="ticker-sep">✦</span>
@@ -116,17 +120,24 @@
   <!-- Header -->
   <header class="navbar-wrapper">
     <nav class="navbar" aria-label="Main Navigation">
-      <a href="index.html" class="brand-logo">
-        <div class="logo-symbol">X</div>
-        <div class="brand-text">
-          <span class="brand-name">XYZ Furnitures</span>
-          <span class="brand-tagline">Artisan Woodcraft · Est. 2011</span>
+      <a href="index.html" class="brand-logo" aria-label="CASA ANTICA Homepage">
+        <!-- Desktop / Full View: 1st Logo (With name) -->
+        <div class="brand-logo-full">
+          <img src="logo.png" alt="CASA ANTICA — Leading India's Furniture Evolution" />
+        </div>
+        <!-- Compact / Mobile View: 2nd Simple Logo + Name -->
+        <div class="brand-logo-compact">
+          <div class="logo-symbol">
+            <img src="logo-symbol.png" alt="CASA ANTICA" />
+          </div>
+          <div class="brand-text">
+            <span class="brand-name">CASA ANTICA</span>
+          </div>
         </div>
       </a>
 
       <ul class="nav-links">
         <li><a href="index.html" class="nav-link">Home</a></li>
-        <li><a href="products.html" class="nav-link">Collections</a></li>
         <li><a href="experience-studios.html" class="nav-link">Visit Studios</a></li>
         <li><a href="about.html" class="nav-link active">Our Heritage</a></li>
         <li><a href="reviews.html" class="nav-link">Client Reviews</a></li>
@@ -157,7 +168,7 @@
         <div class="section-eyebrow">Our Founding Manifesto</div>
         <h1 style="font-size: clamp(2.2rem, 4vw, 3.4rem); margin-bottom: 16px;">The Authentic Woodcraft Guild</h1>
         <p class="section-subtitle">
-          Founded in 2011, XYZ Furnitures unites generational woodworking artisans with thoughtful architectural design. We build heirloom furniture designed to live with your family for generations.
+          Founded in 2011, CASA ANTICA unites generational woodworking artisans with thoughtful architectural design. We build heirloom furniture designed to live with your family for generations.
         </p>
       </div>
 
@@ -179,10 +190,10 @@
             Modern furniture retail became overwhelmed with hollow particle board flat-packs designed to fail after a couple of moves.
           </p>
           <p style="margin-bottom: 22px; line-height: 1.7; color: var(--text-sand);">
-            <strong>XYZ Furnitures</strong> chose authentic permanence. We source whole logs of sustainable American Walnut, Burmese Teak, and White Oak, season them in our specialized solar-assisted kilns to exactly 9% moisture content, and handcraft each piece with butterfly keys and Japanese blind joinery.
+            <strong>CASA ANTICA</strong> chose authentic permanence. We source whole logs of sustainable American Walnut, Burmese Teak, and White Oak, season them in our specialized solar-assisted kilns to exactly 9% moisture content, and handcraft each piece with butterfly keys and Japanese blind joinery.
           </p>
           <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-            <a href="products.html" class="btn btn-primary">Browse Collections</a>
+            <a href="experience-studios.html" class="btn btn-primary">Visit Our Flagship Studios</a>
             <a href="contact.html" class="btn btn-secondary">Contact Concierge</a>
           </div>
         </div>
@@ -272,15 +283,13 @@
       <div class="footer-grid">
         <!-- Col 1: Brand & Craft Philosophy -->
         <div class="footer-brand">
-          <a href="index.html" class="brand-logo" style="margin-bottom: 14px; display: inline-flex;">
-            <div class="logo-symbol">X</div>
-            <div class="brand-text">
-              <span class="brand-name">XYZ Furnitures</span>
-              <span class="brand-tagline">Artisan Woodcraft · Est. 2011</span>
+          <a href="index.html" class="footer-brand-link" aria-label="CASA ANTICA Homepage">
+            <div class="footer-logo-card">
+              <img src="logo.png" alt="CASA ANTICA — Leading India's Furniture Evolution" class="footer-logo-img" />
             </div>
           </a>
           <p>
-            Curators and creators of bespoke architectural furniture. Masterfully sculpted from certified sustainable Indian teak, American walnut, and white ash for enduring heirlooms.
+            Leading India's Furniture Evolution. Curators and creators of bespoke architectural furniture. Masterfully sculpted from certified sustainable Indian teak, American walnut, and white ash for enduring heirlooms.
           </p>
           <div class="footer-social-links">
             <a href="https://instagram.com" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Instagram">
@@ -292,21 +301,21 @@
             <a href="https://pinterest.com" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Pinterest">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="4" x2="12" y2="20"></line><circle cx="12" cy="12" r="8"></circle></svg>
             </a>
-            <a href="mailto:concierge@xyzfurnitures.in" class="footer-social-btn" aria-label="Email Concierge">
+            <a href="mailto:concierge@casaantica.in" class="footer-social-btn" aria-label="Email Concierge">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
             </a>
           </div>
         </div>
 
-        <!-- Col 2: Furniture Collections -->
+        <!-- Col 2: Flagship Studios -->
         <div>
-          <h4 class="footer-col-title">Collections</h4>
+          <h4 class="footer-col-title">Flagship Studios</h4>
           <ul class="footer-links-list">
-            <li><a href="products.html" class="footer-link">Living Room Lounges</a></li>
-            <li><a href="products.html" class="footer-link">Sculptural Dining Tables</a></li>
-            <li><a href="products.html" class="footer-link">Sanctuary Bedroom Suites</a></li>
-            <li><a href="products.html" class="footer-link">Executive Walnut Desks</a></li>
-            <li><a href="products.html" class="footer-link">Curated Accent Lighting</a></li>
+            <li><a href="experience-studios.html#bangalore" class="footer-link">Bangalore Flagship Atelier</a></li>
+            <li><a href="experience-studios.html#mumbai" class="footer-link">Mumbai Design Gallery</a></li>
+            <li><a href="experience-studios.html#noida" class="footer-link">Delhi NCR Craft Studio</a></li>
+            <li><a href="experience-studios.html#reserve-tour" class="footer-link">Reserve VIP Studio Tour</a></li>
+            <li><a href="experience-studios.html#reserve-tour" class="footer-link">Curated Timber Library</a></li>
           </ul>
         </div>
 
@@ -336,7 +345,7 @@
             </div>
             <div>
               <span style="color: var(--text-muted); font-size: 0.80rem; display: block; margin-bottom: 2px;">Email Inquiries:</span>
-              <a href="mailto:concierge@xyzfurnitures.in" style="color: var(--amber-light);">concierge@xyzfurnitures.in</a>
+              <a href="mailto:concierge@casaantica.in" style="color: var(--amber-light);">concierge@casaantica.in</a>
             </div>
             <div style="font-size: 0.80rem; color: var(--text-muted); margin-top: 4px;">
               Pan-India White-Glove Installation
@@ -348,7 +357,7 @@
       <!-- Footer Bottom Bar -->
       <div class="footer-bottom">
         <div>
-          © 2026 XYZ Furnitures Private Limited. All rights reserved. Handcrafted with pride in India.
+          © 2026 CASA ANTICA Private Limited. All rights reserved. Handcrafted with pride in India.
         </div>
         <div class="footer-trust-tags">
           <span>🌿 Sustainable Teak</span>
@@ -368,12 +377,13 @@
   <div class="mobile-nav-drawer" role="dialog" aria-modal="true">
     <div class="mobile-drawer-content">
       <div style="display: flex; justify-content: space-between; align-items: center;">
-        <a href="index.html" class="brand-logo"><div class="logo-symbol">X</div><span class="brand-name" style="font-size: 1.15rem;">XYZ Furnitures</span></a>
+        <a href="index.html" class="drawer-brand-card" aria-label="CASA ANTICA Homepage">
+          <img src="logo.png" alt="CASA ANTICA" class="drawer-logo-img" />
+        </a>
         <button class="action-icon-btn mobile-drawer-close"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
       </div>
       <div class="mobile-drawer-links">
         <a href="index.html" class="mobile-drawer-link">Home</a>
-        <a href="products.html" class="mobile-drawer-link">Collections Catalog</a>
         <a href="experience-studios.html" class="mobile-drawer-link">Visit Physical Studios</a>
         <a href="about.html" class="mobile-drawer-link active">Our Heritage & Story</a>
         <a href="reviews.html" class="mobile-drawer-link">Client Reviews & Photos</a>
@@ -407,10 +417,6 @@
     <a href="experience-studios.html" class="dock-item" aria-label="Experience Studios">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
       <span>Studios</span>
-    </a>
-    <a href="products.html" class="dock-item" aria-label="Catalog">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-      <span>Catalog</span>
     </a>
     <a href="contact.html" class="dock-item" aria-label="Contact">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>

@@ -1,5 +1,5 @@
 /**
- * XYZ FURNITURES — CORE ENGINE
+ * CASA ANTICA — CORE ENGINE
  * Crafted & Engineered by PipoZa Dev Studio (https://pipoza.s.gy/pipoza.in)
  * 3-Theme Switcher (Default, Dark, Light), Clean URLs (/index),
  * Web Audio Tactile Clicks, Quick View Modal, and Image Lightbox
@@ -28,7 +28,7 @@ function getProjectBasePath() {
     }
   }
   
-  const knownPages = ['index', 'home', 'products', 'product-detail', 'experience-studios', 'about', 'reviews', 'contact', '404'];
+  const knownPages = ['index', 'home', 'experience-studios', 'about', 'reviews', 'contact', '404'];
   
   // Strip trailing slashes for segment inspection
   const cleanPath = pathname.replace(/\/+$/, '');
@@ -50,7 +50,7 @@ function getProjectBasePath() {
   return cleanPath + '/';
 }
 
-// Immediate URL Bar Cleaner: Ensures URL in address bar shows extensionless /index, /products, etc.
+// Immediate URL Bar Cleaner: Ensures URL in address bar shows extensionless /index, /experience-studios, etc.
 (function applyCleanUrlBar() {
   try {
     if (window.location.protocol.startsWith('http')) {
@@ -61,7 +61,7 @@ function getProjectBasePath() {
       const lastSegment = (lastSlash !== -1) ? cleanPath.substring(lastSlash + 1) : cleanPath;
       const cleanSegment = lastSegment.replace(/\.html$/, '');
       
-      const knownPages = ['products', 'product-detail', 'experience-studios', 'about', 'reviews', 'contact', '404'];
+      const knownPages = ['experience-studios', 'about', 'reviews', 'contact', '404'];
       
       let pageSlug = 'index';
       if (knownPages.includes(cleanSegment)) {
@@ -152,7 +152,7 @@ function initThemeToggle() {
   const themeButtons = document.querySelectorAll('.theme-toggle-btn');
   if (!themeButtons.length) return;
 
-  const savedTheme = localStorage.getItem('xyz-theme') || 'default';
+  const savedTheme = localStorage.getItem('casa-theme') || localStorage.getItem('xyz-theme') || 'default';
   document.documentElement.setAttribute('data-theme', savedTheme);
   themeButtons.forEach(btn => updateThemeIcon(btn, savedTheme));
 
@@ -170,7 +170,7 @@ function initThemeToggle() {
       }
 
       document.documentElement.setAttribute('data-theme', next);
-      localStorage.setItem('xyz-theme', next);
+      localStorage.setItem('casa-theme', next);
       themeButtons.forEach(b => updateThemeIcon(b, next));
       playWoodClick();
 
@@ -319,7 +319,9 @@ function initLightboxModal() {
  * 6. Quick View Product Modal (NO PRICES — Direct Inquiry)
  */
 function openQuickView(productId) {
-  const product = XYZ_PRODUCTS.find(p => p.id === productId);
+  const catalog = (typeof CASA_PRODUCTS !== 'undefined' ? CASA_PRODUCTS : (typeof XYZ_PRODUCTS !== 'undefined' ? XYZ_PRODUCTS : []));
+  if (!catalog || !Array.isArray(catalog)) return;
+  const product = catalog.find(p => p.id === productId);
   if (!product) return;
 
   const modal = document.querySelector('.lightbox-modal');
@@ -350,11 +352,11 @@ function openQuickView(productId) {
           <strong>Dimensions:</strong> ${product.dimensions}
         </div>
         <div style="margin-top:auto; padding-top:16px; border-top:1px solid rgba(255,255,255,0.1); display:flex; gap:10px;">
-          <a href="https://wa.me/919876543210?text=Hi%20XYZ%20Furnitures!%20I%20am%20interested%20in%20${encodeURIComponent(product.name)}.%20Please%20share%20lead%20times%20and%20finish%20options." target="_blank" rel="noopener" class="btn btn-whatsapp" style="flex:1;">
+          <a href="https://wa.me/918320012921?text=Hi%20CASA%20ANTICA!%20I%20am%20interested%20in%20customizing%20${encodeURIComponent(product.name)}%20as%20per%20my%20design%20and%20living%20space." target="_blank" rel="noopener" class="btn btn-whatsapp" style="flex:1;">
             💬 Inquire on WhatsApp
           </a>
-          <a href="product-detail.html?id=${product.id}" class="btn btn-secondary">
-            Full Specs
+          <a href="experience-studios.html" class="btn btn-secondary">
+            View in Studio
           </a>
         </div>
       </div>
@@ -478,7 +480,7 @@ function initCleanUrls() {
       return;
     }
 
-    // In HTTP/HTTPS: ALWAYS prefix with the exact basePath (e.g. /furniture.demo/products.html)
+    // In HTTP/HTTPS: ALWAYS prefix with the exact basePath (e.g. /furniture.demo/experience-studios.html)
     window.location.href = basePath + fileTarget + search + hash;
   });
 }

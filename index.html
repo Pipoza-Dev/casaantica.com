@@ -1,14 +1,14 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" data-theme="default">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>XYZ Furnitures — Artisan Solid Wood & Luxury Living | Crafted by PipoZa Dev Studio</title>
-  <meta name="description" content="Discover XYZ Furnitures: Handcrafted solid walnut, teak, and bouclé luxury furniture made by master artisans. High-quality living spaces with honest craftsmanship.">
-  <meta name="keywords" content="XYZ Furnitures, luxury furniture, solid walnut dining table, bouclé sofa, bespoke furniture, teak wood, modern interior">
+  <title>CASA ANTICA — Leading India's Furniture Evolution | Artisan Solid Wood & Luxury Living</title>
+  <meta name="description" content="Discover CASA ANTICA: Leading India's Furniture Evolution. Handcrafted solid walnut, teak, and bouclé luxury furniture made by master artisans. High-quality living spaces with honest craftsmanship.">
+  <meta name="keywords" content="CASA ANTICA, casa antica, luxury furniture, solid walnut dining table, bouclé sofa, bespoke furniture, teak wood, modern interior">
   
-  <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23f59e0b'/%3E%3Cpath d='M8 10h16M16 10v12M11 22h10' stroke='%23120c08' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E">
+  <!-- Favicon: CASA ANTICA Simple Logo Symbol -->
+  <link rel="icon" type="image/png" href="logo-symbol.png">
 
   <!-- Main Folder Stylesheets (No Sub-Folders) -->
   <link rel="stylesheet" href="style.css">
@@ -20,7 +20,7 @@
   <script>
     (function() {
       try {
-        const savedTheme = localStorage.getItem('xyz-theme') || 'default';
+        const savedTheme = localStorage.getItem('casa-theme') || localStorage.getItem('xyz-theme') || 'default';
         document.documentElement.setAttribute('data-theme', savedTheme);
 
         if (window.location.protocol.startsWith('http')) {
@@ -34,7 +34,7 @@
               baseDir = '/' + parts[0] + '/';
             }
           } else {
-            const knownPages = ['index', 'home', 'products', 'product-detail', 'experience-studios', 'about', 'reviews', 'contact'];
+            const knownPages = ['index', 'home', 'experience-studios', 'about', 'reviews', 'contact'];
             const cleanPath = pathname.replace(/\/+$/, '');
             const lastSlash = cleanPath.lastIndexOf('/');
             const lastSegment = (lastSlash !== -1) ? cleanPath.substring(lastSlash + 1) : cleanPath;
@@ -53,7 +53,7 @@
           const cleanSegment = lastSegment.replace(/\.html$/, '');
 
           let pageSlug = 'index';
-          if (['products', 'product-detail', 'experience-studios', 'about', 'reviews', 'contact'].includes(cleanSegment)) {
+          if (['experience-studios', 'about', 'reviews', 'contact'].includes(cleanSegment)) {
             pageSlug = cleanSegment;
           }
 
@@ -86,31 +86,35 @@
   <aside class="announcement-bar" aria-label="Craftsmanship Guild Announcement">
     <div class="announcement-track">
       <div class="announcement-slide">
-        <span>✨ ARTISAN CRAFTSMANSHIP GUILD</span>
+        <span>✨ CASA ANTICA · IMPORTER & CUSTOMIZED FURNITURE MAKER</span>
         <span class="ticker-sep">✦</span>
-        <span>Kiln-Dried Solid Walnut & Teak</span>
+        <span>Modular Beds · Luxury Kitchens · Dining Sets · Center Tables · Wardrobes · Corporate Furniture</span>
         <span class="ticker-sep">✦</span>
-        <span>Free White-Glove Installation Across India</span>
+        <span>Crafted As Per Customer's Design, Ideas & Living</span>
         <span class="ticker-sep">✦</span>
         <span class="pipoza-pill">Crafted by <a href="https://pipoza.s.gy/pipoza.in" target="_blank" rel="noopener">PipoZa Dev Studio</a></span>
         <span class="ticker-sep">✦</span>
-        <span>🏛️ Experience Studios in Bangalore, Mumbai & Noida</span>
+        <span>🏛️ Surat Flagship & Experience Studios</span>
         <span class="ticker-sep">✦</span>
-        <span>📞 VIP Concierge: +91 98765 43210</span>
+        <span>💬 WhatsApp: +91 832 001 2921</span>
+        <span class="ticker-sep">✦</span>
+        <span>✉️ casaanticasurat@gmail.com</span>
         <span class="ticker-sep">✦</span>
       </div>
       <div class="announcement-slide" aria-hidden="true">
-        <span>✨ ARTISAN CRAFTSMANSHIP GUILD</span>
+        <span>✨ CASA ANTICA · IMPORTER & CUSTOMIZED FURNITURE MAKER</span>
         <span class="ticker-sep">✦</span>
-        <span>Kiln-Dried Solid Walnut & Teak</span>
+        <span>Modular Beds · Luxury Kitchens · Dining Sets · Center Tables · Wardrobes · Corporate Furniture</span>
         <span class="ticker-sep">✦</span>
-        <span>Free White-Glove Installation Across India</span>
+        <span>Crafted As Per Customer's Design, Ideas & Living</span>
         <span class="ticker-sep">✦</span>
         <span class="pipoza-pill">Crafted by <a href="https://pipoza.s.gy/pipoza.in" target="_blank" rel="noopener">PipoZa Dev Studio</a></span>
         <span class="ticker-sep">✦</span>
-        <span>🏛️ Experience Studios in Bangalore, Mumbai & Noida</span>
+        <span>🏛️ Surat Flagship & Experience Studios</span>
         <span class="ticker-sep">✦</span>
-        <span>📞 VIP Concierge: +91 98765 43210</span>
+        <span>💬 WhatsApp: +91 832 001 2921</span>
+        <span class="ticker-sep">✦</span>
+        <span>✉️ casaanticasurat@gmail.com</span>
         <span class="ticker-sep">✦</span>
       </div>
     </div>
@@ -120,18 +124,25 @@
   <header class="navbar-wrapper">
     <nav class="navbar" aria-label="Main Navigation">
       <!-- Brand Logo -->
-      <a href="index.html" class="brand-logo" aria-label="XYZ Furnitures Homepage">
-        <div class="logo-symbol">X</div>
-        <div class="brand-text">
-          <span class="brand-name">XYZ Furnitures</span>
-          <span class="brand-tagline">Artisan Woodcraft · Est. 2011</span>
+      <a href="index.html" class="brand-logo" aria-label="CASA ANTICA Homepage">
+        <!-- Desktop / Full View: 1st Logo (With name) -->
+        <div class="brand-logo-full">
+          <img src="logo.png" alt="CASA ANTICA — Leading India's Furniture Evolution" />
+        </div>
+        <!-- Compact / Mobile View: 2nd Simple Logo + Name -->
+        <div class="brand-logo-compact">
+          <div class="logo-symbol">
+            <img src="logo-symbol.png" alt="CASA ANTICA" />
+          </div>
+          <div class="brand-text">
+            <span class="brand-name">CASA ANTICA</span>
+          </div>
         </div>
       </a>
 
       <!-- Desktop Nav Links -->
       <ul class="nav-links">
         <li><a href="index.html" class="nav-link active">Home</a></li>
-        <li><a href="products.html" class="nav-link">Collections</a></li>
         <li><a href="experience-studios.html" class="nav-link">Visit Studios</a></li>
         <li><a href="about.html" class="nav-link">Our Heritage</a></li>
         <li><a href="reviews.html" class="nav-link">Client Reviews</a></li>
@@ -148,7 +159,7 @@
         </button>
 
         <!-- Quick WhatsApp Consultation Button -->
-        <a href="https://wa.me/919876543210?text=Hi%20XYZ%20Furnitures!%20I%20am%20interested%20in%20your%20luxury%20collections." target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm">
+        <a href="https://wa.me/918320012921?text=Hi%20CASA%20ANTICA!%20I%20want%20to%20customize%20furniture%20as%20per%20my%20design%20and%20living." target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.662 1.438 5.178L2 22l4.981-1.398A9.957 9.957 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/>
           </svg>
@@ -187,15 +198,12 @@
             </h1>
 
             <p style="font-size: clamp(1rem, 1.2vw, 1.2rem); line-height: 1.7; margin-bottom: 28px; color: var(--text-sand);">
-              At <strong>XYZ Furnitures</strong>, we handcraft bespoke solid American Walnut, plantation Teak, and French textured bouclé suites built by generational master woodworkers — tailored to your exact architectural specifications.
+              At <strong>CASA ANTICA</strong>, we handcraft bespoke solid American Walnut, plantation Teak, and French textured bouclé suites built by generational master woodworkers — tailored to your exact architectural specifications.
             </p>
 
             <div style="display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 32px;">
-              <a href="products.html" class="btn btn-primary btn-lg">
-                Explore Collections
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-              </a>
-              <a href="https://wa.me/919876543210?text=Hi%20XYZ%20Furnitures!%20Please%20share%20your%20latest%20furniture%20lookbook." target="_blank" rel="noopener" class="btn btn-secondary btn-lg">
+              <a href="experience-studios.html" class="btn btn-primary btn-lg">Explore Flagship Studios <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+              <a href="https://wa.me/919876543210?text=Hi%20CASA%20ANTICA!%20Please%20share%20your%20latest%20furniture%20lookbook." target="_blank" rel="noopener" class="btn btn-secondary btn-lg">
                 Request Lookbook
               </a>
             </div>
@@ -227,7 +235,7 @@
               <div style="position: relative; border-radius: var(--radius-md); overflow: hidden; aspect-ratio: 4 / 3;">
                 <img 
                   src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=1200&q=80" 
-                  alt="The Monaco Curved Bouclé Sectional by XYZ Furnitures" 
+                  alt="The Monaco Curved Bouclé Sectional by CASA ANTICA" 
                   class="product-main-visual"
                   style="width: 100%; height: 100%; object-fit: cover; transition: all 0.35s ease;"
                 />
@@ -291,32 +299,6 @@
       </div>
     </section>
 
-    <!-- ==========================================================================
-         FEATURED PRODUCT COLLECTIONS (HORIZONTAL SCROLL ON MOBILE)
-         ========================================================================== -->
-    <section class="section-spacing" style="background: rgba(22, 14, 10, 0.3);">
-      <div class="container">
-        <div class="section-header reveal-init">
-          <div class="section-eyebrow">Signature Creations</div>
-          <h2 class="section-title">Heirloom Handcrafted Furniture</h2>
-          <p class="section-subtitle">
-            Every piece is hand-finished with non-toxic organic oils and precision joinery. Browse our curated flagship furniture pieces.
-          </p>
-        </div>
-
-        <!-- Product Grid (Horizontal scroll on mobile) -->
-        <div class="grid-3 horizontal-scroll-mobile reveal-init" id="featured-products-container">
-          <!-- Populated via JS data -->
-        </div>
-
-        <div style="text-align: center; margin-top: 40px;" class="reveal-init">
-          <a href="products.html" class="btn btn-primary btn-lg">
-            View Complete Furniture Catalog
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-        </div>
-      </div>
-    </section>
 
     <!-- ==========================================================================
          INTERACTIVE ROOM VISUALIZER (PURE PICTURES & DESIGNS — ZERO PRICES)
@@ -325,7 +307,7 @@
       <div class="container">
         <div class="section-header reveal-init">
           <div class="section-eyebrow">Architectural Styling</div>
-          <h2 class="section-title">Experience XYZ Furnitures in Real Spaces</h2>
+          <h2 class="section-title">Experience CASA ANTICA in Real Spaces</h2>
           <p class="section-subtitle">
             Switch between living, dining, bedroom, and executive office spaces. Hover or tap the glowing pins to inspect individual furniture creations.
           </p>
@@ -350,7 +332,7 @@
           <div class="room-visualizer-viewport">
             <img 
               src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=80" 
-              alt="XYZ Furnitures Room Visualizer" 
+              alt="CASA ANTICA Room Visualizer" 
               class="room-visualizer-image"
             />
             <div class="room-hotspots">
@@ -363,7 +345,7 @@
               <span class="beacon-dot"></span>
               <span style="font-size: 0.85rem; color: var(--text-sand);">All room items can be tailored to match your exact floor plan specifications.</span>
             </div>
-            <a href="https://wa.me/919876543210?text=Hi%20XYZ%20Furnitures!%20I%20would%20like%20to%20consult%20on%20room%20styling%20and%20dimensions." target="_blank" rel="noopener" class="btn btn-secondary btn-sm">
+            <a href="https://wa.me/919876543210?text=Hi%20CASA%20ANTICA!%20I%20would%20like%20to%20consult%20on%20room%20styling%20and%20dimensions." target="_blank" rel="noopener" class="btn btn-secondary btn-sm">
               💬 Consult on Styling via WhatsApp
             </a>
           </div>
@@ -383,7 +365,7 @@
             <div style="position: relative; border-radius: var(--radius-lg); overflow: hidden; aspect-ratio: 4/5;">
               <img 
                 src="https://images.unsplash.com/photo-1538688525198-9b88f6f53126?auto=format&fit=crop&w=1000&q=80" 
-                alt="Master Artisan Hand-Planing Solid Walnut at XYZ Furnitures" 
+                alt="Master Artisan Hand-Planing Solid Walnut at CASA ANTICA" 
                 style="width: 100%; height: 100%; object-fit: cover;"
               />
               <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(18, 12, 8, 0.95) 100%);"></div>
@@ -399,7 +381,7 @@
             <div class="section-eyebrow">The 4 Craftsmanship Pillars</div>
             <h2 style="margin-bottom: 16px;">Built by Hands That Respect the Grain</h2>
             <p style="margin-bottom: 24px; line-height: 1.7;">
-              In an era of disposable flat-pack furniture filled with glue and compressed sawdust, XYZ Furnitures preserves the sacred art of authentic solid woodcraft.
+              In an era of disposable flat-pack furniture filled with glue and compressed sawdust, CASA ANTICA preserves the sacred art of authentic solid woodcraft.
             </p>
 
             <div style="display: flex; flex-direction: column; gap: 16px;">
@@ -468,7 +450,7 @@
             </div>
             <div class="rating-stars" style="margin-bottom: 10px;">★★★★★</div>
             <p class="review-text">
-              "As an architect, the butterfly joinery and book-matched walnut grain from XYZ Furnitures match top-tier Italian craft studios. Their team is exceptionally responsive on WhatsApp with 3D layouts."
+              "As an architect, the butterfly joinery and book-matched walnut grain from CASA ANTICA match top-tier Italian craft studios. Their team is exceptionally responsive on WhatsApp with 3D layouts."
             </p>
             <div class="review-item-tag">
               <span>Commissioned:</span>
@@ -546,7 +528,7 @@
             <div style="position: relative; aspect-ratio: 16/10; overflow: hidden;">
               <img 
                 src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80" 
-                alt="XYZ Furnitures Bangalore Atelier Studio" 
+                alt="CASA ANTICA Bangalore Atelier Studio" 
                 style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease;"
                 class="studio-card-img"
               />
@@ -570,7 +552,7 @@
                   <a href="tel:+919876543210" class="btn btn-secondary btn-sm" style="flex: 1; justify-content: center;">
                     📞 Call Studio
                   </a>
-                  <a href="https://wa.me/919876543210?text=Hi%20XYZ%20Furnitures!%20I%20would%20like%20to%20visit%20your%20Bangalore%20Studio." target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm" style="flex: 1; justify-content: center;">
+                  <a href="https://wa.me/919876543210?text=Hi%20CASA%20ANTICA!%20I%20would%20like%20to%20visit%20your%20Bangalore%20Studio." target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm" style="flex: 1; justify-content: center;">
                     💬 WhatsApp
                   </a>
                 </div>
@@ -586,7 +568,7 @@
             <div style="position: relative; aspect-ratio: 16/10; overflow: hidden;">
               <img 
                 src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" 
-                alt="XYZ Furnitures Mumbai Experience Gallery" 
+                alt="CASA ANTICA Mumbai Experience Gallery" 
                 style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease;"
                 class="studio-card-img"
               />
@@ -610,7 +592,7 @@
                   <a href="tel:+918000123456" class="btn btn-secondary btn-sm" style="flex: 1; justify-content: center;">
                     📞 Call Studio
                   </a>
-                  <a href="https://wa.me/919876543210?text=Hi%20XYZ%20Furnitures!%20I%20would%20like%20to%20visit%20your%20Mumbai%20Gallery." target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm" style="flex: 1; justify-content: center;">
+                  <a href="https://wa.me/919876543210?text=Hi%20CASA%20ANTICA!%20I%20would%20like%20to%20visit%20your%20Mumbai%20Gallery." target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm" style="flex: 1; justify-content: center;">
                     💬 WhatsApp
                   </a>
                 </div>
@@ -626,7 +608,7 @@
             <div style="position: relative; aspect-ratio: 16/10; overflow: hidden;">
               <img 
                 src="https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?auto=format&fit=crop&w=800&q=80" 
-                alt="XYZ Furnitures Delhi NCR Studio" 
+                alt="CASA ANTICA Delhi NCR Studio" 
                 style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease;"
                 class="studio-card-img"
               />
@@ -650,7 +632,7 @@
                   <a href="tel:+919876543210" class="btn btn-secondary btn-sm" style="flex: 1; justify-content: center;">
                     📞 Call Studio
                   </a>
-                  <a href="https://wa.me/919876543210?text=Hi%20XYZ%20Furnitures!%20I%20would%20like%20to%20visit%20your%20Noida%20Studio." target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm" style="flex: 1; justify-content: center;">
+                  <a href="https://wa.me/919876543210?text=Hi%20CASA%20ANTICA!%20I%20would%20like%20to%20visit%20your%20Noida%20Studio." target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm" style="flex: 1; justify-content: center;">
                     💬 WhatsApp
                   </a>
                 </div>
@@ -699,7 +681,7 @@
           </p>
 
           <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;">
-            <a href="https://wa.me/919876543210?text=Hi%20XYZ%20Furnitures!%20I%20would%20like%20to%20consult%20on%20a%20custom%20order." target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
+            <a href="https://wa.me/919876543210?text=Hi%20CASA%20ANTICA!%20I%20would%20like%20to%20consult%20on%20a%20custom%20order." target="_blank" rel="noopener" class="btn btn-whatsapp btn-lg">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.662 1.438 5.178L2 22l4.981-1.398A9.957 9.957 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
               Chat on WhatsApp: +91 98765 43210
             </a>
@@ -720,15 +702,13 @@
       <div class="footer-grid">
         <!-- Col 1: Brand & Craft Philosophy -->
         <div class="footer-brand">
-          <a href="index.html" class="brand-logo" style="margin-bottom: 14px; display: inline-flex;">
-            <div class="logo-symbol">X</div>
-            <div class="brand-text">
-              <span class="brand-name">XYZ Furnitures</span>
-              <span class="brand-tagline">Artisan Woodcraft · Est. 2011</span>
+          <a href="index.html" class="footer-brand-link" aria-label="CASA ANTICA Homepage">
+            <div class="footer-logo-card">
+              <img src="logo.png" alt="CASA ANTICA — Leading India's Furniture Evolution" class="footer-logo-img" />
             </div>
           </a>
           <p>
-            Curators and creators of bespoke architectural furniture. Masterfully sculpted from certified sustainable Indian teak, American walnut, and white ash for enduring heirlooms.
+            Leading India's Furniture Evolution. Curators and creators of bespoke architectural furniture, masterfully sculpted from certified sustainable Indian teak, American walnut, and white ash for enduring heirlooms.
           </p>
           <div class="footer-social-links">
             <a href="https://instagram.com" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Instagram">
@@ -740,21 +720,21 @@
             <a href="https://pinterest.com" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Pinterest">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="4" x2="12" y2="20"></line><circle cx="12" cy="12" r="8"></circle></svg>
             </a>
-            <a href="mailto:concierge@xyzfurnitures.in" class="footer-social-btn" aria-label="Email Concierge">
+            <a href="mailto:concierge@casaantica.in" class="footer-social-btn" aria-label="Email Concierge">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
             </a>
           </div>
         </div>
 
-        <!-- Col 2: Furniture Collections -->
+        <!-- Col 2: Flagship Studios -->
         <div>
-          <h4 class="footer-col-title">Collections</h4>
+          <h4 class="footer-col-title">Flagship Studios</h4>
           <ul class="footer-links-list">
-            <li><a href="products.html" class="footer-link">Living Room Lounges</a></li>
-            <li><a href="products.html" class="footer-link">Sculptural Dining Tables</a></li>
-            <li><a href="products.html" class="footer-link">Sanctuary Bedroom Suites</a></li>
-            <li><a href="products.html" class="footer-link">Executive Walnut Desks</a></li>
-            <li><a href="products.html" class="footer-link">Curated Accent Lighting</a></li>
+            <li><a href="experience-studios.html#bangalore" class="footer-link">Bangalore Flagship Atelier</a></li>
+            <li><a href="experience-studios.html#mumbai" class="footer-link">Mumbai Design Gallery</a></li>
+            <li><a href="experience-studios.html#noida" class="footer-link">Delhi NCR Craft Studio</a></li>
+            <li><a href="experience-studios.html#reserve-tour" class="footer-link">Reserve VIP Studio Tour</a></li>
+            <li><a href="experience-studios.html#reserve-tour" class="footer-link">Curated Timber Library</a></li>
           </ul>
         </div>
 
@@ -784,7 +764,7 @@
             </div>
             <div>
               <span style="color: var(--text-muted); font-size: 0.80rem; display: block; margin-bottom: 2px;">Email Inquiries:</span>
-              <a href="mailto:concierge@xyzfurnitures.in" style="color: var(--amber-light);">concierge@xyzfurnitures.in</a>
+              <a href="mailto:concierge@casaantica.in" style="color: var(--amber-light);">concierge@casaantica.in</a>
             </div>
             <div style="font-size: 0.80rem; color: var(--text-muted); margin-top: 4px;">
               Pan-India White-Glove Installation
@@ -796,7 +776,7 @@
       <!-- Footer Bottom Bar -->
       <div class="footer-bottom">
         <div>
-          © 2026 XYZ Furnitures Private Limited. All rights reserved. Handcrafted with pride in India.
+          © 2026 CASA ANTICA Private Limited. All rights reserved. Handcrafted with pride in India.
         </div>
         <div class="footer-trust-tags">
           <span>🌿 Sustainable Teak</span>
@@ -819,9 +799,8 @@
   <div class="mobile-nav-drawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
     <div class="mobile-drawer-content">
       <div style="display: flex; justify-content: space-between; align-items: center;">
-        <a href="index.html" class="brand-logo">
-          <div class="logo-symbol">X</div>
-          <span class="brand-name" style="font-size: 1.15rem;">XYZ Furnitures</span>
+        <a href="index.html" class="drawer-brand-card" aria-label="CASA ANTICA Homepage">
+          <img src="logo.png" alt="CASA ANTICA" class="drawer-logo-img" />
         </a>
         <button class="action-icon-btn mobile-drawer-close" aria-label="Close menu">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
@@ -830,7 +809,6 @@
 
       <div class="mobile-drawer-links">
         <a href="index.html" class="mobile-drawer-link active">Home</a>
-        <a href="products.html" class="mobile-drawer-link">Collections Catalog</a>
         <a href="experience-studios.html" class="mobile-drawer-link">Visit Physical Studios</a>
         <a href="about.html" class="mobile-drawer-link">Our Heritage & Story</a>
         <a href="reviews.html" class="mobile-drawer-link">Client Reviews & Photos</a>
@@ -867,10 +845,6 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
       <span>Studios</span>
     </a>
-    <a href="products.html" class="dock-item" aria-label="Catalog">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
-      <span>Catalog</span>
-    </a>
     <a href="contact.html" class="dock-item" aria-label="Contact">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
       <span>Contact</span>
@@ -895,53 +869,5 @@
   <script src="main.js"></script>
   <script src="animations.js"></script>
 
-  <!-- Featured Products Loader script for Homepage (Zero Prices) -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const container = document.getElementById('featured-products-container');
-      if (!container || !window.XYZ_PRODUCTS) return;
-
-      const featured = XYZ_PRODUCTS.slice(0, 6);
-
-      container.innerHTML = featured.map(p => `
-        <article class="product-card tilt-card" id="card-${p.id}">
-          <div class="product-media-wrap">
-            <img src="${p.image}" alt="${p.name}" class="product-media-img" loading="lazy" />
-            <div class="product-badges">
-              <span class="badge-pill badge-${p.badgeType}">${p.badge}</span>
-            </div>
-            <button class="btn btn-secondary btn-sm product-quick-btn" onclick="openQuickView('${p.id}')">
-              ⚡ Quick View
-            </button>
-          </div>
-
-          <div class="product-info">
-            <div class="product-category">${p.categoryLabel}</div>
-            <h3 class="product-title">
-              <a href="product-detail.html?id=${p.id}">${p.name}</a>
-            </h3>
-
-            <div class="product-meta">
-              <div class="rating-stars">★★★★★</div>
-              <span>${p.rating} (${p.reviewsCount} reviews)</span>
-            </div>
-
-            <div style="font-size: 0.82rem; color: var(--text-sand); margin-bottom: 12px; line-height: 1.4;">
-              ${p.materials.split('·')[0]}
-            </div>
-
-            <div class="product-action-row">
-              <a href="https://wa.me/919876543210?text=Hi%20XYZ%20Furnitures!%20I%20am%20interested%20in%20${encodeURIComponent(p.name)}." target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm">
-                💬 Inquire
-              </a>
-              <a href="product-detail.html?id=${p.id}" class="btn btn-secondary btn-sm">
-                Details
-              </a>
-            </div>
-          </div>
-        </article>
-      `).join('');
-    });
-  </script>
 </body>
 </html>

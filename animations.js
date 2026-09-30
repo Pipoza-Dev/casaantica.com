@@ -1,5 +1,5 @@
 /**
- * XYZ FURNITURES — INTERACTIVE VISUAL ENGINE
+ * CASA ANTICA — INTERACTIVE VISUAL ENGINE
  * Crafted & Engineered by PipoZa Dev Studio (https://pipoza.s.gy/pipoza.in)
  * Scroll Reveals, Counters, 3D Tilt, Swatches, and Room Visualizer (No Prices)
  */
@@ -157,41 +157,87 @@ function initRoomVisualizer() {
   if (!tabs.length || !mainImage) return;
 
   const roomData = {
-    living: {
-      title: "The Solis Modern Living Suite",
-      desc: "Curved Monaco bouclé sectional paired with the Aurelia travertine table and ambient Solis floor luminaire.",
-      image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=80",
+    beds: {
+      title: "Customized Modular Bed Suite",
+      desc: "Hydraulic lift storage bed engineered as per master bedroom dimensions, featuring acoustic upholstered wall panels and floating nightstands.",
+      image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1400&q=80",
       hotspots: [
-        { x: '45%', y: '68%', name: 'Monaco Bouclé Sectional', detail: 'French Bouclé Blanc' },
-        { x: '68%', y: '78%', name: 'Aurelia Travertine Table', detail: 'Honed Roman Marble' },
-        { x: '18%', y: '52%', name: 'Solis Amber Floor Lamp', detail: 'Hand-Blown Glass' }
-      ]
-    },
-    dining: {
-      title: "The Kyoto Architectural Dining Suite",
-      desc: "Single-slab live-edge American walnut table accompanied by steam-bent Bauhaus dining chairs.",
-      image: "https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?auto=format&fit=crop&w=1400&q=80",
-      hotspots: [
-        { x: '50%', y: '65%', name: 'Kyoto Live-Edge Dining Table', detail: 'Solid American Walnut' },
-        { x: '35%', y: '70%', name: 'Bauhaus Dining Chairs', detail: 'Steam-Bent Ash & Danish Cord' }
+        { x: '52%', y: '60%', name: 'Custom Modular Hydraulic Bed', detail: 'German Lift & Upholstery' },
+        { x: '22%', y: '68%', name: 'Floating Teak Nightstand', detail: 'Concealed Soft-Close Runner' }
       ]
     },
     bedroom: {
-      title: "The Elysium Ryokan Bedroom Suite",
-      desc: "Floating solid oak platform bed with concealed sunset ambient LEDs and matching Zenith bedside stands.",
+      title: "Customized Modular Bed Suite",
+      desc: "Hydraulic lift storage bed engineered as per master bedroom dimensions, featuring acoustic upholstered wall panels and floating nightstands.",
       image: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1400&q=80",
       hotspots: [
-        { x: '52%', y: '60%', name: 'Elysium Platform Bed', detail: 'Solid Oak & Ambient LED' },
-        { x: '22%', y: '68%', name: 'Zenith Floating Nightstand', detail: 'Plantation Solid Teak' }
+        { x: '52%', y: '60%', name: 'Custom Modular Hydraulic Bed', detail: 'German Lift & Upholstery' },
+        { x: '22%', y: '68%', name: 'Floating Teak Nightstand', detail: 'Concealed Soft-Close Runner' }
+      ]
+    },
+    kitchens: {
+      title: "Bespoke Modular Luxury Kitchen",
+      desc: "Custom 3D space-planned modular kitchen with imported acrylic shutters, Blum soft-close fittings, and seamless sintered stone waterfall island.",
+      image: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1400&q=80",
+      hotspots: [
+        { x: '48%', y: '58%', name: 'Sintered Stone Waterfall Island', detail: 'Imported Stain-Resistant Top' },
+        { x: '25%', y: '45%', name: 'Modular Blum Soft-Close Pantry', detail: 'Smart Storage Carousels' }
+      ]
+    },
+    dining: {
+      title: "Imported Marble & Walnut Dining Suite",
+      desc: "Bespoke dining table featuring imported Italian marble atop an architectural walnut base, accompanied by sculpted ergonomic chairs.",
+      image: "https://images.unsplash.com/photo-1615066390971-03e4e1c36ddf?auto=format&fit=crop&w=1400&q=80",
+      hotspots: [
+        { x: '50%', y: '65%', name: 'Verona Italian Marble Dining Table', detail: 'Imported Marble & Solid Walnut' },
+        { x: '35%', y: '70%', name: 'Bespoke Sculpted Chairs', detail: 'Performance Bouclé Fabric' }
+      ]
+    },
+    tables: {
+      title: "Designer Center Table & Living Lounge",
+      desc: "Curved living sectional paired with our signature fluted travertine center table and handcrafted accent lighting.",
+      image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=80",
+      hotspots: [
+        { x: '68%', y: '78%', name: 'Arcos Fluted Center Table', detail: 'Honed Roman Travertine' },
+        { x: '45%', y: '68%', name: 'Custom Curved Sectional', detail: 'Textured French Bouclé' },
+        { x: '18%', y: '52%', name: 'Solis Amber Floor Luminaire', detail: 'Hand-Blown Glass' }
+      ]
+    },
+    living: {
+      title: "Designer Center Table & Living Lounge",
+      desc: "Curved living sectional paired with our signature fluted travertine center table and handcrafted accent lighting.",
+      image: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=80",
+      hotspots: [
+        { x: '68%', y: '78%', name: 'Arcos Fluted Center Table', detail: 'Honed Roman Travertine' },
+        { x: '45%', y: '68%', name: 'Custom Curved Sectional', detail: 'Textured French Bouclé' },
+        { x: '18%', y: '52%', name: 'Solis Amber Floor Luminaire', detail: 'Hand-Blown Glass' }
+      ]
+    },
+    wardrobes: {
+      title: "Customized Modular Walk-In Wardrobe",
+      desc: "Floor-to-ceiling modular wardrobe system with tinted glass sliding doors, sensor-activated warm LED illumination, and velvet organizer trays.",
+      image: "https://images.unsplash.com/photo-1558997519-83ea9252def8?auto=format&fit=crop&w=1400&q=80",
+      hotspots: [
+        { x: '50%', y: '55%', name: 'Tinted Glass Sliding Wardrobe', detail: 'Concealed Imported Gear' },
+        { x: '28%', y: '70%', name: 'Velvet Accessory & Trouser Organizers', detail: 'Custom Compartments' }
+      ]
+    },
+    corporate: {
+      title: "Corporate & Executive Boardroom Suite",
+      desc: "Tailor-made for executive boardrooms and modern office suites with integrated pop-up data hubs and ergonomic high-back chairs.",
+      image: "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=1400&q=80",
+      hotspots: [
+        { x: '50%', y: '62%', name: 'Apex Executive Boardroom Table', detail: 'American Walnut & Smart Conduits' },
+        { x: '78%', y: '45%', name: 'Architectural Bookshelf & Credenza', detail: 'Smoked Glass & Storage' }
       ]
     },
     office: {
-      title: "The Oberoi Executive Studio Suite",
-      desc: "Designed for focused visionary leadership with book-matched walnut desk and Arcos smoked glass shelving.",
+      title: "Corporate & Executive Boardroom Suite",
+      desc: "Tailor-made for executive boardrooms and modern office suites with integrated pop-up data hubs and ergonomic high-back chairs.",
       image: "https://images.unsplash.com/photo-1518455027359-f3f8164ba6bd?auto=format&fit=crop&w=1400&q=80",
       hotspots: [
-        { x: '50%', y: '62%', name: 'Oberoi Executive Desk', detail: 'Smoked Walnut & Brass' },
-        { x: '78%', y: '45%', name: 'Arcos Architectural Bookshelf', detail: 'Smoked Glass & Walnut' }
+        { x: '50%', y: '62%', name: 'Apex Executive Boardroom Table', detail: 'American Walnut & Smart Conduits' },
+        { x: '78%', y: '45%', name: 'Architectural Bookshelf & Credenza', detail: 'Smoked Glass & Storage' }
       ]
     }
   };

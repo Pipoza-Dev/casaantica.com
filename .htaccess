@@ -8,6 +8,10 @@
   # Redirect /home to /index
   RewriteRule ^home/?$ index.html [R=301,L]
 
+  # Redirect legacy product routes to experience-studios
+  RewriteRule ^products(\.html)?/?$ experience-studios [R=301,L]
+  RewriteRule ^product-detail(\.html)?/?$ experience-studios [R=301,L]
+
   # Redirect .html extension to clean URL
   RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.html [NC]
   RewriteRule ^ %1 [R=301,L]

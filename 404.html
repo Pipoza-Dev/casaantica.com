@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>404 — Creation Not Found | XYZ Furnitures</title>
+  <title>404 — Creation Not Found | CASA ANTICA</title>
   
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23f59e0b'/%3E%3Cpath d='M8 10h16M16 10v12M11 22h10' stroke='%23120c08' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/png" href="logo-symbol.png">
 
   <!-- Main Folder Stylesheets -->
   <link rel="stylesheet" href="style.css">
@@ -16,15 +16,28 @@
   <!-- Intelligent Client-side Clean URL Router for GitHub Pages & Static Hosts -->
   <script>
     (function() {
-      const savedTheme = localStorage.getItem('xyz-theme') || 'default';
+      const savedTheme = localStorage.getItem('casa-theme') || localStorage.getItem('xyz-theme') || 'default';
       document.documentElement.setAttribute('data-theme', savedTheme);
 
-      const knownPages = ['index', 'home', 'products', 'product-detail', 'experience-studios', 'about', 'reviews', 'contact'];
+      const knownPages = ['index', 'home', 'experience-studios', 'about', 'reviews', 'contact'];
       const pathname = window.location.pathname;
       const cleanPath = pathname.replace(/\/+$/, '');
       const lastSlash = cleanPath.lastIndexOf('/');
       const slug = (lastSlash !== -1) ? cleanPath.substring(lastSlash + 1) : cleanPath;
       const cleanSlug = slug.replace(/\.html$/, '');
+
+      if (cleanSlug === 'products' || cleanSlug === 'product-detail') {
+        let baseDir = (lastSlash !== -1) ? cleanPath.substring(0, lastSlash + 1) : '/';
+        if (window.location.hostname.endsWith('github.io')) {
+          const parts = pathname.split('/').filter(Boolean);
+          const userDomainPrefix = window.location.hostname.split('.')[0];
+          if (parts.length > 0 && parts[0] !== userDomainPrefix) {
+            baseDir = '/' + parts[0] + '/';
+          }
+        }
+        window.location.replace(baseDir + "experience-studios.html" + window.location.search + window.location.hash);
+        return;
+      }
 
       if (knownPages.includes(cleanSlug)) {
         let baseDir = (lastSlash !== -1) ? cleanPath.substring(0, lastSlash + 1) : '/';
@@ -106,11 +119,9 @@
     <div class="glass-card" style="max-width: 640px; width: 100%; padding: clamp(36px, 6vw, 60px); text-align: center; border: 1px solid var(--amber-primary); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7);">
       
       <!-- Logo Symbol -->
-      <a href="index.html" class="brand-logo" style="justify-content: center; margin-bottom: 24px;">
-        <div class="logo-symbol">X</div>
-        <div class="brand-text">
-          <span class="brand-name">XYZ Furnitures</span>
-          <span class="brand-tagline">Artisan Woodcraft</span>
+      <a href="index.html" class="brand-logo" style="justify-content: center; margin-bottom: 24px;" aria-label="CASA ANTICA Homepage">
+        <div class="brand-logo-full">
+          <img src="logo.png" alt="CASA ANTICA — Leading India's Furniture Evolution" />
         </div>
       </a>
 
@@ -133,9 +144,6 @@
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
           Return to Home
         </a>
-        <a href="products.html" class="btn btn-secondary">
-          Explore Collections
-        </a>
         <a href="experience-studios.html" class="btn btn-secondary">
           Visit Physical Studios
         </a>
@@ -156,7 +164,7 @@
   </main>
 
   <footer style="text-align: center; padding: 20px; font-size: 0.8rem; color: var(--text-muted); position: relative; z-index: 2;">
-    <span>Crafted with pride by <a href="https://pipoza.s.gy/pipoza.in" target="_blank" rel="noopener" style="color: var(--amber-light); font-weight: 600;">PipoZa Dev Studio</a> · © 2026 XYZ Furnitures</span>
+    <span>Crafted with pride by <a href="https://pipoza.s.gy/pipoza.in" target="_blank" rel="noopener" style="color: var(--amber-light); font-weight: 600;">PipoZa Dev Studio</a> · © 2026 CASA ANTICA</span>
   </footer>
 
   <script src="main.js"></script>
