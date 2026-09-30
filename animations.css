@@ -20,10 +20,27 @@
   will-change: transform;
 }
 
-[data-theme="light"] .ambient-bg {
+[data-mode="coffee"][data-theme="light"] .ambient-bg,
+[data-palette="coffee-light"] .ambient-bg,
+[data-theme="light"]:not([data-mode="classic"]) .ambient-bg {
   opacity: 0.60;
   filter: blur(45px);
   -webkit-filter: blur(45px);
+}
+
+[data-mode="classic"][data-theme="light"] .ambient-bg,
+[data-palette="classic-light"] .ambient-bg,
+[data-theme="classic"]:not([data-theme="dark"]) .ambient-bg {
+  opacity: 0.55;
+  filter: blur(48px);
+  -webkit-filter: blur(48px);
+}
+
+[data-mode="classic"][data-theme="dark"] .ambient-bg,
+[data-palette="classic-dark"] .ambient-bg {
+  opacity: 0.88;
+  filter: blur(42px);
+  -webkit-filter: blur(42px);
 }
 
 /* Ambient Moving Aurora Mesh */
@@ -42,12 +59,36 @@
   will-change: transform;
 }
 
-[data-theme="light"] .ambient-mesh {
+/* Coffee Light Mesh */
+[data-mode="coffee"][data-theme="light"] .ambient-mesh,
+[data-palette="coffee-light"] .ambient-mesh,
+[data-theme="light"]:not([data-mode="classic"]) .ambient-mesh {
   background: 
     radial-gradient(circle at 18% 22%, rgba(180, 83, 9, 0.18) 0%, transparent 45%),
     radial-gradient(circle at 82% 18%, rgba(154, 52, 18, 0.14) 0%, transparent 40%),
     radial-gradient(circle at 35% 82%, rgba(194, 120, 3, 0.15) 0%, transparent 45%),
     radial-gradient(circle at 78% 78%, rgba(217, 119, 6, 0.12) 0%, transparent 45%);
+}
+
+/* Classic Light Mesh */
+[data-mode="classic"][data-theme="light"] .ambient-mesh,
+[data-palette="classic-light"] .ambient-mesh,
+[data-theme="classic"]:not([data-theme="dark"]) .ambient-mesh {
+  background: 
+    radial-gradient(circle at 18% 22%, rgba(196, 39, 32, 0.14) 0%, transparent 45%),
+    radial-gradient(circle at 82% 18%, rgba(212, 175, 55, 0.12) 0%, transparent 40%),
+    radial-gradient(circle at 35% 82%, rgba(37, 99, 235, 0.08) 0%, transparent 45%),
+    radial-gradient(circle at 78% 78%, rgba(196, 39, 32, 0.12) 0%, transparent 45%);
+}
+
+/* Classic Dark Mesh */
+[data-mode="classic"][data-theme="dark"] .ambient-mesh,
+[data-palette="classic-dark"] .ambient-mesh {
+  background: 
+    radial-gradient(circle at 18% 22%, rgba(255, 51, 41, 0.28) 0%, transparent 45%),
+    radial-gradient(circle at 82% 18%, rgba(250, 204, 21, 0.16) 0%, transparent 40%),
+    radial-gradient(circle at 35% 82%, rgba(56, 189, 248, 0.14) 0%, transparent 45%),
+    radial-gradient(circle at 78% 78%, rgba(196, 39, 32, 0.24) 0%, transparent 45%);
 }
 
 @keyframes meshWarmAurora {
@@ -65,8 +106,56 @@
   will-change: transform;
 }
 
-[data-theme="light"] .liquid-blob {
+[data-mode="coffee"][data-theme="light"] .liquid-blob,
+[data-palette="coffee-light"] .liquid-blob,
+[data-theme="light"]:not([data-mode="classic"]) .liquid-blob {
   mix-blend-mode: multiply;
+}
+
+[data-mode="classic"][data-theme="light"] .liquid-blob,
+[data-palette="classic-light"] .liquid-blob,
+[data-theme="classic"]:not([data-theme="dark"]) .liquid-blob {
+  mix-blend-mode: multiply;
+}
+
+[data-mode="classic"][data-theme="dark"] .liquid-blob,
+[data-palette="classic-dark"] .liquid-blob {
+  mix-blend-mode: screen;
+}
+
+/* Classic Light Blobs */
+[data-mode="classic"][data-theme="light"] .blob-amber-1,
+[data-palette="classic-light"] .blob-amber-1,
+[data-theme="classic"]:not([data-theme="dark"]) .blob-amber-1 {
+  background: radial-gradient(circle, rgba(196, 39, 32, 0.18) 0%, rgba(196, 39, 32, 0.04) 65%, transparent 100%);
+}
+
+[data-mode="classic"][data-theme="light"] .blob-caramel-1,
+[data-palette="classic-light"] .blob-caramel-1,
+[data-theme="classic"]:not([data-theme="dark"]) .blob-caramel-1 {
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.16) 0%, rgba(212, 175, 55, 0.03) 65%, transparent 100%);
+}
+
+[data-mode="classic"][data-theme="light"] .blob-copper-1,
+[data-palette="classic-light"] .blob-copper-1,
+[data-theme="classic"]:not([data-theme="dark"]) .blob-copper-1 {
+  background: radial-gradient(circle, rgba(225, 29, 72, 0.14) 0%, rgba(225, 29, 72, 0.02) 65%, transparent 100%);
+}
+
+/* Classic Dark Blobs */
+[data-mode="classic"][data-theme="dark"] .blob-amber-1,
+[data-palette="classic-dark"] .blob-amber-1 {
+  background: radial-gradient(circle, rgba(255, 51, 41, 0.45) 0%, rgba(196, 39, 32, 0.18) 65%, transparent 100%);
+}
+
+[data-mode="classic"][data-theme="dark"] .blob-caramel-1,
+[data-palette="classic-dark"] .blob-caramel-1 {
+  background: radial-gradient(circle, rgba(250, 204, 21, 0.32) 0%, rgba(212, 175, 55, 0.12) 65%, transparent 100%);
+}
+
+[data-mode="classic"][data-theme="dark"] .blob-copper-1,
+[data-palette="classic-dark"] .blob-copper-1 {
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.28) 0%, rgba(37, 99, 235, 0.10) 65%, transparent 100%);
 }
 
 /* Warm Golden Amber Blob */
@@ -142,9 +231,59 @@
   will-change: transform;
 }
 
-[data-theme="light"] .liquid-gem {
+[data-mode="coffee"][data-theme="light"] .liquid-gem,
+[data-palette="coffee-light"] .liquid-gem,
+[data-theme="light"]:not([data-mode="classic"]) .liquid-gem {
   mix-blend-mode: multiply;
   opacity: 0.45;
+}
+
+[data-mode="classic"][data-theme="light"] .liquid-gem,
+[data-palette="classic-light"] .liquid-gem,
+[data-theme="classic"]:not([data-theme="dark"]) .liquid-gem {
+  mix-blend-mode: multiply;
+  opacity: 0.38;
+}
+
+[data-mode="classic"][data-theme="dark"] .liquid-gem,
+[data-palette="classic-dark"] .liquid-gem {
+  mix-blend-mode: screen;
+  opacity: 0.75;
+}
+
+/* Classic Light Gems */
+[data-mode="classic"][data-theme="light"] .gem-amber,
+[data-palette="classic-light"] .gem-amber,
+[data-theme="classic"]:not([data-theme="dark"]) .gem-amber {
+  background: radial-gradient(circle, rgba(196, 39, 32, 0.24) 0%, rgba(196, 39, 32, 0.05) 60%, transparent 100%);
+}
+
+[data-mode="classic"][data-theme="light"] .gem-caramel,
+[data-palette="classic-light"] .gem-caramel,
+[data-theme="classic"]:not([data-theme="dark"]) .gem-caramel {
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.20) 0%, rgba(212, 175, 55, 0.04) 60%, transparent 100%);
+}
+
+[data-mode="classic"][data-theme="light"] .gem-bronze,
+[data-palette="classic-light"] .gem-bronze,
+[data-theme="classic"]:not([data-theme="dark"]) .gem-bronze {
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.18) 0%, rgba(37, 99, 235, 0.03) 60%, transparent 100%);
+}
+
+/* Classic Dark Gems */
+[data-mode="classic"][data-theme="dark"] .gem-amber,
+[data-palette="classic-dark"] .gem-amber {
+  background: radial-gradient(circle, rgba(255, 51, 41, 0.50) 0%, rgba(196, 39, 32, 0.18) 60%, transparent 100%);
+}
+
+[data-mode="classic"][data-theme="dark"] .gem-caramel,
+[data-palette="classic-dark"] .gem-caramel {
+  background: radial-gradient(circle, rgba(250, 204, 21, 0.40) 0%, rgba(212, 175, 55, 0.12) 60%, transparent 100%);
+}
+
+[data-mode="classic"][data-theme="dark"] .gem-bronze,
+[data-palette="classic-dark"] .gem-bronze {
+  background: radial-gradient(circle, rgba(56, 189, 248, 0.35) 0%, rgba(37, 99, 235, 0.10) 60%, transparent 100%);
 }
 
 .gem-amber {

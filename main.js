@@ -146,55 +146,157 @@ function initMobileDrawer() {
 }
 
 /**
- * 3. 3-Way Theme Switcher (Default -> Dark -> Light -> Default)
+ * 3. 2 Modes (Coffee & Classic) × 2 Themes (Dark & Light) Engine
+ * Coffee Mode:
+ *   - Dark Theme: Deep Obsidian Espresso & Warm Honey Amber (Default)
+ *   - Light Theme: Toasted Almond Sand & Caramel Latte (Rich Organic Parchment)
+ * Classic Mode:
+ *   - Light Theme: Casa Antica Signature White & Brand Crimson #C42720 with Multi-Hue UI
+ *   - Dark Theme: Ultra-Sleek Midnight Carbon Onyx & Luminous Crimson Neon Red
  */
 function initThemeToggle() {
-  const themeButtons = document.querySelectorAll('.theme-toggle-btn');
-  if (!themeButtons.length) return;
+  let savedMode = localStorage.getItem('casa-mode') || 'coffee';
+  let savedTheme = localStorage.getItem('casa-theme') || 'dark';
 
-  const savedTheme = localStorage.getItem('casa-theme') || localStorage.getItem('xyz-theme') || 'default';
-  document.documentElement.setAttribute('data-theme', savedTheme);
-  themeButtons.forEach(btn => updateThemeIcon(btn, savedTheme));
+  // Legacy fallback migration
+  if (savedTheme === 'classic') {
+    savedMode = 'classic';
+    savedTheme = 'light';
+  } else if (savedTheme === 'default' || savedTheme === 'dark') {
+    if (!localStorage.getItem('casa-mode')) savedMode = 'coffee';
+    savedTheme = 'dark';
+  } else if (savedTheme === 'light') {
+    if (!localStorage.getItem('casa-mode')) savedMode = 'coffee';
+    savedTheme = 'light';
+  }
 
-  themeButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const current = document.documentElement.getAttribute('data-theme') || 'default';
-      let next = 'default';
-      
-      if (current === 'default') {
-        next = 'dark';
-      } else if (current === 'dark') {
-        next = 'light';
+  // Ensure valid values
+  if (!['coffee', 'classic'].includes(savedMode)) savedMode = 'coffee';
+  if (!['dark', 'light'].includes(savedTheme)) savedTheme = 'dark';
+
+  function applyPalette(mode, theme, announce = false, isModeChange = false) {
+    const palette = `${mode}-${theme}`;
+    document.documentElement.setAttribute('data-mode', mode);
+    document.documentElement.setAttribute('data-theme', theme);
+    document.documentElement.setAttribute('data-palette', palette);
+
+    localStorage.setItem('casa-mode', mode);
+    localStorage.setItem('casa-theme', theme);
+
+    // Update Desktop & Mobile Segmented Controls
+    document.querySelectorAll('[data-mode-val]').forEach(btn => {
+      const match = btn.getAttribute('data-mode-val') === mode;
+      btn.classList.toggle('active', match);
+      btn.setAttribute('aria-checked', match ? 'true' : 'false');
+    });
+
+    document.querySelectorAll('[data-theme-val]').forEach(btn => {
+      const match = btn.getAttribute('data-theme-val') === theme;
+      btn.classList.toggle('active', match);
+      btn.setAttribute('aria-checked', match ? 'true' : 'false');
+    });
+
+    // Update Drawer Status Badge
+    const drawerBadges = document.querySelectorAll('#drawerActivePaletteBadge, .drawer-palette-badge');
+    const readableTitles = {
+      'coffee-dark': '☕ Coffee · 🌙 Obsidian Dark',
+      'coffee-light': '☕ Coffee · ☀️ Almond Sand Light',
+      'classic-light': '🏛️ Classic · ☀️ Architectural White Light',
+      'classic-dark': '🏛️ Classic · 🌙 Midnight Carbon Dark'
+    };
+    drawerBadges.forEach(b => {
+      b.textContent = readableTitles[palette] || `${mode} · ${theme}`;
+    });
+
+    // Update Quick Cycle Icon Buttons
+    document.querySelectorAll('.theme-toggle-btn').forEach(btn => {
+      updateThemeIcon(btn, mode, theme);
+    });
+
+    if (announce) {
+      if (isModeChange) {
+        playAcousticChime();
       } else {
-        next = 'default';
+        playWoodClick();
+      }
+      showToast(`${readableTitles[palette] || palette} Activated`);
+    }
+  }
+
+  // Initial application without toast
+  applyPalette(savedMode, savedTheme, false);
+
+  // Wire up Mode Selector Buttons (e.g. [☕ Coffee] or [🏛️ Classic])
+  document.querySelectorAll('[data-mode-val]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const newMode = btn.getAttribute('data-mode-val');
+      const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+      applyPalette(newMode, currentTheme, true, true);
+    });
+  });
+
+  // Wire up Theme Selector Buttons (e.g. [🌙 Dark] or [☀️ Light])
+  document.querySelectorAll('[data-theme-val]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const currentMode = document.documentElement.getAttribute('data-mode') || 'coffee';
+      const newTheme = btn.getAttribute('data-theme-val');
+      applyPalette(currentMode, newTheme, true, false);
+    });
+  });
+
+  // Wire up Quick Cycle Buttons (.theme-toggle-btn)
+  // Cycle order: Coffee Dark -> Coffee Light -> Classic Light -> Classic Dark -> Coffee Dark
+  document.querySelectorAll('.theme-toggle-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const curMode = document.documentElement.getAttribute('data-mode') || 'coffee';
+      const curTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+      let nextMode = 'coffee';
+      let nextTheme = 'dark';
+
+      if (curMode === 'coffee' && curTheme === 'dark') {
+        nextMode = 'coffee';
+        nextTheme = 'light';
+      } else if (curMode === 'coffee' && curTheme === 'light') {
+        nextMode = 'classic';
+        nextTheme = 'light';
+      } else if (curMode === 'classic' && curTheme === 'light') {
+        nextMode = 'classic';
+        nextTheme = 'dark';
+      } else {
+        nextMode = 'coffee';
+        nextTheme = 'dark';
       }
 
-      document.documentElement.setAttribute('data-theme', next);
-      localStorage.setItem('casa-theme', next);
-      themeButtons.forEach(b => updateThemeIcon(b, next));
-      playWoodClick();
-
-      let label = 'Warm Roasted Coffee Theme';
-      if (next === 'dark') label = 'Deep Obsidian Espresso Theme';
-      if (next === 'light') label = 'Toasted Almond Sand Theme';
-      showToast(`${label} Activated`);
+      const isModeChange = (nextMode !== curMode);
+      applyPalette(nextMode, nextTheme, true, isModeChange);
     });
   });
 }
 
-function updateThemeIcon(btn, theme) {
-  if (theme === 'dark') {
-    // Moon Icon
-    btn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
-    btn.setAttribute('title', 'Theme: Deep Espresso (Click for Toasted Almond Sand)');
-  } else if (theme === 'light') {
-    // Sun/Caramel Icon
-    btn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`;
-    btn.setAttribute('title', 'Theme: Toasted Almond Sand (Click for Warm Roasted Coffee)');
+function updateThemeIcon(btn, mode, theme) {
+  if (mode === 'classic') {
+    if (theme === 'dark') {
+      // Classic Dark: Neon Crimson Ring & Moon
+      btn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="#ff3329" stroke-width="2.2"/><path d="M12 3a9 9 0 0 0 9 9 9 9 0 1 1-9-9z" fill="#ff3329"/></svg>`;
+      btn.setAttribute('title', 'Classic Mode · Midnight Carbon Onyx (Click for Coffee Dark)');
+    } else {
+      // Classic Light: Casa Antica Red Emblem
+      btn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#c42720" stroke-width="2.2"/><path d="M12 2a10 10 0 0 1 0 20V2z" fill="#c42720"/><circle cx="12" cy="12" r="3.2" fill="#ffffff"/></svg>`;
+      btn.setAttribute('title', 'Classic Mode · Pure Architectural White (Click for Classic Dark)');
+    }
   } else {
-    // Default Warm Coffee Icon
-    btn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>`;
-    btn.setAttribute('title', 'Theme: Warm Roasted Coffee (Click for Deep Espresso)');
+    if (theme === 'light') {
+      // Coffee Light: Sun/Caramel Icon
+      btn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>`;
+      btn.setAttribute('title', 'Coffee Mode · Toasted Almond Sand Light (Click for Classic Mode)');
+    } else {
+      // Coffee Dark: Honey Amber Moon
+      btn.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>`;
+      btn.setAttribute('title', 'Coffee Mode · Deep Obsidian Dark (Click for Coffee Light)');
+    }
   }
 }
 

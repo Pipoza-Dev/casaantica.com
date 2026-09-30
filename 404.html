@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="default">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -16,8 +16,17 @@
   <!-- Intelligent Client-side Clean URL Router for GitHub Pages & Static Hosts -->
   <script>
     (function() {
-      const savedTheme = localStorage.getItem('casa-theme') || localStorage.getItem('xyz-theme') || 'default';
-      document.documentElement.setAttribute('data-theme', savedTheme);
+      try {
+        let savedMode = localStorage.getItem('casa-mode') || 'coffee';
+        let savedTheme = localStorage.getItem('casa-theme') || 'dark';
+        if (savedTheme === 'classic') { savedMode = 'classic'; savedTheme = 'light'; }
+        else if (savedTheme === 'default') { savedTheme = 'dark'; }
+        if (!['coffee', 'classic'].includes(savedMode)) savedMode = 'coffee';
+        if (!['dark', 'light'].includes(savedTheme)) savedTheme = 'dark';
+        document.documentElement.setAttribute('data-mode', savedMode);
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        document.documentElement.setAttribute('data-palette', savedMode + '-' + savedTheme);
+      } catch (e) {}
 
       const knownPages = ['index', 'home', 'experience-studios', 'about', 'reviews', 'contact'];
       const pathname = window.location.pathname;
@@ -84,31 +93,35 @@
   <aside class="announcement-bar" aria-label="Craftsmanship Guild Announcement">
     <div class="announcement-track">
       <div class="announcement-slide">
-        <span>✨ ARTISAN CRAFTSMANSHIP GUILD</span>
+        <span>✨ CASA ANTICA · IMPORTER & CUSTOMIZED MODULAR FURNITURE MAKER</span>
         <span class="ticker-sep">✦</span>
-        <span>Kiln-Dried Solid Walnut & Teak</span>
+        <span>Beds · Kitchens · Dining Sets · Center Tables · Wardrobes · Corporate Furniture</span>
         <span class="ticker-sep">✦</span>
-        <span>Free White-Glove Installation Across India</span>
+        <span>Crafted As Per Customer's Design, Ideas & Living</span>
+        <span class="ticker-sep">✦</span>
+        <span>Surat HQ & Pan-India Studios</span>
         <span class="ticker-sep">✦</span>
         <span class="pipoza-pill">Crafted by <a href="https://pipoza.s.gy/pipoza.in" target="_blank" rel="noopener">PipoZa Dev Studio</a></span>
         <span class="ticker-sep">✦</span>
-        <span>🏛️ Experience Studios in Bangalore, Mumbai & Noida</span>
+        <span>📞 WhatsApp: +91 832 001 2921</span>
         <span class="ticker-sep">✦</span>
-        <span>📞 VIP Concierge: +91 98765 43210</span>
+        <span>✉️ casaanticasurat@gmail.com</span>
         <span class="ticker-sep">✦</span>
       </div>
       <div class="announcement-slide" aria-hidden="true">
-        <span>✨ ARTISAN CRAFTSMANSHIP GUILD</span>
+        <span>✨ CASA ANTICA · IMPORTER & CUSTOMIZED MODULAR FURNITURE MAKER</span>
         <span class="ticker-sep">✦</span>
-        <span>Kiln-Dried Solid Walnut & Teak</span>
+        <span>Beds · Kitchens · Dining Sets · Center Tables · Wardrobes · Corporate Furniture</span>
         <span class="ticker-sep">✦</span>
-        <span>Free White-Glove Installation Across India</span>
+        <span>Crafted As Per Customer's Design, Ideas & Living</span>
+        <span class="ticker-sep">✦</span>
+        <span>Surat HQ & Pan-India Studios</span>
         <span class="ticker-sep">✦</span>
         <span class="pipoza-pill">Crafted by <a href="https://pipoza.s.gy/pipoza.in" target="_blank" rel="noopener">PipoZa Dev Studio</a></span>
         <span class="ticker-sep">✦</span>
-        <span>🏛️ Experience Studios in Bangalore, Mumbai & Noida</span>
+        <span>📞 WhatsApp: +91 832 001 2921</span>
         <span class="ticker-sep">✦</span>
-        <span>📞 VIP Concierge: +91 98765 43210</span>
+        <span>✉️ casaanticasurat@gmail.com</span>
         <span class="ticker-sep">✦</span>
       </div>
     </div>
@@ -121,7 +134,7 @@
       <!-- Logo Symbol -->
       <a href="index.html" class="brand-logo" style="justify-content: center; margin-bottom: 24px;" aria-label="CASA ANTICA Homepage">
         <div class="brand-logo-full">
-          <img src="logo.png" alt="CASA ANTICA — Leading India's Furniture Evolution" />
+          <img src="logo.png" alt="CASA ANTICA — Importer & Customized Modular Furniture Maker" />
         </div>
       </a>
 
@@ -155,8 +168,8 @@
       <!-- Quick Concierge Link -->
       <div style="padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 0.85rem; color: var(--text-muted);">
         Need immediate consultation? 
-        <a href="https://wa.me/919876543210" target="_blank" rel="noopener" style="color: #25d366; font-weight: 600; margin-left: 4px;">
-          💬 WhatsApp Concierge (+91 98765 43210) →
+        <a href="https://wa.me/918320012921?text=Hi%20CASA%20ANTICA!%20I%20would%20like%20to%20consult%20on%20customized%20modular%20furniture." target="_blank" rel="noopener" style="color: #25d366; font-weight: 600; margin-left: 4px;">
+          💬 WhatsApp Concierge (+91 832 001 2921) →
         </a>
       </div>
 

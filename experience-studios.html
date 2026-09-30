@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="default">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Experience Studios & Flagship Galleries — CASA ANTICA | Crafted by PipoZa Dev Studio</title>
-  <meta name="description" content="Visit CASA ANTICA physical experience studios in Bangalore, Mumbai, and Noida. Touch kiln-dried timber, test cushion densities, and collaborate with master craftsmen.">
+  <meta name="description" content="Visit CASA ANTICA physical experience studios and custom manufacturing center in Surat (HQ), Bangalore, Mumbai, and Noida. Importers & bespoke modular furniture makers.">
   
   <link rel="icon" type="image/png" href="logo-symbol.png">
 
@@ -14,12 +14,19 @@
   <link rel="stylesheet" href="animations.css">
   <link rel="stylesheet" href="responsive.css">
 
-      <!-- Immediate Theme & Clean URL Initializer (Eliminates Flash & Cleans URL Bar to /index, /products) -->
+  <!-- Immediate Theme & Clean URL Initializer (Eliminates Flash & Cleans URL Bar to /index, /products) -->
   <script>
-    (function() {
       try {
-        const savedTheme = localStorage.getItem('casa-theme') || localStorage.getItem('xyz-theme') || 'default';
+        let savedMode = localStorage.getItem('casa-mode') || 'coffee';
+        let savedTheme = localStorage.getItem('casa-theme') || 'dark';
+        if (savedTheme === 'classic') { savedMode = 'classic'; savedTheme = 'light'; }
+        else if (savedTheme === 'default') { savedTheme = 'dark'; }
+        if (!['coffee', 'classic'].includes(savedMode)) savedMode = 'coffee';
+        if (!['dark', 'light'].includes(savedTheme)) savedTheme = 'dark';
+        document.documentElement.setAttribute('data-mode', savedMode);
         document.documentElement.setAttribute('data-theme', savedTheme);
+        document.documentElement.setAttribute('data-palette', savedMode + '-' + savedTheme);
+      } catch (e) {}
 
         if (window.location.protocol.startsWith('http')) {
           const pathname = window.location.pathname;
@@ -83,35 +90,35 @@
   <aside class="announcement-bar" aria-label="Craftsmanship Guild Announcement">
     <div class="announcement-track">
       <div class="announcement-slide">
-        <span>✨ CASA ANTICA · ARTISAN CRAFTSMANSHIP GUILD</span>
+        <span>✨ CASA ANTICA · IMPORTER & CUSTOMIZED MODULAR FURNITURE MAKER</span>
         <span class="ticker-sep">✦</span>
-        <span>Leading India's Furniture Evolution</span>
+        <span>Beds · Kitchens · Dining Sets · Center Tables · Wardrobes · Corporate Furniture</span>
         <span class="ticker-sep">✦</span>
-        <span>Kiln-Dried Solid Walnut & Teak</span>
+        <span>Crafted As Per Customer's Design, Ideas & Living</span>
         <span class="ticker-sep">✦</span>
-        <span>Free White-Glove Installation Across India</span>
+        <span>Surat HQ & Pan-India Studios</span>
         <span class="ticker-sep">✦</span>
         <span class="pipoza-pill">Crafted by <a href="https://pipoza.s.gy/pipoza.in" target="_blank" rel="noopener">PipoZa Dev Studio</a></span>
         <span class="ticker-sep">✦</span>
-        <span>🏛️ Experience Studios in Bangalore, Mumbai & Noida</span>
+        <span>📞 WhatsApp: +91 832 001 2921</span>
         <span class="ticker-sep">✦</span>
-        <span>📞 VIP Concierge: +91 98765 43210</span>
+        <span>✉️ casaanticasurat@gmail.com</span>
         <span class="ticker-sep">✦</span>
       </div>
       <div class="announcement-slide" aria-hidden="true">
-        <span>✨ CASA ANTICA · ARTISAN CRAFTSMANSHIP GUILD</span>
+        <span>✨ CASA ANTICA · IMPORTER & CUSTOMIZED MODULAR FURNITURE MAKER</span>
         <span class="ticker-sep">✦</span>
-        <span>Leading India's Furniture Evolution</span>
+        <span>Beds · Kitchens · Dining Sets · Center Tables · Wardrobes · Corporate Furniture</span>
         <span class="ticker-sep">✦</span>
-        <span>Kiln-Dried Solid Walnut & Teak</span>
+        <span>Crafted As Per Customer's Design, Ideas & Living</span>
         <span class="ticker-sep">✦</span>
-        <span>Free White-Glove Installation Across India</span>
+        <span>Surat HQ & Pan-India Studios</span>
         <span class="ticker-sep">✦</span>
         <span class="pipoza-pill">Crafted by <a href="https://pipoza.s.gy/pipoza.in" target="_blank" rel="noopener">PipoZa Dev Studio</a></span>
         <span class="ticker-sep">✦</span>
-        <span>🏛️ Experience Studios in Bangalore, Mumbai & Noida</span>
+        <span>📞 WhatsApp: +91 832 001 2921</span>
         <span class="ticker-sep">✦</span>
-        <span>📞 VIP Concierge: +91 98765 43210</span>
+        <span>✉️ casaanticasurat@gmail.com</span>
         <span class="ticker-sep">✦</span>
       </div>
     </div>
@@ -123,7 +130,7 @@
       <a href="index.html" class="brand-logo" aria-label="CASA ANTICA Homepage">
         <!-- Desktop / Full View: 1st Logo (With name) -->
         <div class="brand-logo-full">
-          <img src="logo.png" alt="CASA ANTICA — Leading India's Furniture Evolution" />
+          <img src="logo.png" alt="CASA ANTICA — Importer & Customized Modular Furniture Maker" />
         </div>
         <!-- Compact / Mobile View: 2nd Simple Logo + Name -->
         <div class="brand-logo-compact">
@@ -147,13 +154,39 @@
 
       <!-- Action Buttons -->
       <div class="nav-actions">
-        <button class="action-icon-btn theme-toggle-btn" aria-label="Switch Theme (Default / Dark / Light)" title="Switch Theme">
+        <!-- Dual Mode & Theme Palette Controller -->
+        <div class="palette-controller" role="region" aria-label="Color Mode and Theme Selector">
+          <!-- Mode Pill: Coffee vs Classic -->
+          <div class="palette-segmented mode-segmented" role="radiogroup" aria-label="Design Mode">
+            <button type="button" class="palette-seg-btn active" data-mode-val="coffee" title="Coffee Mode (Warm Artisan Woods)">
+              <span class="seg-icon">☕</span>
+              <span class="seg-label">Coffee</span>
+            </button>
+            <button type="button" class="palette-seg-btn" data-mode-val="classic" title="Classic Mode (Signature White & #C42720)">
+              <span class="seg-icon">🏛️</span>
+              <span class="seg-label">Classic</span>
+            </button>
+          </div>
+          
+          <!-- Theme Pill: Dark vs Light -->
+          <div class="palette-segmented theme-segmented" role="radiogroup" aria-label="Visual Theme">
+            <button type="button" class="palette-seg-btn active" data-theme-val="dark" title="Dark Theme">
+              <span class="seg-icon">🌙</span>
+            </button>
+            <button type="button" class="palette-seg-btn" data-theme-val="light" title="Light Theme">
+              <span class="seg-icon">☀️</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Quick Fallback / Mobile Theme Cycle Button -->
+        <button class="action-icon-btn theme-toggle-btn" aria-label="Cycle atmospheric mode and theme" title="Cycle Atmosphere">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/>
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
           </svg>
         </button>
 
-        <a href="https://wa.me/919876543210?text=Hi%20CASA%20ANTICA!%20I%20would%20like%20to%20reserve%20a%20private%20studio%20visit." target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm">
+        <a href="https://wa.me/918320012921?text=Hi%20CASA%20ANTICA!%20I%20would%20like%20to%20reserve%20a%20private%20studio%20visit." target="_blank" rel="noopener" class="btn btn-whatsapp btn-sm">
           💬 WhatsApp
         </a>
 
@@ -175,17 +208,18 @@
       <!-- Studios Header -->
       <div class="section-header reveal-init" style="text-align: center; max-width: 820px; margin: 0 auto 48px auto;">
         <div class="section-eyebrow" style="margin-bottom: 14px;">
-          <span>PHYSICAL ATELIERS & GALLERIES</span>
+          <span>PHYSICAL ATELIERS, GALLERIES & MANUFACTURING HQ</span>
         </div>
         <h1 style="font-size: clamp(2.2rem, 4.2vw, 3.6rem); margin-bottom: 16px; line-height: 1.2;">
-          Immerse Yourself in <span class="gradient-text-brown">Pure Solid Woodcraft</span>
+          Immerse Yourself in <span class="gradient-text-brown">Custom Modular Craft</span>
         </h1>
         <p class="section-subtitle" style="font-size: clamp(0.92rem, 1.8vw, 1.12rem); line-height: 1.65; color: var(--text-sand); max-width: 700px; margin: 0 auto 28px auto;">
-          Experience the tactile weight of kiln-dried American walnut, scent hand-rubbed organic beeswax, test high-resilience bouclé seating, and design bespoke heirlooms alongside master guild artisans.
+          Experience our custom modular beds, luxury kitchens, dining sets, center tables, wardrobes, and corporate furniture. Touch premium timber, inspect seamless German hardware, and design bespoke pieces tailored to your blueprints.
         </p>
         
         <!-- Studio Fast Navigation Pills -->
         <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+          <a href="#studio-surat" class="btn btn-secondary btn-sm" style="border-color: var(--classic-red, #c42720); color: #fff;">🏛️ Surat Flagship HQ & Factory</a>
           <a href="#studio-bangalore" class="btn btn-secondary btn-sm">📍 Bangalore Flagship</a>
           <a href="#studio-mumbai" class="btn btn-secondary btn-sm">📍 Mumbai Design Suite</a>
           <a href="#studio-noida" class="btn btn-secondary btn-sm">📍 Noida Experience Center</a>
@@ -196,22 +230,99 @@
       <!-- Quick Stats Grid (2x2 on Mobile) -->
       <div class="stats-grid-mobile grid-4 reveal-init" style="margin-bottom: 56px;">
         <div class="glass-card" style="padding: 20px; text-align: center;">
-          <div class="stat-number" style="font-family: var(--font-heading); font-size: 2rem; color: var(--amber-light); font-weight: 700;">3</div>
-          <div class="stat-label" style="font-size: 0.82rem; color: var(--text-sand); margin-top: 4px;">Atelier Galleries in India</div>
+          <div class="stat-number" style="font-family: var(--font-heading); font-size: 2rem; color: var(--amber-light); font-weight: 700;">4</div>
+          <div class="stat-label" style="font-size: 0.82rem; color: var(--text-sand); margin-top: 4px;">Atelier Galleries & Factory HQ</div>
         </div>
         <div class="glass-card" style="padding: 20px; text-align: center;">
-          <div class="stat-number" style="font-family: var(--font-heading); font-size: 2rem; color: var(--amber-light); font-weight: 700;">15,000+</div>
-          <div class="stat-label" style="font-size: 0.82rem; color: var(--text-sand); margin-top: 4px;">Sq.Ft of Gallery Displays</div>
+          <div class="stat-number" style="font-family: var(--font-heading); font-size: 2rem; color: var(--amber-light); font-weight: 700;">28,000+</div>
+          <div class="stat-label" style="font-size: 0.82rem; color: var(--text-sand); margin-top: 4px;">Sq.Ft Displays & Fabrication</div>
         </div>
         <div class="glass-card" style="padding: 20px; text-align: center;">
-          <div class="stat-number" style="font-family: var(--font-heading); font-size: 2rem; color: var(--amber-light); font-weight: 700;">60+</div>
-          <div class="stat-label" style="font-size: 0.82rem; color: var(--text-sand); margin-top: 4px;">Curated Room Vignettes</div>
+          <div class="stat-number" style="font-family: var(--font-heading); font-size: 2rem; color: var(--amber-light); font-weight: 700;">6</div>
+          <div class="stat-label" style="font-size: 0.82rem; color: var(--text-sand); margin-top: 4px;">Custom Modular Pillars</div>
         </div>
         <div class="glass-card" style="padding: 20px; text-align: center;">
           <div class="stat-number" style="font-family: var(--font-heading); font-size: 2rem; color: var(--amber-light); font-weight: 700;">100%</div>
-          <div class="stat-label" style="font-size: 0.82rem; color: var(--text-sand); margin-top: 4px;">Direct Guild Artisans</div>
+          <div class="stat-label" style="font-size: 0.82rem; color: var(--text-sand); margin-top: 4px;">As Per Customer Blueprint & Living</div>
         </div>
       </div>
+
+      <!-- ======================================================================
+           STUDIO 0: SURAT FLAGSHIP ATELIER & MANUFACTURING HEADQUARTERS
+           ====================================================================== -->
+      <article class="glass-card reveal-init" id="studio-surat" style="padding: clamp(24px, 4vw, 44px); margin-bottom: 48px; border: 1px solid var(--classic-red, #c42720); box-shadow: 0 0 30px rgba(196, 39, 32, 0.15);">
+        <div style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: clamp(24px, 3.5vw, 44px); align-items: center;" class="grid-2">
+          
+          <!-- Visual Frame -->
+          <div>
+            <div style="position: relative; border-radius: var(--radius-md); overflow: hidden; aspect-ratio: 16 / 10; margin-bottom: 14px;">
+              <img 
+                src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80" 
+                alt="Surat Flagship Studio & Manufacturing Headquarters" 
+                style="width: 100%; height: 100%; object-fit: cover;"
+                loading="lazy"
+              />
+              <span class="badge-pill badge-red" style="position: absolute; top: 14px; left: 14px; background: rgba(196, 39, 32, 0.85); color: #fff; border: 1px solid #fff;">
+                Flagship Studio & Factory HQ · 18,000 Sq.Ft
+              </span>
+              <div style="position: absolute; bottom: 14px; right: 14px; background: rgba(0,0,0,0.65); padding: 4px 10px; border-radius: var(--radius-pill); font-size: 0.75rem; color: #fff; display: flex; align-items: center; gap: 6px; backdrop-filter: blur(8px);">
+                <span class="beacon-dot"></span> Open Today
+              </div>
+            </div>
+
+            <!-- Thumbnail Highlights -->
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+              <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=400&q=80" alt="Modular Living Gallery" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px;" />
+              <img src="https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=400&q=80" alt="Modular Luxury Kitchen" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px;" />
+              <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=400&q=80" alt="Modular Bedroom Suite" style="width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 8px;" />
+            </div>
+          </div>
+
+          <!-- Studio Information & Actions -->
+          <div style="display: flex; flex-direction: column;">
+            <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+              <span style="font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em; color: #ff5247; font-weight: 700;">National Headquarters & Factory</span>
+            </div>
+            
+            <h2 style="font-size: clamp(1.6rem, 2.5vw, 2.2rem); margin-bottom: 12px; color: var(--text-pure);">
+              Surat Flagship Studio & Factory HQ
+            </h2>
+            
+            <p style="font-size: 0.90rem; color: var(--text-sand); line-height: 1.65; margin-bottom: 18px;">
+              Our primary manufacturing headquarters and flagship studio. Experience our complete range of customized modular beds, luxury modular kitchens, dining sets, center tables, wardrobes, and corporate office furniture. Tour our precision fabrication line and consult directly with our architectural production team.
+            </p>
+
+            <div class="glass-card" style="padding: 16px; margin-bottom: 22px; background: rgba(0,0,0,0.25);">
+              <div style="font-size: 0.86rem; color: var(--text-cream); margin-bottom: 10px; display: flex; gap: 8px;">
+                <span style="color: #ff5247;">📍</span>
+                <span><strong>Address:</strong> VIP Road, Vesu, Surat, Gujarat 395007</span>
+              </div>
+              <div style="font-size: 0.86rem; color: var(--text-cream); margin-bottom: 10px; display: flex; gap: 8px;">
+                <span style="color: #ff5247;">⏰</span>
+                <span><strong>Hours:</strong> Monday – Sunday: 9:30 AM – 8:30 PM (Open 7 Days)</span>
+              </div>
+              <div style="font-size: 0.86rem; color: var(--text-cream); margin-bottom: 10px; display: flex; gap: 8px;">
+                <span style="color: #ff5247;">📞</span>
+                <span><strong>Direct Atelier Desk:</strong> <a href="tel:+918320012921" style="color: var(--amber-light); font-weight: 600;">+91 832 001 2921</a></span>
+              </div>
+              <div style="font-size: 0.82rem; color: var(--text-sand); display: flex; gap: 8px;">
+                <span>🚗</span>
+                <span>Private customer parking and architectural conference suite available.</span>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+              <a href="https://wa.me/918320012921?text=Hi%20CASA%20ANTICA!%20I%20would%20like%20to%20visit%20the%20Surat%20Headquarters%20and%20Factory." target="_blank" rel="noopener" class="btn btn-whatsapp" style="flex: 1 1 180px;">
+                💬 WhatsApp Surat HQ
+              </a>
+              <a href="#book-studio-tour" class="btn btn-primary" style="flex: 1 1 140px;">
+                🗓️ Reserve Slot
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </article>
 
       <!-- ======================================================================
            STUDIO 1: BANGALORE FLAGSHIP ATELIER
@@ -269,7 +380,7 @@
               </div>
               <div style="font-size: 0.86rem; color: var(--text-cream); margin-bottom: 10px; display: flex; gap: 8px;">
                 <span style="color: var(--amber-light);">📞</span>
-                <span><strong>Direct Atelier Desk:</strong> <a href="tel:+919876543210" style="color: var(--amber-light); font-weight: 600;">+91 98765 43210</a></span>
+                <span><strong>Direct Atelier Desk:</strong> <a href="tel:+918320012921" style="color: var(--amber-light); font-weight: 600;">+91 832 001 2921</a></span>
               </div>
               <div style="font-size: 0.82rem; color: var(--text-sand); display: flex; gap: 8px;">
                 <span>🚗</span>
@@ -278,7 +389,7 @@
             </div>
 
             <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-              <a href="https://wa.me/919876543210?text=Hi%20CASA%20ANTICA!%20I%20would%20like%20to%20visit%20the%20Bangalore%20Atelier%20in%20Indiranagar." target="_blank" rel="noopener" class="btn btn-whatsapp" style="flex: 1 1 180px;">
+              <a href="https://wa.me/918320012921?text=Hi%20CASA%20ANTICA!%20I%20would%20like%20to%20visit%20the%20Bangalore%20Atelier%20in%20Indiranagar." target="_blank" rel="noopener" class="btn btn-whatsapp" style="flex: 1 1 180px;">
                 💬 WhatsApp Bangalore
               </a>
               <a href="https://maps.google.com/?q=Indiranagar+100+Feet+Road+Bangalore" target="_blank" rel="noopener" class="btn btn-secondary" style="flex: 1 1 140px;">
@@ -324,7 +435,7 @@
               </div>
               <div style="font-size: 0.86rem; color: var(--text-cream); margin-bottom: 10px; display: flex; gap: 8px;">
                 <span style="color: var(--amber-light);">📞</span>
-                <span><strong>Direct Suite Desk:</strong> <a href="tel:+918000123456" style="color: var(--amber-light); font-weight: 600;">+91 80001 23456</a></span>
+                <span><strong>Direct Suite Desk:</strong> <a href="tel:+918320012921" style="color: var(--amber-light); font-weight: 600;">+91 832 001 2921</a></span>
               </div>
               <div style="font-size: 0.82rem; color: var(--text-sand); display: flex; gap: 8px;">
                 <span>🛋️</span>
@@ -333,7 +444,7 @@
             </div>
 
             <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-              <a href="https://wa.me/919876543210?text=Hi%20CASA%20ANTICA!%20I%20would%20like%20to%20visit%20the%20Mumbai%20Design%20Suite%20in%20Bandra." target="_blank" rel="noopener" class="btn btn-whatsapp" style="flex: 1 1 180px;">
+              <a href="https://wa.me/918320012921?text=Hi%20CASA%20ANTICA!%20I%20would%20like%20to%20visit%20the%20Mumbai%20Design%20Suite%20in%20Bandra." target="_blank" rel="noopener" class="btn btn-whatsapp" style="flex: 1 1 180px;">
                 💬 WhatsApp Mumbai
               </a>
               <a href="https://maps.google.com/?q=Linking+Road+Bandra+West+Mumbai" target="_blank" rel="noopener" class="btn btn-secondary" style="flex: 1 1 140px;">
@@ -430,7 +541,7 @@
               </div>
               <div style="font-size: 0.86rem; color: var(--text-cream); margin-bottom: 10px; display: flex; gap: 8px;">
                 <span style="color: var(--amber-light);">📞</span>
-                <span><strong>Direct Center Desk:</strong> <a href="tel:+919876543210" style="color: var(--amber-light); font-weight: 600;">+91 98765 43210</a></span>
+                <span><strong>Direct Center Desk:</strong> <a href="tel:+918320012921" style="color: var(--amber-light); font-weight: 600;">+91 832 001 2921</a></span>
               </div>
               <div style="font-size: 0.82rem; color: var(--text-sand); display: flex; gap: 8px;">
                 <span>🅿️</span>
@@ -439,7 +550,7 @@
             </div>
 
             <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-              <a href="https://wa.me/919876543210?text=Hi%20CASA%20ANTICA!%20I%20would%20like%20to%20visit%20the%20Noida%20Experience%20Center%20in%20Sector%2062." target="_blank" rel="noopener" class="btn btn-whatsapp" style="flex: 1 1 180px;">
+              <a href="https://wa.me/918320012921?text=Hi%20CASA%20ANTICA!%20I%20would%20like%20to%20visit%20the%20Noida%20Experience%20Center%20in%20Sector%2062." target="_blank" rel="noopener" class="btn btn-whatsapp" style="flex: 1 1 180px;">
                 💬 WhatsApp Noida
               </a>
               <a href="https://maps.google.com/?q=Sector+62+Noida+Uttar+Pradesh" target="_blank" rel="noopener" class="btn btn-secondary" style="flex: 1 1 140px;">
@@ -522,7 +633,7 @@
               </div>
               <div>
                 <label style="font-size: 0.82rem; font-weight: 600; color: var(--text-cream); display: block; margin-bottom: 6px;">WhatsApp / Mobile *</label>
-                <input type="tel" required placeholder="+91 98765 00000" style="width: 100%; padding: 11px 14px; border-radius: var(--radius-sm); background: rgba(0,0,0,0.35); border: 1px solid var(--glass-border); color: #fff; font-size: 0.90rem;" />
+                <input type="tel" required placeholder="+91 83200 12921" style="width: 100%; padding: 11px 14px; border-radius: var(--radius-sm); background: rgba(0,0,0,0.35); border: 1px solid var(--glass-border); color: #fff; font-size: 0.90rem;" />
               </div>
             </div>
 
@@ -530,6 +641,7 @@
               <div>
                 <label style="font-size: 0.82rem; font-weight: 600; color: var(--text-cream); display: block; margin-bottom: 6px;">Select Experience Studio *</label>
                 <select id="tour-studio-select" style="width: 100%; padding: 11px 14px; border-radius: var(--radius-sm); background: rgba(0,0,0,0.35); border: 1px solid var(--glass-border); color: #fff; font-size: 0.90rem; cursor: pointer;">
+                  <option value="Surat Flagship Studio & Factory (HQ)" selected style="background: #18110b;">Surat Flagship HQ & Factory · VIP Rd, Vesu</option>
                   <option value="Bangalore Atelier (Indiranagar)" style="background: #18110b;">Bangalore Flagship Atelier · Indiranagar</option>
                   <option value="Mumbai Design Suite (Bandra West)" style="background: #18110b;">Mumbai Luxury Suite · Bandra West</option>
                   <option value="Noida Experience Center (Sector 62)" style="background: #18110b;">Noida Grand Center · Sector 62</option>
@@ -552,20 +664,21 @@
                 </select>
               </div>
               <div>
-                <label style="font-size: 0.82rem; font-weight: 600; color: var(--text-cream); display: block; margin-bottom: 6px;">Collections of Primary Interest</label>
+                <label style="font-size: 0.82rem; font-weight: 600; color: var(--text-cream); display: block; margin-bottom: 6px;">Category of Primary Interest</label>
                 <select style="width: 100%; padding: 11px 14px; border-radius: var(--radius-sm); background: rgba(0,0,0,0.35); border: 1px solid var(--glass-border); color: #fff; font-size: 0.90rem; cursor: pointer;">
-                  <option value="Full Residence Furnishing" style="background: #18110b;">Full Residence Furnishing</option>
-                  <option value="Living Room Lounges & Sectionals" style="background: #18110b;">Living Room Lounges & Sectionals</option>
-                  <option value="Dining Tables & Chairs" style="background: #18110b;">Dining Tables & Chairs</option>
-                  <option value="Sanctuary Bedroom Suites" style="background: #18110b;">Sanctuary Bedroom Suites</option>
-                  <option value="Architectural Custom Commission" style="background: #18110b;">Architectural Custom Commission</option>
+                  <option value="Custom Modular Beds" style="background: #18110b;">Custom Modular Beds</option>
+                  <option value="Modular Luxury Kitchens" style="background: #18110b;">Modular Luxury Kitchens</option>
+                  <option value="Dining Sets & Center Tables" style="background: #18110b;">Dining Sets & Center Tables</option>
+                  <option value="Modular Wardrobes" style="background: #18110b;">Custom Modular Wardrobes</option>
+                  <option value="Corporate & Office Furniture" style="background: #18110b;">Corporate & Office Furniture</option>
+                  <option value="Full Residence Blueprints" style="background: #18110b;">Full Residence Bespoke Furnishing</option>
                 </select>
               </div>
             </div>
 
             <div style="margin-bottom: 24px;">
-              <label style="font-size: 0.82rem; font-weight: 600; color: var(--text-cream); display: block; margin-bottom: 6px;">Notes / Specific Dimensions (Optional)</label>
-              <textarea rows="3" placeholder="e.g. Looking for a 10-seater live-edge dining table in American Walnut and a curved bouclé sectional..." style="width: 100%; padding: 11px 14px; border-radius: var(--radius-sm); background: rgba(0,0,0,0.35); border: 1px solid var(--glass-border); color: #fff; font-size: 0.90rem;"></textarea>
+              <label style="font-size: 0.82rem; font-weight: 600; color: var(--text-cream); display: block; margin-bottom: 6px;">Notes / Custom Blueprint Dimensions (Optional)</label>
+              <textarea rows="3" placeholder="e.g. Inquiring about custom modular wardrobes and modular kitchen as per architectural blueprints..." style="width: 100%; padding: 11px 14px; border-radius: var(--radius-sm); background: rgba(0,0,0,0.35); border: 1px solid var(--glass-border); color: #fff; font-size: 0.90rem;"></textarea>
             </div>
 
             <button type="submit" class="btn btn-primary btn-lg" style="width: 100%; padding: 14px;">
@@ -602,7 +715,7 @@
           <div class="glass-card" style="padding: 20px;">
             <h4 style="font-size: 1.05rem; margin-bottom: 8px; color: var(--amber-light);">Is valet parking available?</h4>
             <p style="font-size: 0.86rem; color: var(--text-sand); line-height: 1.6;">
-              Yes. All three of our studios (Bangalore Indiranagar, Mumbai Bandra West, and Noida Sector 62) offer complimentary valet parking or dedicated reserved customer parking bays.
+              Yes. All our studios (Surat VIP Road, Bangalore Indiranagar, Mumbai Bandra West, and Noida Sector 62) offer complimentary valet parking or dedicated reserved customer parking bays.
             </p>
           </div>
 
@@ -629,23 +742,23 @@
         <div class="footer-brand">
           <a href="index.html" class="footer-brand-link" aria-label="CASA ANTICA Homepage">
             <div class="footer-logo-card">
-              <img src="logo.png" alt="CASA ANTICA — Leading India's Furniture Evolution" class="footer-logo-img" />
+              <img src="logo.png" alt="CASA ANTICA — Importer & Customized Modular Furniture Maker" class="footer-logo-img" />
             </div>
           </a>
           <p>
-            Leading India's Furniture Evolution. Curators and creators of bespoke architectural furniture, masterfully sculpted from certified sustainable Indian teak, American walnut, and white ash for enduring heirlooms.
+            Importer and customized modular beds, luxury kitchens, dining sets, center tables, wardrobes, and corporate furniture maker — crafted as per customers' design, ideas & living.
           </p>
           <div class="footer-social-links">
             <a href="https://instagram.com" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Instagram">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
             </a>
-            <a href="https://wa.me/919876543210" target="_blank" rel="noopener" class="footer-social-btn" aria-label="WhatsApp">
+            <a href="https://wa.me/918320012921" target="_blank" rel="noopener" class="footer-social-btn" aria-label="WhatsApp">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
             </a>
             <a href="https://pinterest.com" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Pinterest">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="4" x2="12" y2="20"></line><circle cx="12" cy="12" r="8"></circle></svg>
             </a>
-            <a href="mailto:concierge@casaantica.in" class="footer-social-btn" aria-label="Email Concierge">
+            <a href="mailto:casaanticasurat@gmail.com" class="footer-social-btn" aria-label="Email Concierge">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
             </a>
           </div>
@@ -655,23 +768,24 @@
         <div>
           <h4 class="footer-col-title">Flagship Studios</h4>
           <ul class="footer-links-list">
-            <li><a href="experience-studios.html#bangalore" class="footer-link">Bangalore Flagship Atelier</a></li>
+            <li><a href="experience-studios.html#surat" class="footer-link">Surat Studio & Factory (HQ)</a></li>
             <li><a href="experience-studios.html#mumbai" class="footer-link">Mumbai Design Gallery</a></li>
+            <li><a href="experience-studios.html#bangalore" class="footer-link">Bangalore Flagship Atelier</a></li>
             <li><a href="experience-studios.html#noida" class="footer-link">Delhi NCR Craft Studio</a></li>
-            <li><a href="experience-studios.html#reserve-tour" class="footer-link">Reserve VIP Studio Tour</a></li>
-            <li><a href="experience-studios.html#reserve-tour" class="footer-link">Curated Timber Library</a></li>
+            <li><a href="experience-studios.html#reserve-tour" class="footer-link">Reserve VIP Consultation</a></li>
           </ul>
         </div>
 
         <!-- Col 3: Craftsmanship & Atelier -->
         <div>
-          <h4 class="footer-col-title">The Atelier</h4>
+          <h4 class="footer-col-title">Custom Living</h4>
           <ul class="footer-links-list">
-            <li><a href="experience-studios.html" class="footer-link">Flagship Studios</a></li>
-            <li><a href="about.html" class="footer-link">Artisan Heritage</a></li>
-            <li><a href="about.html" class="footer-link">Kiln-Drying Standards</a></li>
-            <li><a href="reviews.html" class="footer-link">Patron Testimonials</a></li>
-            <li><a href="contact.html" class="footer-link">White-Glove Delivery</a></li>
+            <li><a href="index.html#pillars" class="footer-link">Custom Modular Beds</a></li>
+            <li><a href="index.html#pillars" class="footer-link">Modular Kitchens & Dining</a></li>
+            <li><a href="index.html#pillars" class="footer-link">Center Tables & Wardrobes</a></li>
+            <li><a href="index.html#pillars" class="footer-link">Corporate & Office Projects</a></li>
+            <li><a href="about.html" class="footer-link">Importer Heritage & Craft</a></li>
+            <li><a href="reviews.html" class="footer-link">Client Living Stories</a></li>
           </ul>
         </div>
 
@@ -680,19 +794,19 @@
           <h4 class="footer-col-title">Concierge</h4>
           <div style="display: flex; flex-direction: column; gap: 10px; font-size: 0.88rem; color: var(--text-sand);">
             <div>
-              <span style="color: var(--text-muted); font-size: 0.80rem; display: block; margin-bottom: 2px;">Direct Line:</span>
-              <a href="tel:+919876543210" style="color: var(--amber-light); font-weight: 600;">+91 98765 43210</a>
+              <span style="color: var(--text-muted); font-size: 0.80rem; display: block; margin-bottom: 2px;">Direct Line / Call:</span>
+              <a href="tel:+918320012921" style="color: var(--amber-light); font-weight: 600;">+91 832 001 2921</a>
             </div>
             <div>
               <span style="color: var(--text-muted); font-size: 0.80rem; display: block; margin-bottom: 2px;">Instant WhatsApp:</span>
-              <a href="https://wa.me/919876543210" target="_blank" rel="noopener" style="color: #34d399; font-weight: 600;">+91 98765 43210 (24/7)</a>
+              <a href="https://wa.me/918320012921" target="_blank" rel="noopener" style="color: #34d399; font-weight: 600;">+91 832 001 2921 (24/7)</a>
             </div>
             <div>
               <span style="color: var(--text-muted); font-size: 0.80rem; display: block; margin-bottom: 2px;">Email Inquiries:</span>
-              <a href="mailto:concierge@casaantica.in" style="color: var(--amber-light);">concierge@casaantica.in</a>
+              <a href="mailto:casaanticasurat@gmail.com" style="color: var(--amber-light);">casaanticasurat@gmail.com</a>
             </div>
             <div style="font-size: 0.80rem; color: var(--text-muted); margin-top: 4px;">
-              Pan-India White-Glove Installation
+              📍 VIP Road, Vesu, Surat, Gujarat — Pan-India Delivery
             </div>
           </div>
         </div>
@@ -701,14 +815,14 @@
       <!-- Footer Bottom Bar -->
       <div class="footer-bottom">
         <div>
-          © 2026 CASA ANTICA Private Limited. All rights reserved. Handcrafted with pride in India.
+          © 2026 CASA ANTICA. All rights reserved. Importers & Bespoke Modular Furniture Makers.
         </div>
         <div class="footer-trust-tags">
-          <span>🌿 Sustainable Teak</span>
+          <span>🌿 Customized to Blueprint</span>
           <span>·</span>
-          <span>🛡️ 10-Year Frame Warranty</span>
+          <span>🛡️ 10-Year Structural Warranty</span>
           <span>·</span>
-          <span>🚚 Free White-Glove Installation</span>
+          <span>🚚 Pan-India White-Glove Installation</span>
         </div>
         <div class="pipoza-footer-credit">
           <span>Website Designed & Built by</span>
@@ -741,14 +855,35 @@
       </div>
 
       <div style="margin-top: auto; display: flex; flex-direction: column; gap: 12px;">
-        <a href="https://wa.me/919876543210" class="btn btn-whatsapp" style="width: 100%;">
-          💬 WhatsApp Concierge
+        <a href="https://wa.me/918320012921?text=Hi%20CASA%20ANTICA!%20I%20would%20like%20to%20inquire%20about%20customized%20modular%20furniture." class="btn btn-whatsapp" style="width: 100%;">
+          💬 WhatsApp: +91 832 001 2921
         </a>
-        <div style="display: flex; justify-content: space-between; align-items: center; padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.1);">
-          <span style="font-size: 0.82rem; color: var(--text-muted);">Switch Theme</span>
-          <button class="action-icon-btn theme-toggle-btn" aria-label="Toggle theme">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/></svg>
-          </button>
+        <!-- Atmospheric Mode & Theme Switcher (3x Richer Drawer Experience) -->
+        <div class="drawer-palette-box">
+          <div class="drawer-palette-header">
+            <span class="drawer-palette-title">Atmosphere Mode</span>
+            <span class="drawer-palette-badge" id="drawerActivePaletteBadge">☕ Coffee · 🌙 Obsidian Dark</span>
+          </div>
+
+          <!-- Mode Row: Coffee vs Classic -->
+          <div class="drawer-segmented-row" role="radiogroup" aria-label="Atmospheric Mode">
+            <button type="button" class="drawer-mode-btn active" data-mode-val="coffee" title="Coffee Mode (Warm Artisan Woods)">
+              <span>☕ Coffee</span>
+            </button>
+            <button type="button" class="drawer-mode-btn" data-mode-val="classic" title="Classic Mode (Signature White & #C42720)">
+              <span>🏛️ Classic</span>
+            </button>
+          </div>
+
+          <!-- Theme Row: Dark vs Light -->
+          <div class="drawer-theme-row" role="radiogroup" aria-label="Visual Theme">
+            <button type="button" class="drawer-theme-btn active" data-theme-val="dark" title="Dark Theme">
+              <span>🌙 Dark</span>
+            </button>
+            <button type="button" class="drawer-theme-btn" data-theme-val="light" title="Light Theme">
+              <span>☀️ Light</span>
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -758,11 +893,11 @@
        MOBILE FLOATING ACTION DOCK (THUMB BAR)
        ========================================================================== -->
   <aside class="mobile-action-dock" aria-label="Mobile Quick Actions">
-    <a href="https://wa.me/919876543210" class="dock-item dock-item-whatsapp" aria-label="WhatsApp">
+    <a href="https://wa.me/918320012921?text=Hi%20CASA%20ANTICA!%20I%20would%20like%20to%20discuss%20a%20custom%20order." class="dock-item dock-item-whatsapp" aria-label="WhatsApp">
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.662 1.438 5.178L2 22l4.981-1.398A9.957 9.957 0 0 0 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
       <span>WhatsApp</span>
     </a>
-    <a href="tel:+919876543210" class="dock-item" aria-label="Call Us">
+    <a href="tel:+918320012921" class="dock-item" aria-label="Call Us">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
       <span>Call Desk</span>
     </a>
