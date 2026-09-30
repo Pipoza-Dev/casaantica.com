@@ -14,10 +14,53 @@
   <link rel="stylesheet" href="animations.css">
   <link rel="stylesheet" href="responsive.css">
 
+      <!-- Immediate Theme & Clean URL Initializer (Eliminates Flash & Cleans URL Bar to /index, /products) -->
   <script>
     (function() {
-      const savedTheme = localStorage.getItem('xyz-theme') || 'default';
-      document.documentElement.setAttribute('data-theme', savedTheme);
+      try {
+        const savedTheme = localStorage.getItem('xyz-theme') || 'default';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+
+        if (window.location.protocol.startsWith('http')) {
+          const pathname = window.location.pathname;
+
+          let baseDir = '/';
+          if (window.location.hostname.endsWith('github.io')) {
+            const parts = pathname.split('/').filter(Boolean);
+            const userDomainPrefix = window.location.hostname.split('.')[0];
+            if (parts.length > 0 && parts[0] !== userDomainPrefix) {
+              baseDir = '/' + parts[0] + '/';
+            }
+          } else {
+            const knownPages = ['index', 'home', 'products', 'product-detail', 'experience-studios', 'about', 'reviews', 'contact'];
+            const cleanPath = pathname.replace(/\/+$/, '');
+            const lastSlash = cleanPath.lastIndexOf('/');
+            const lastSegment = (lastSlash !== -1) ? cleanPath.substring(lastSlash + 1) : cleanPath;
+            const cleanSegment = lastSegment.replace(/\.html$/, '');
+
+            if (knownPages.includes(cleanSegment)) {
+              baseDir = (lastSlash !== -1) ? cleanPath.substring(0, lastSlash + 1) : '/';
+            } else {
+              baseDir = cleanPath ? (cleanPath + '/') : '/';
+            }
+          }
+
+          const cleanPath = pathname.replace(/\/+$/, '');
+          const lastSlash = cleanPath.lastIndexOf('/');
+          const lastSegment = (lastSlash !== -1) ? cleanPath.substring(lastSlash + 1) : cleanPath;
+          const cleanSegment = lastSegment.replace(/\.html$/, '');
+
+          let pageSlug = 'index';
+          if (['products', 'product-detail', 'experience-studios', 'about', 'reviews', 'contact'].includes(cleanSegment)) {
+            pageSlug = cleanSegment;
+          }
+
+          const targetUrl = baseDir + pageSlug;
+          if (pathname !== targetUrl) {
+            window.history.replaceState(null, '', targetUrl + window.location.search + window.location.hash);
+          }
+        }
+      } catch (e) {}
     })();
   </script>
 </head>

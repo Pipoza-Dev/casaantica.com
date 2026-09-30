@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" data-theme="default">
 <head>
   <meta charset="UTF-8">
@@ -13,19 +13,41 @@
   <link rel="stylesheet" href="animations.css">
   <link rel="stylesheet" href="responsive.css">
 
-  <!-- Intelligent Client-side Clean URL Router -->
+  <!-- Intelligent Client-side Clean URL Router for GitHub Pages & Static Hosts -->
   <script>
     (function() {
       const savedTheme = localStorage.getItem('xyz-theme') || 'default';
       document.documentElement.setAttribute('data-theme', savedTheme);
 
-      // Handle clean URL fallback
-      const path = window.location.pathname.replace(/\/$/, "");
-      const slug = path.split("/").pop();
-      if (slug === 'index' || slug === 'home' || slug === '') {
-        window.location.replace("index.html" + window.location.search + window.location.hash);
-      } else if (slug && ["products", "product-detail", "about", "reviews", "contact", "experience-studios"].includes(slug)) {
-        window.location.replace(slug + ".html" + window.location.search + window.location.hash);
+      const knownPages = ['index', 'home', 'products', 'product-detail', 'experience-studios', 'about', 'reviews', 'contact'];
+      const pathname = window.location.pathname;
+      const cleanPath = pathname.replace(/\/+$/, '');
+      const lastSlash = cleanPath.lastIndexOf('/');
+      const slug = (lastSlash !== -1) ? cleanPath.substring(lastSlash + 1) : cleanPath;
+      const cleanSlug = slug.replace(/\.html$/, '');
+
+      if (knownPages.includes(cleanSlug)) {
+        let baseDir = (lastSlash !== -1) ? cleanPath.substring(0, lastSlash + 1) : '/';
+        if (window.location.hostname.endsWith('github.io')) {
+          const parts = pathname.split('/').filter(Boolean);
+          const userDomainPrefix = window.location.hostname.split('.')[0];
+          if (parts.length > 0 && parts[0] !== userDomainPrefix) {
+            baseDir = '/' + parts[0] + '/';
+          }
+        }
+        const targetFile = (cleanSlug === 'home' || cleanSlug === 'index' || cleanSlug === '') ? 'index.html' : cleanSlug + '.html';
+        window.location.replace(baseDir + targetFile + window.location.search + window.location.hash);
+      } else {
+        try {
+          const segments = cleanPath.split('/').filter(Boolean);
+          let repoBase = '/';
+          if (window.location.hostname.endsWith('github.io') && segments.length > 0) {
+            repoBase = '/' + segments[0] + '/';
+          }
+          const baseElem = document.createElement('base');
+          baseElem.href = window.location.origin + repoBase;
+          document.head.appendChild(baseElem);
+        } catch(e) {}
       }
     })();
   </script>

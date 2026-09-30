@@ -5,7 +5,20 @@
   <title>XYZ Furnitures — Redirecting to /index</title>
   <meta http-equiv="refresh" content="0; url=index.html">
   <script>
-    window.location.replace("index.html" + window.location.search + window.location.hash);
+    (function() {
+      const pathname = window.location.pathname;
+      const cleanPath = pathname.replace(/\/+$/, '');
+      const lastSlash = cleanPath.lastIndexOf('/');
+      let baseDir = (lastSlash !== -1) ? cleanPath.substring(0, lastSlash + 1) : '/';
+      if (window.location.hostname.endsWith('github.io')) {
+        const parts = pathname.split('/').filter(Boolean);
+        const userDomainPrefix = window.location.hostname.split('.')[0];
+        if (parts.length > 0 && parts[0] !== userDomainPrefix) {
+          baseDir = '/' + parts[0] + '/';
+        }
+      }
+      window.location.replace(baseDir + "index.html" + window.location.search + window.location.hash);
+    })();
   </script>
 </head>
 <body style="background:#18110b; color:#fff; font-family:sans-serif; text-align:center; padding-top:20vh;">

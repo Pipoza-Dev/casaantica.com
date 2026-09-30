@@ -5,26 +5,75 @@
  * Web Audio Tactile Clicks, Quick View Modal, and Image Lightbox
  */
 
+/**
+ * 0. Dynamically resolves the base directory of the project across:
+ * - GitHub Pages project subpaths (e.g. /furniture.demo/)
+ * - Custom domain roots (e.g. /)
+ * - Local dev servers (e.g. / or /Furniture/)
+ */
+function getProjectBasePath() {
+  if (window.location.protocol === 'file:') {
+    const p = window.location.pathname;
+    return p.substring(0, p.lastIndexOf('/') + 1);
+  }
+  
+  const pathname = window.location.pathname;
+
+  // Explicit GitHub Pages repository detection (e.g. /furniture.demo/)
+  if (window.location.hostname.endsWith('github.io')) {
+    const parts = pathname.split('/').filter(Boolean);
+    const userDomainPrefix = window.location.hostname.split('.')[0];
+    if (parts.length > 0 && parts[0] !== userDomainPrefix) {
+      return '/' + parts[0] + '/';
+    }
+  }
+  
+  const knownPages = ['index', 'home', 'products', 'product-detail', 'experience-studios', 'about', 'reviews', 'contact', '404'];
+  
+  // Strip trailing slashes for segment inspection
+  const cleanPath = pathname.replace(/\/+$/, '');
+  if (!cleanPath) return '/';
+  
+  const lastSlash = cleanPath.lastIndexOf('/');
+  if (lastSlash === -1) {
+    return '/';
+  }
+  
+  const lastSegment = cleanPath.substring(lastSlash + 1);
+  const cleanSegment = lastSegment.replace(/\.html$/, '');
+  
+  if (knownPages.includes(cleanSegment)) {
+    return cleanPath.substring(0, lastSlash + 1);
+  }
+  
+  // If lastSegment is not a known page (e.g. 'furniture.demo'), this whole trimmed path is the repo folder!
+  return cleanPath + '/';
+}
+
 // Immediate URL Bar Cleaner: Ensures URL in address bar shows extensionless /index, /products, etc.
 (function applyCleanUrlBar() {
   try {
     if (window.location.protocol.startsWith('http')) {
+      const basePath = getProjectBasePath();
       const pathname = window.location.pathname;
-      let clean = pathname;
-      if (clean.endsWith('.html')) {
-        clean = clean.replace(/\.html$/, '');
+      const cleanPath = pathname.replace(/\/+$/, '');
+      const lastSlash = cleanPath.lastIndexOf('/');
+      const lastSegment = (lastSlash !== -1) ? cleanPath.substring(lastSlash + 1) : cleanPath;
+      const cleanSegment = lastSegment.replace(/\.html$/, '');
+      
+      const knownPages = ['products', 'product-detail', 'experience-studios', 'about', 'reviews', 'contact', '404'];
+      
+      let pageSlug = 'index';
+      if (knownPages.includes(cleanSegment)) {
+        pageSlug = cleanSegment;
+      } else {
+        pageSlug = 'index';
       }
-      // Remove trailing slashes (except if root '/')
-      while (clean.length > 1 && clean.endsWith('/')) {
-        clean = clean.slice(0, -1);
-      }
-      if (clean === '' || clean === '/') {
-        clean = '/index';
-      } else if (clean.endsWith('/home')) {
-        clean = clean.replace(/\/home$/, '/index');
-      }
-      if (clean !== pathname) {
-        window.history.replaceState(null, '', clean + window.location.search + window.location.hash);
+      
+      const cleanUrl = basePath + pageSlug;
+      
+      if (pathname !== cleanUrl) {
+        window.history.replaceState(null, '', cleanUrl + window.location.search + window.location.hash);
       }
     }
   } catch (e) {}
@@ -330,10 +379,12 @@ function closeQuickViewModal() {
  * Ensures /index and extensionless links work seamlessly in all environments (file://, localhost, live servers)
  */
 function initCleanUrls() {
+  const basePath = getProjectBasePath();
+
   // If user lands on /home, redirect URL to /index
-  if (window.location.pathname.endsWith('/home') || window.location.pathname === '/home') {
+  if (window.location.pathname.endsWith('/home') || window.location.pathname.endsWith('/home/')) {
     try {
-      window.history.replaceState(null, '', window.location.pathname.replace(/\/home$/, '/index') + window.location.search + window.location.hash);
+      window.history.replaceState(null, '', basePath + 'index' + window.location.search + window.location.hash);
     } catch(e) {}
   }
 
@@ -378,7 +429,7 @@ function initCleanUrls() {
       targetPath = targetPath.substring(0, queryIndex);
     }
 
-    // Determine target HTML file on disk
+    // Normalize target file
     let fileTarget = targetPath;
     if (fileTarget === '/index' || fileTarget === 'index' || fileTarget === '/home' || fileTarget === 'home' || fileTarget === '/' || fileTarget === '') {
       fileTarget = 'index.html';
@@ -390,9 +441,11 @@ function initCleanUrls() {
     }
 
     // Check if we are already on this page
-    const currentPath = window.location.pathname;
-    const currentFile = currentPath.split('/').pop() || 'index.html';
-    const normCurrent = (currentFile === '' || currentFile === 'index' || currentFile === 'home') ? 'index.html' : (currentFile.endsWith('.html') ? currentFile : currentFile + '.html');
+    const cleanPath = window.location.pathname.replace(/\/+$/, '');
+    const lastSlash = cleanPath.lastIndexOf('/');
+    const lastSegment = (lastSlash !== -1) ? cleanPath.substring(lastSlash + 1) : cleanPath;
+    const currentSlug = lastSegment.replace(/\.html$/, '');
+    const normCurrent = (currentSlug === '' || currentSlug === 'index' || currentSlug === 'home') ? 'index.html' : currentSlug + '.html';
 
     if (normCurrent === fileTarget) {
       if (hash) {
@@ -425,9 +478,8 @@ function initCleanUrls() {
       return;
     }
 
-    // In HTTP/HTTPS: resolve relative to current project directory
-    const targetUrl = new URL(fileTarget + search + hash, window.location.href);
-    window.location.href = targetUrl.href;
+    // In HTTP/HTTPS: ALWAYS prefix with the exact basePath (e.g. /furniture.demo/products.html)
+    window.location.href = basePath + fileTarget + search + hash;
   });
 }
 
