@@ -2,8 +2,11 @@
   RewriteEngine On
   RewriteBase /
 
-  # Rewrite /home to index.html
-  RewriteRule ^home/?$ index.html [L]
+  # Rewrite /index to index.html
+  RewriteRule ^index/?$ index.html [L]
+
+  # Redirect /home to /index
+  RewriteRule ^home/?$ index.html [R=301,L]
 
   # Redirect .html extension to clean URL
   RewriteCond %{THE_REQUEST} ^[A-Z]{3,}\s([^.]+)\.html [NC]

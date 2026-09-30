@@ -1,5 +1,6 @@
-/home              /index.html             200
-/                  /index.html             200
+/index            /index.html             200
+/                 /index.html             200
+/home             /index                  301
 /products          /products.html          200
 /product-detail    /product-detail.html    200
 /about             /about.html             200

@@ -1,9 +1,31 @@
 /**
  * XYZ FURNITURES — CORE ENGINE
  * Crafted & Engineered by PipoZa Dev Studio (https://pipoza.s.gy/pipoza.in)
- * 3-Theme Switcher (Default, Dark, Light), Clean URLs (/home),
+ * 3-Theme Switcher (Default, Dark, Light), Clean URLs (/index),
  * Web Audio Tactile Clicks, Quick View Modal, and Image Lightbox
  */
+
+// Immediate URL Bar Cleaner: Ensures URL in address bar shows extensionless /index, /products, etc.
+(function applyCleanUrlBar() {
+  try {
+    if (window.location.protocol.startsWith('http')) {
+      const pathname = window.location.pathname;
+      let clean = pathname;
+      if (clean.endsWith('.html')) {
+        clean = clean.replace(/\.html$/, '');
+      }
+      if (clean === '' || clean.endsWith('/')) {
+        clean = clean + 'index';
+      }
+      if (clean.endsWith('/home')) {
+        clean = clean.replace(/\/home$/, '/index');
+      }
+      if (clean !== pathname) {
+        window.history.replaceState(null, '', clean + window.location.search + window.location.hash);
+      }
+    }
+  } catch (e) {}
+})();
 
 document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
@@ -301,53 +323,61 @@ function closeQuickViewModal() {
 }
 
 /**
- * 7. Clean URLs Router & Fallback Handling
- * Ensures /home, /experience-studios and extensionless links work in all environments
+ * 7. Clean URLs Router & Navigation Engine
+ * Ensures /index and extensionless links work seamlessly in all environments (file://, localhost, live servers)
  */
 function initCleanUrls() {
-  const isFileProtocol = location.protocol === 'file:';
+  // If user is on a server and lands on /home, redirect URL to /index
+  if (window.location.pathname.endsWith('/home') || window.location.pathname === '/home') {
+    try {
+      window.history.replaceState(null, '', window.location.pathname.replace(/\/home$/, '/index') + window.location.search + window.location.hash);
+    } catch(e) {}
+  }
 
-  document.querySelectorAll('a[href]').forEach(link => {
-    let href = link.getAttribute('href');
+  // Intercept all internal navigation link clicks for 100% reliable routing
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href]');
+    if (!link) return;
+    const href = link.getAttribute('href');
     if (!href || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel') || href.startsWith('#')) return;
 
-    // Separate clean path from query and hash
+    // Handle hash anchors on the same page
     const hashIndex = href.indexOf('#');
     let hash = '';
-    let cleanHref = href;
+    let targetPath = href;
     if (hashIndex !== -1) {
       hash = href.substring(hashIndex);
-      cleanHref = href.substring(0, hashIndex);
+      targetPath = href.substring(0, hashIndex);
     }
-
-    const queryIndex = cleanHref.indexOf('?');
-    let query = '';
+    const queryIndex = targetPath.indexOf('?');
+    let search = '';
     if (queryIndex !== -1) {
-      query = cleanHref.substring(queryIndex);
-      cleanHref = cleanHref.substring(0, queryIndex);
+      search = targetPath.substring(queryIndex);
+      targetPath = targetPath.substring(0, queryIndex);
     }
 
-    if (isFileProtocol) {
-      // Map clean paths to corresponding .html files when viewed locally via file://
-      let target = cleanHref;
-      if (target === '/home' || target === 'home' || target === '/') {
-        target = 'home.html';
-      } else if (target === '/experience-studios' || target === 'experience-studios') {
-        target = 'experience-studios.html';
-      } else if (target.startsWith('/')) {
-        target = target.substring(1) + '.html';
-      } else if (!target.endsWith('.html')) {
-        target = target + '.html';
-      }
-      link.setAttribute('href', target + query + hash);
-    } else {
-      // On live web servers, remove .html if present
-      if (cleanHref.endsWith('.html')) {
-        const clean = cleanHref.replace(/\.html$/, '');
-        const target = clean === 'index' ? '/home' : (clean.startsWith('/') ? clean : '/' + clean);
-        link.setAttribute('href', target + query + hash);
-      }
+    // Determine target HTML file on disk
+    let fileTarget = targetPath;
+    if (fileTarget === '/index' || fileTarget === 'index' || fileTarget === '/home' || fileTarget === 'home' || fileTarget === '/' || fileTarget === '') {
+      fileTarget = 'index.html';
+    } else if (fileTarget.startsWith('/')) {
+      fileTarget = fileTarget.substring(1);
+      if (!fileTarget.endsWith('.html')) fileTarget += '.html';
+    } else if (!fileTarget.endsWith('.html')) {
+      fileTarget += '.html';
     }
+
+    // Check if we are already on this page and just navigating to an anchor
+    const currentFile = window.location.pathname.split('/').pop() || 'index.html';
+    const normCurrent = (currentFile === '' || currentFile === 'index') ? 'index.html' : (currentFile.endsWith('.html') ? currentFile : currentFile + '.html');
+    if (normCurrent === fileTarget && hash) {
+      return; // allow native smooth scroll to anchor
+    }
+
+    // Direct clean navigation
+    e.preventDefault();
+    playWoodClick();
+    window.location.href = fileTarget + search + hash;
   });
 }
 
